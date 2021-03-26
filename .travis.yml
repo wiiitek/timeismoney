@@ -2,12 +2,12 @@ language: node_js
 node_js:
 - 12
 
-addons:
-  sonarcloud:
-    organization: wiiitek-github
-    token:
-      secure: ofDBgEtwmJg5QH+xfhC8YTy/d/KUsLOQNoRrfnEThdSktMxWYrMqa9QjWiHzT+lODiipbTfPjoGdHy6tgi+aegFdRRaVmnqPbkKFoTE9/5ibCmQfiRrY/7FIoIKn7HFqjomYF/89ITrsgguCtgtMG6Dbsug9kvpOQiw+VLxYJgu0+zHSu69mf9r5fECRJDibCEHPbKCE+8MQOtxtF+BlRIRD/QlN0PFsEYJfSYrNIZR8igF4BEgUulX/lH01EwlRrhvCrVIElYtVYVNhaF+jcpD1rZ1UHZWT1OAPa+PHd901mAtxOPBz3Bc1ecvxYMeA89HWzjR0qQcLfJECvFYR99AnFLMVa+ARgvjBFfN4ZFXMLR3VtrSvNdkwAfk7CxTeXumE8F0gkz77urPTFVviciE+yFxNHAgfp3iEFEyVbAWnWlU6kD9dHKH2Xxa99DZmC1MG6nWf0syLQo8HNOoAWagcSixCvk7RTF5UoOhpzWaTrQ7EGAvO8uVcsEBm/Q7qXyf6kXZI9pAnSYXOZ7o/IVXoXTy44aVg8hqSzUTvyLiBowsP/JCDHwZSpg+5N0b3xTVxCfyQ6jYOTRZQrdz9aW+qNPZV3dKK9GsKPgox/oQgUxK7ecraT5ylA92wC1JYfaG8ahKapER6NnYMx13wSSbNBlB8x4HOQJKMoX5OZME=
+env:
+  global:
+    # for Sonar env variable
+    secure: "W1CV1/Sf+obddqMxJVBqClBoLWv/kveWVhX/fEtWhIItSpUFgYaVsWkGgWHLoaNb3wmj36Gfd5TaZQ+DNG9nTMcgT2BVHeNTxeKrDce3noi7jeo555RI+Kvsysptw5KWxCXHTPpKMZIaN//VIYtdCBmA7acKR9XDmQ++Zps3nd1X1UYGlQoNDPbyT+oZ8byfp1UQ6yXyG6YNurA8V7oUXND5KBFwtwNfG8HFLy5LGuedzP+u/1oM7uxJZ/AcrZS4iPfzm8J911oXN4Raq37K2LgMZfhoX1w7caH/LucAlOBuMrHykgp+66UKMiBVGtiFXxWdK645d9VTB4VWpKL7+eji9Kt6EkkUmKcYPowFoQDCbk3zUGLoUxCJlyArmEorY10AbdYXs24ZOh85v569iBuLGXxqf1TRiFrNev0qvyIlSaOyRf6rPhdWp5OG7zMdcKPk8h0gBLPNyY7h4p9DoJdcoPKc6/XB3HLwwQQWNVk/cVUhD2yhr2on5LYOHLx6AFuT0cv7EF+VOMX3X/WtdSPprp2210cm9HSShiniR2iyQOkOGXOqDO5boLG9XN1tYAId4ymUCY8D/JTRt224SniTcBelTEnokT3Z1wHN04H7D9BnJT6wXpYwOf9+keJJbLDvqajGgvpSuKtfgosJn9jWR0oEibe5I7y9yOmvoF4="
 
 script:
   - npm run test-ci
+  - npm run sonar
   - npm run build --prod
