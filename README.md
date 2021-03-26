@@ -1,5 +1,7 @@
 # timeismoney
 
+[![Build Status](https://travis-ci.com/wiiitek/timeismoney.svg?branch=main)](https://travis-ci.com/wiiitek/timeismoney)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
 ## Development server
