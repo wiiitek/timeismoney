@@ -10,5 +10,4 @@ addons:
 
 script:
   - npm run test-ci
-  - sonar-scanner
   - npm run build --prod
