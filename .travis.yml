@@ -2,6 +2,14 @@ language: node_js
 node_js:
   - 12
 
+addons:
+  sonarcloud:
+    organization: "wiiitek-github"
+    token:
+      secure: q9mcuDvAfu7+/95SxhcdjgS0Bg2n5LYkWjcWjgliuvZDoFcQsM3F9vRaSwXPijuJHkcD9pWciLBoePZ3q/0XDBwbXtRvWwHgGrMXOzx2v2v+cpTYwemEiUxjQVHuQshtZou2dhVlNa+jMTLhhX8LSBKsq8fIbiZ2atMt2fP3iYOCkEs2Y4CPUNdXWl34FuImkQqyCbNGSR0utwQWMJEYJRk7PJ9viYILe9VPDlqz78FPN42WnMC74U0IJqPiLfe7RpgXbT2vUlJo2+Z9+B2M+hVsxpzLO+4WvtuUiGqJEuUaqZIaroqsc5m5FU97WMoEnvvRJ9t1F7o+rKbIuzbCaO7wGe2bMPztUldcOfNUljED3H9amsDzIY50yXY1ttACv/COeOoIGDM59JGe/B14nGTbdtL54LgwhnclCsj3k4I0AWQimn8DyEyfrWNgyeNsnkOiLLBsiJ8jVSy7ihq9URHudmypIx/0dnmOFIyLHQe3tXc/52wAl8wopxwuyYKFkb8Iba1JOX+vc0RYDXwz4PwX1S/VBpfSqNMy45R6duEBR1r60uzNsb2cVnwCPymCbT1lRrnBARywO2Rg7ZXaspSUYbFa1U0Uzr2+OukQgaM3nWpS5as4NeQTlPYAp6X92qUrnjhbDv2n/23R87kRtSxdJa/x0+hpH0rosI8QTIY=
+
 script:
   - npm run test-ci
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
   - npm run build --prod

@@ -26,10 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Running Sonar analysis
 
-```
-export SONAR_TOKEN=eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-npm run sonar
-```
+To manually run Sonar analysis run `export SONAR_TOKEN=<sonar token>` for Sonar credentials and then `npm run sonar`.
 
 ## Further help
 
