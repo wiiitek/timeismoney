@@ -2,8 +2,6 @@ language: node_js
 node_js:
   - 12
 
-addons:
-  chrome: stable
-
-script: 
+script:
+  - npm run test-ci
   - npm run build --prod
