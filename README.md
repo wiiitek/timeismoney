@@ -1,6 +1,7 @@
 # timeismoney
 
 [![Build Status](https://travis-ci.com/wiiitek/timeismoney.svg?branch=main)](https://travis-ci.com/wiiitek/timeismoney)
+[![sonarcloud.io](https://sonarcloud.io/api/project_badges/measure?project=wiiitek_timeismoney&metric=alert_status)](https://sonarcloud.io/dashboard?id=wiiitek_timeismoney)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
