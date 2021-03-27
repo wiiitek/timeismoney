@@ -13,8 +13,7 @@ script:
   - npm run build --prod
 
 deploy:
-  local_dir: ./dist
-  upload-dir: /
+  local_dir: ./dist/timeismoney
   skip_cleanup: true
   provider: s3
   region: eu-west-1
