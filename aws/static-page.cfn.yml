@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Creates S3 Bucket for static website hosting
+
+Resources:
+
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-s3.html#quickref-s3-example-2.yaml
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: timeismoney.dev
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-s3-bucket
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Id: AllowPublicRead
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Sub arn:aws:s3:::${S3Bucket}/*
+      Bucket: !Ref S3Bucket
+
+  UserForS3:
+    Type: AWS::IAM::User
+    Properties:
+      Policies:
+        - PolicyName: allow-push-to-s3
+          # https://aws.amazon.com/premiumsupport/knowledge-center/s3-folder-user-access/
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:ListAllMyBuckets
+                  - s3:GetBucketLocation
+                Resource:
+                  - arn:aws:s3:::*
+              - Effect: Allow
+                Action:
+                  - s3:ListBucket
+                Resource:
+                  - !Sub arn:aws:s3:::${S3Bucket}
+              - Effect: Allow
+                Action:
+                  - s3:*
+                Resource:
+                  - !Sub arn:aws:s3:::${S3Bucket}/*
+
+  AccessCredentials:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      Serial: 1
+      Status: Active
+      UserName: !Ref UserForS3
+
+Outputs:
+  BucketName:
+    Description: Name of the bucket
+    Value: !Ref S3Bucket
+  BucketDomain:
+    Description: Bucket Domain
+    Value: !GetAtt S3Bucket.WebsiteURL
+  AccessKeyId:
+    Description: User access key for the S3 Bucket
+    Value: !Ref AccessCredentials
+  AccessKeySecret:
+    Description: User secret key for the S3 Bucket
+    Value: !GetAtt AccessCredentials.SecretAccessKey
