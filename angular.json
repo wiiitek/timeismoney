@@ -20,6 +20,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "zone.js/dist/zone-error"
+            ],
             "outputPath": "dist/timeismoney",
             "index": "src/index.html",
             "main": "src/main.ts",
