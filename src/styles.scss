@@ -1,0 +1,14 @@
+/* ----------------------------------
+// Fonts
+//----------------------------------*/
+@import 'assets/_fonts.scss';
+@import 'assets/_colors.scss';
+
+$background: $gainsboro;
+$default-text: $ebony;
+
+body {
+    font-family: Lato, Tahoma, sans-serif;
+    background-color: $background;
+    color: $default-text;
+}
