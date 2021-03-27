@@ -31,8 +31,10 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/timeismoney'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        // https://github.com/karma-runner/karma-coverage/blob/master/docs/configuration.md
+        //{ type: 'html' },
+        { type: 'text-summary' },
+        { type: 'lcovonly' }
       ]
     },
     reporters: ['progress', 'kjhtml'],
