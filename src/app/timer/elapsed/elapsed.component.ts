@@ -6,6 +6,7 @@ import { ElapsedService } from './elapsed.service';
   selector: 'app-elapsed',
   templateUrl: './elapsed.component.html',
   styleUrls: ['./elapsed.component.scss'],
+  providers: [ElapsedService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

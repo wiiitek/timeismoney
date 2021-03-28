@@ -1,4 +1,4 @@
-import { fakeAsync, TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TimerService } from './timer.service';
 
@@ -7,7 +7,7 @@ describe('TimerService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TimerService);
+    service = new TimerService();
   });
 
   it('should be created', () => {
@@ -24,7 +24,7 @@ describe('TimerService', () => {
     expect(actual).toBe('Start');
   }));
 
-  it('should asynchronously change button text', fakeAsync(() => {
+  it('should asynchronously change button text', waitForAsync(() => {
     // when
     service.onStartOrPause();
 
@@ -35,6 +35,8 @@ describe('TimerService', () => {
     });
 
     expect(actual).toBe('Pause');
+    // to stop counting
+    service.onStartOrPause();
   }));
 
   it('should asynchronously change button text back to Start after pausing', fakeAsync(() => {

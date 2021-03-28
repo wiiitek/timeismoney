@@ -6,8 +6,8 @@ describe('ElapsedService', () => {
   let service: ElapsedService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ElapsedService);
+    // TestBed.configureTestingModule({});
+    service = new ElapsedService();
   });
 
   it('should be created', () => {
