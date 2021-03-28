@@ -22,4 +22,13 @@ describe('TimerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('the button should say Start at the beginning', () => {
+    // when
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+
+    // then
+    expect(compiled.querySelector('.timer__button').textContent).toBe('Start');
+  });
 });

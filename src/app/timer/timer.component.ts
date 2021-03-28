@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { TimerService } from './timer.service';
 
 @Component({
   selector: 'app-timer',
@@ -7,11 +8,13 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  get buttonText() {
+    return this.timerService.buttonText$;
   }
+
+  constructor(private timerService: TimerService) { }
 
 }

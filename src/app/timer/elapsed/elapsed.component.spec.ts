@@ -32,16 +32,15 @@ describe('ElapsedComponent', () => {
     const compiled = fixture.nativeElement;
 
     // then
-    expect(compiled.querySelector('.elapsed__time').textContent).toContain('00:01:30');
+    expect(compiled.querySelector('.elapsed__time').textContent).toBe('00:01:30');
   });
 
   it('should show zero as default value', () => {
-
     // when
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
 
     // then
-    expect(compiled.querySelector('.elapsed__time').textContent).toContain('00:00:00');
+    expect(compiled.querySelector('.elapsed__time').textContent).toBe('00:00:00');
   });
 });
