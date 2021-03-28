@@ -18,11 +18,11 @@ export class ElapsedComponent {
   @Input()
   set elapsed(value: number | any) {
     this.elapsedService.elapsed(value);
-  };
+  }
 
-  get converted(): Observable<String> {
+  get converted(): Observable<string> {
     return this.elapsedService.convertedValue$
-  };
+  }
 
   constructor(private elapsedService: ElapsedService) { }
 
