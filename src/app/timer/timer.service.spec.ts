@@ -36,4 +36,18 @@ describe('TimerService', () => {
 
     expect(actual).toBe('Pause');
   }));
+
+  it('should asynchronously change button text back to Start after pausing', fakeAsync(() => {
+    // when
+    service.onStartOrPause();
+    service.onStartOrPause();
+
+    // then
+    let actual = '<should be overwritten>';
+    service.buttonText$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    expect(actual).toBe('Start');
+  }));
 });

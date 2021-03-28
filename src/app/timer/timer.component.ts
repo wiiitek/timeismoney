@@ -15,6 +15,15 @@ export class TimerComponent {
     return this.timerService.buttonText$;
   }
 
+  get statusClass() {
+    const countingCss = '';
+    const notCountingCss = 'button-primary';
+    return this.timerService.counting ? countingCss : notCountingCss;
+  }
+
   constructor(private timerService: TimerService) { }
 
+  onStartOrPause() {
+    this.timerService.onStartOrPause();
+  }
 }

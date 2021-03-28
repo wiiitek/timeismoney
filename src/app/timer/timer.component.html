@@ -2,6 +2,5 @@
 
   <app-elapsed [elapsed]="200000"></app-elapsed>
 
-  <a class="timer__button button button-primary" href="#">{{ buttonText | async }}</a>
-
+  <button class="timer__button" (click)="onStartOrPause()" [ngClass]="statusClass">{{ buttonText | async }}</button>
 </div>
