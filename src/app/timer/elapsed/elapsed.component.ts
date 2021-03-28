@@ -5,19 +5,15 @@ import { ElapsedService } from './elapsed.service';
 @Component({
   selector: 'app-elapsed',
   templateUrl: './elapsed.component.html',
-  styleUrls: ['./elapsed.component.sass'],
+  styleUrls: ['./elapsed.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ElapsedComponent {
 
-  private _elapsed = 0;
-
   @Input()
   set elapsed(elapsed: number) {
-    this._elapsed = elapsed ? elapsed : 0;
-
-    this.elapsedService.elapsed(this._elapsed);
+    this.elapsedService.elapsed(elapsed);
   };
 
   get converted(): Observable<String> {

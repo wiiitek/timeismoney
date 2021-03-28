@@ -3,7 +3,7 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.sass'],
+  styleUrls: ['./timer.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
