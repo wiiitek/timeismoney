@@ -1,14 +1,19 @@
 /* ----------------------------------
 // Fonts
 //----------------------------------*/
-@import 'assets/_fonts.scss';
-@import 'assets/_colors.scss';
+@import 'style/_fonts';
+@import 'style/_colors';
 
-$background: $gainsboro;
-$default-text: $ebony;
+$background: $light-gray;
+$default-text: $prussian-blue;
 
 body {
+    margin-top: 3em;
     font-family: Lato, Tahoma, sans-serif;
     background-color: $background;
     color: $default-text;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
 }

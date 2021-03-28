@@ -1,0 +1,6 @@
+<div class="timer">
+
+  <app-elapsed [label]="label" [elapsed]="elapsed | async"></app-elapsed>
+
+  <button class="timer__button" (click)="onStartOrPause()" [ngClass]="statusClass">{{ buttonText | async }}</button>
+</div>

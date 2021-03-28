@@ -1,13 +1,16 @@
 <div class="container">
-    <div class="row">
-        <div class="col-1-sm col-3"></div>
-        <div class="col-10-sm col-6">
-            <h1 class="main">{{title}}</h1>
-            <div>Lorem ipsum dolor sit amet...</div>
-        </div>
-        <div class="col-1-sm col-3"></div>
-    </div>
-</div>
+  <div class="row">
+    <div class="two columns"></div>
+    <div class="eight columns">
 
+      <h1>timeismoney</h1>
+
+      <app-timer [label]="'Time A'"></app-timer>
+
+      <app-timer [label]="'Time B'"></app-timer>
+    </div>
+    <div class="two columns"></div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
