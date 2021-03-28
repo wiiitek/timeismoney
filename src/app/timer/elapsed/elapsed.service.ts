@@ -9,9 +9,6 @@ export class ElapsedService {
   public convertedValue$ = this.behaviorSubject.asObservable();
 
   elapsed(elapsedMillis: number) {
-    if (elapsedMillis < 1000) {
-      throw new Error('Too small value for elapsed millis: ' + elapsedMillis);
-    }
     const converted = this.convert(elapsedMillis);
     this.behaviorSubject.next(converted);
   }

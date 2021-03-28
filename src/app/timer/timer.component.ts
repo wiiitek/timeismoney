@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 import { TimerService } from './timer.service';
 
 @Component({
@@ -11,9 +11,15 @@ import { TimerService } from './timer.service';
 })
 export class TimerComponent {
 
+  @Input()
+  label = 'Elapsed';
 
   get buttonText() {
     return this.timerService.buttonText$;
+  }
+
+  get elapsed() {
+    return this.timerService.elapsed$;
   }
 
   get statusClass() {

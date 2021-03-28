@@ -60,12 +60,4 @@ describe('ElapsedService', () => {
 
     expect(actual).toBe('111:05:03');
   }));
-
-  it('should throw exception for small value', () => {
-
-    expect(
-      () => service.elapsed(999)
-    )
-      .toThrow(new Error("Too small value for elapsed millis: 999"));
-  });
 });
