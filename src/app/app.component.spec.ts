@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'timeismoney'`, () => {
+  it(`should have initial elapsed zero value`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('timeismoney');
+    expect(app.elapsed).toEqual(0);
   });
 
   it('should render title', () => {
