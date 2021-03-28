@@ -1,4 +1,4 @@
-import { fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { TimerService } from './timer.service';
 
@@ -51,5 +51,21 @@ describe('TimerService', () => {
     });
 
     expect(actual).toBe('Start');
+  }));
+
+  it('should update converted elapsed text', fakeAsync(() => {
+    // when
+    service.onStartOrPause();
+
+    tick(600);
+    // then
+    let actual = 0;
+    service.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    expect(actual).toBeGreaterThan(10);
+    // turn off counting
+    service.onStartOrPause();
   }));
 });

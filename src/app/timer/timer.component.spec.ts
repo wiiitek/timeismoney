@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
 
@@ -31,4 +31,19 @@ describe('TimerComponent', () => {
     // then
     expect(compiled.querySelector('.timer__button').textContent).toBe('Start');
   });
+
+
+  it('button should change text when clicked', waitForAsync(() => {
+
+    // when
+    component.onStartOrPause();
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement;
+
+    // then
+    expect(compiled.querySelector('.timer__button').textContent).toBe('Pause');
+    // turn off counting
+    component.onStartOrPause();
+  }));
 });
