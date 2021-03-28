@@ -8,7 +8,7 @@ env:
 
 script:
   #- npm run test-ci
-  #- npm run sonar
+  - npm run sonar
   - npm run build --prod
 
 deploy:
