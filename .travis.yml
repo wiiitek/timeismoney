@@ -6,10 +6,14 @@ env:
   global:
     secure: rEJQAigZpCZNjt0xc71uceh019vIO5jnDM/xnWPqeWU41uYaFVEnzwAmPFW7NAe8kN0wNrgKhDfFcN20dYI7AJ7xN/U3yMGg4hOoMY7vqF0cZ3tdogRYQKhe3pzrmPOytZAEoND7fP5B6oB4iD0v1vbmHRgTo90f5yICSaa3hBsx1cY33dUjlLIzWkHLK+NACyRbOGCmM0cfuI8dxt6O4Z1zU5K8fcJcfciJLSEyuWXLkphIdF87ptStpNtqnk58gyZQ/dWj8QzXwkdiniE3SUWoYEC7r1skttO0pQ+53/it5Euy53TcfhLHT3Ax5cdg8HTdr228t0TO2b4EiVT6146t2P85tSev1Wu7q7maUW/8IftV3OKz9bzOZ01yP1f37S2bE5pNWx1Ktxe3PBjPisBnyJR783AosYitnbchpV4Kt59YXczZl/je6ZUq3jYMtqW8o5EmHLX5QZUQA+U+AQinmAihwTD36pCPL4S5i6KBaL9oNBy1LP+48+VMyaeaQ3UlCJhO4Ve2jm44jvxyw3dyeG9AmGT0GHOORvH3XNw0MMykiPO1IIIMvO3UMAolvFknFV7QPpCqb4i06V9YUfqUsRzgud9i9WR+ve0GPiF4gXKp71DSv8Wit/I24BNATZP69UiyXeUmnm/xdC5ibzoZ6i9T5eu2++Zziei65kk=
 
+before_script:
+  - rm -fr dist
+  - rm -fr coverage
+
 script:
   - npm run test-ci
   - npm run sonar
-  - npm run build --prod
+  - npm run build
 
 deploy:
   local_dir: ./dist/timeismoney
