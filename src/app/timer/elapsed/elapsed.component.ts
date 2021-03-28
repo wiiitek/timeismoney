@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ElapsedService } from './elapsed.service';
 
 @Component({
   selector: 'app-elapsed',
@@ -7,13 +9,21 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ElapsedComponent implements OnInit {
+export class ElapsedComponent {
 
-  elapsed = 0;
+  private _elapsed = 0;
 
-  constructor() { }
+  @Input()
+  set elapsed(elapsed: number) {
+    this._elapsed = elapsed ? elapsed : 0;
 
-  ngOnInit(): void {
-  }
+    this.elapsedService.elapsed(this._elapsed);
+  };
+
+  get converted(): Observable<String> {
+    return this.elapsedService.convertedValue$
+  };
+
+  constructor(private elapsedService: ElapsedService) { }
 
 }

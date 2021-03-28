@@ -10,8 +10,8 @@ import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ElapsedComponent,
-    TimerComponent
+    TimerComponent,
+    ElapsedComponent
   ],
   imports: [
     BrowserModule,
