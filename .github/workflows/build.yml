@@ -42,6 +42,7 @@ jobs:
       - uses: egordm/gha-yarn-node-cache@v1
 
       - name: Deploy
+        # https://github.com/JamesIves/github-pages-deploy-action#configuration-
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           repository-name: wiiitek/timeismoney.page
