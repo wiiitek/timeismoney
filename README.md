@@ -1,6 +1,5 @@
 # timeismoney
 
-[![Build Status](https://travis-ci.com/wiiitek/timeismoney.svg?token=MixhpWLDx9HxCRt8iPHD&branch=main)](https://travis-ci.com/wiiitek/timeismoney)
 [![GitHub Actions](https://github.com/wiiitek/timeismoney/actions/workflows/build.yml/badge.svg)](https://github.com/wiiitek/timeismoney/actions/workflows/build.yml)
 [![sonarcloud.io](https://sonarcloud.io/api/project_badges/measure?project=wiiitek_timeismoney&metric=alert_status)](https://sonarcloud.io/dashboard?id=wiiitek_timeismoney)
 
