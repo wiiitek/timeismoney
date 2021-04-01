@@ -30,18 +30,8 @@ jobs:
         run: |
           yarn build
 
-  deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-
-      # https://github.com/marketplace/actions/yarn-node-install-cache
-      - uses: egordm/gha-yarn-node-cache@v1
-
       - name: Deploy
+        if: ${{ github.ref == 'refs/heads/main' }}
         # https://github.com/JamesIves/github-pages-deploy-action#configuration-
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
