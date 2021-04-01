@@ -2,11 +2,10 @@
   "name": "timeismoney",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
-    "test-ci": "ng test --watch=false --code-coverage --browsers ChromeHeadless",
+    "test": "ng test --watch=false --code-coverage --browsers ChromeHeadless",
+    "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "sonar": "sonar-scanner"
