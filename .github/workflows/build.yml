@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      # https://github.com/marketplace/actions/yarn-node-install-cache
+      - uses: egordm/gha-yarn-node-cache@v1
+
       - name: Node 12.x
         uses: actions/setup-node@v1
         with:
@@ -16,7 +19,7 @@ jobs:
 
       - name: npm install and npm run build
         run: |
-          npm ci
-          npm run test
-          npm run sonar
-          npm run build
+          yarn install
+          yarn test
+          yarn sonar
+          yarn build

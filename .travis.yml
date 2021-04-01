@@ -9,11 +9,12 @@ env:
 before_script:
   - rm -fr dist
   - rm -fr coverage
+  - yarn install
 
 script:
-  - npm run test
-  - npm run sonar
-  - npm run build
+  - yarn test
+  - yarn sonar
+  - yarn build
 
 deploy:
   local_dir: ./dist/timeismoney
