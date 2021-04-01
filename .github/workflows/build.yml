@@ -17,12 +17,15 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: npm install and npm run build
+      - name: Tests
         env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_FOR_SONAR }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           yarn install
           yarn test
           yarn sonar
+
+      - name: Build
+        run: |
           yarn build
