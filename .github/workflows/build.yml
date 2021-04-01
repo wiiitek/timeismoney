@@ -15,7 +15,10 @@ jobs:
           node-version: 12.x
 
       - name: npm install, test and build
+        env:
+          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
         run: |
           npm ci
           npm run test
+          npm run sonar
           npm run build
