@@ -19,7 +19,7 @@ jobs:
 
       - name: Tests
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_FOR_SONAR }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           yarn install
@@ -29,3 +29,22 @@ jobs:
       - name: Build
         run: |
           yarn build
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      # https://github.com/marketplace/actions/yarn-node-install-cache
+      - uses: egordm/gha-yarn-node-cache@v1
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          repository-name: wiiitek/timeismoney.page
+          branch: main
+          folder: dist/timeismoney
+          token: ${{ secrets.GH_TOKEN }}
