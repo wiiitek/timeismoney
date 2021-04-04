@@ -68,4 +68,58 @@ describe('TimerService', () => {
     // turn off counting
     service.onStartOrPause();
   }));
+
+  it('reset should stop counting', fakeAsync(() => {
+    // given
+    service.onStartOrPause();
+
+    // when
+    service.onReset()
+
+    // then
+    expect(service.counting).toBeFalse();
+    // counting should stop
+    tick(600)
+    expect(service.counting).toBeFalse();
+
+    // to stop counting
+    service.ngOnDestroy();
+  }));
+
+  it('reset should change button text', fakeAsync(() => {
+    // given
+    service.onStartOrPause();
+    let actual = '<should be changed in test>';
+    service.buttonText$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    service.onReset()
+
+    // then
+    expect(actual).toEqual('Start');
+
+    // to stop counting
+    service.ngOnDestroy();
+  }));
+
+  it('reset should change elapsed to zero', fakeAsync(() => {
+    // given
+    service.onStartOrPause();
+    let actual = -1;
+    service.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    service.onReset()
+    tick(0, {processNewMacroTasksSynchronously: false});
+    // then
+    expect(actual).toEqual(0);
+    // and
+    // counting should stop
+    tick(20000, {processNewMacroTasksSynchronously: false});
+    expect(actual).toEqual(0);
+  }));
 });

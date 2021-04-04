@@ -29,7 +29,7 @@ describe('TimerComponent', () => {
     const compiled = fixture.nativeElement;
 
     // then
-    expect(compiled.querySelector('.timer__button').textContent).toBe('Start');
+    expect(compiled.querySelector('.timer__main_button').textContent).toBe('Start');
   });
 
 
@@ -42,7 +42,7 @@ describe('TimerComponent', () => {
     const compiled = fixture.nativeElement;
 
     // then
-    expect(compiled.querySelector('.timer__button').textContent).toBe('Pause');
+    expect(compiled.querySelector('.timer__main_button').textContent).toBe('Pause');
     // turn off counting
     component.onStartOrPause();
   }));

@@ -4,6 +4,7 @@ import { TimerService } from './timer.service';
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
+  styleUrls: ['./timer.component.scss'],
   providers: [TimerService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -31,5 +32,9 @@ export class TimerComponent {
 
   onStartOrPause() {
     this.timerService.onStartOrPause();
+  }
+
+  onReset() {
+    this.timerService.onReset();
   }
 }
