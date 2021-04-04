@@ -1,6 +1,8 @@
 <div class="timer">
 
-  <app-elapsed [label]="label" [elapsed]="elapsed | async"></app-elapsed>
+  <div>{{label}}</div>
+  <app-earned [earned]="earned | async"></app-earned>
+  <app-elapsed [elapsed]="elapsed | async"></app-elapsed>
 
   <button class="timer__main_button" (click)="onStartOrPause()" [ngClass]="statusClass">{{ buttonText | async }}</button>
   <button class="timer__reset_button" (click)="onReset()">Reset</button>

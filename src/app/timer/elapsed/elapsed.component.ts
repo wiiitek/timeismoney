@@ -13,9 +13,6 @@ import { ElapsedService } from './elapsed.service';
 export class ElapsedComponent {
 
   @Input()
-  label = 'Elapsed';
-
-  @Input()
   set elapsed(value: number | any) {
     this.elapsedService.elapsed(value);
   }

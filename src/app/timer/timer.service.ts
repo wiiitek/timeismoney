@@ -1,5 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { CalculatorService } from './calculator/calculator.service';
+import { RateService } from './rate/rate.service';
 import { WatcherService } from './watcher/watcher.service';
 
 @Injectable()
@@ -14,8 +17,17 @@ export class TimerService implements OnDestroy {
   public counting: boolean = false;
   public buttonText$ = this.buttonTextSource.asObservable();
   public elapsed$ = this.elapsedMillisSource.asObservable();
+  public earned$ = this.elapsed$.pipe(
+    map<number, number>((newElapsed: number) => {
+      const hourlyRate = this.rateService.getHourlyRate();
+      return this.calculatorService.toMoney(newElapsed, hourlyRate)
+    })
+  );
 
-  constructor(private watcherService: WatcherService) { }
+  constructor(
+    private watcherService: WatcherService,
+    private calculatorService: CalculatorService,
+    private rateService: RateService) { }
 
   onStartOrPause() {
     const startAction = !this.counting;

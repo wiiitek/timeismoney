@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
+import { EarnedComponent } from './timer/earned/earned.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimerComponent,
-    ElapsedComponent
+    ElapsedComponent,
+    EarnedComponent
   ],
   imports: [
     BrowserModule,
