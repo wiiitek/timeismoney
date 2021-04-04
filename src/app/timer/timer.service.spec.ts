@@ -98,20 +98,20 @@ describe('TimerService', () => {
 
   it('reset should change elapsed to zero', fakeAsync(() => {
     // given
-    tested.onStartOrPause();
-    let actual = -1;
+    let actual = 0;
     tested.elapsed$.subscribe(newValue => {
       actual = newValue;
     });
+    tested.onStartOrPause();
+    // wait over 5 seconds
+    tick(5_678);
 
     // when
-    tested.onReset()
+    tested.onReset();
 
     // then
     expect(actual).toEqual(0);
     // and
-    tick(20_000);
-    expect(actual).toEqual(0);
   }));
 
 
