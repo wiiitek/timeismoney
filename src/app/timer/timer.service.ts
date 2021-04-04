@@ -1,4 +1,3 @@
-import { ProviderAst } from '@angular/compiler';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { WatcherService } from './watcher/watcher.service';

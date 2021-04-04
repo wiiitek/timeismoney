@@ -134,4 +134,32 @@ describe('TimerService', () => {
     // turn off counting
     tested.ngOnDestroy();
   }));
+
+  it('reset does not change elapsed if not counting', () => {
+    // given
+    let actual = -1;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    tested.onReset();
+
+    // then
+    expect(actual).toEqual(0);
+  });
+
+  it('reset does not change button text if not counting', () => {
+    // given
+    let actual = '<should be changed in test>';
+    tested.buttonText$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    tested.onReset();
+
+    // then
+    expect(actual).toEqual('Start');
+  });
 });
