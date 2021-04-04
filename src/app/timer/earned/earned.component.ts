@@ -3,7 +3,6 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
 @Component({
   selector: 'app-earned',
   templateUrl: './earned.component.html',
-  styleUrls: ['./earned.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -28,10 +27,5 @@ export class EarnedComponent {
       default: this.wholeNumber = wholeValue;
     }
 
-  }
-
-  private present(value: number): string {
-    const str = value.toString();
-    return str.length === 1 ? ('0' + str) : str;
   }
 }
