@@ -1,15 +1,19 @@
+import { Injectable } from "@angular/core";
+
+import { environment } from '../../../environments/environment';
 
 /**
  * Executes provided function periodically.
  */
-export class Watcher {
+@Injectable()
+export class WatcherService {
 
   private timeBetweenExecutions;
 
   private timeoutRef: any;
 
-  constructor(timeBetweenExecutions: number = 500) {
-    this.timeBetweenExecutions = timeBetweenExecutions
+  constructor() {
+    this.timeBetweenExecutions = environment.watcherRefreshDelayInMillis;
   }
 
   start(fun: Function, functionContext: any) {
@@ -22,6 +26,10 @@ export class Watcher {
       clearTimeout(this.timeoutRef);
       this.timeoutRef = null;
     }
+  }
+
+  setTimeBetweenExecutions(millis: number) {
+    this.timeBetweenExecutions = millis;
   }
 
   private _repeat(fun: Function, functionContext: any) {

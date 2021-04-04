@@ -1,48 +1,54 @@
+import { ProviderAst } from '@angular/compiler';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Watcher } from './watcher';
+import { WatcherService } from './watcher/watcher.service';
 
 @Injectable()
 export class TimerService implements OnDestroy {
 
-  private stepLengthInMillis = 500;
+  private startedAt = 0;
+  private lastUpdated = 0;
 
   private buttonTextSource = new BehaviorSubject<string>('Start');
   private elapsedMillisSource = new BehaviorSubject<number>(0);
-
-  private watcher: Watcher = new Watcher();
 
   public counting: boolean = false;
   public buttonText$ = this.buttonTextSource.asObservable();
   public elapsed$ = this.elapsedMillisSource.asObservable();
 
+  constructor(private watcherService: WatcherService) { }
+
   onStartOrPause() {
-    if (this.counting) {
-      this.watcher.stop();
-      this.buttonTextSource.next('Start');
-      this.counting = false;
-    } else {
-      this.watcher.start(this.updateElapsed, this);
+    const startAction = !this.counting;
+    if (startAction) {
+      this.startedAt = Date.now();
+      this.lastUpdated = this.startedAt;
+
+      this.watcherService.start(this.updateElapsed, this);
       this.buttonTextSource.next('Pause');
       this.counting = true;
+    } else {
+      this.watcherService.stop();
+      this.buttonTextSource.next('Start');
+      this.counting = false;
     }
   }
 
   onReset() {
-    if(this.counting) {
+    if (this.counting) {
       this.counting = false;
-      this.watcher.stop();
+      this.watcherService.stop();
     }
     this.buttonTextSource.next('Start');
   }
 
   ngOnDestroy(): void {
-    this.watcher.stop();
+    this.watcherService.stop();
   }
 
   private updateElapsed() {
-    const newElapsed = this.elapsedMillisSource.getValue() + this.stepLengthInMillis;
+    this.lastUpdated = Date.now();
+    const newElapsed = this.lastUpdated - this.startedAt;
     this.elapsedMillisSource.next(newElapsed);
   }
-
 }

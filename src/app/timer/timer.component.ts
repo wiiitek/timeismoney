@@ -1,11 +1,12 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 import { TimerService } from './timer.service';
+import { WatcherService } from './watcher/watcher.service';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
-  providers: [TimerService],
+  providers: [TimerService, WatcherService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -28,7 +29,7 @@ export class TimerComponent {
     return this.timerService.counting ? countingCss : notCountingCss;
   }
 
-  constructor(private timerService: TimerService) { }
+  constructor(public timerService: TimerService) { }
 
   onStartOrPause() {
     this.timerService.onStartOrPause();
