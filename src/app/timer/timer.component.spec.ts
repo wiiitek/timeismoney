@@ -56,7 +56,7 @@ describe('TimerComponent', () => {
     // when
     component.onReset();
 
-    //then
+    // then
     expect(compiled.querySelector('.timer__main_button').textContent).toBe('Start');
   }));
 
