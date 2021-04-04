@@ -29,7 +29,7 @@ export class TimerComponent {
     return this.timerService.counting ? countingCss : notCountingCss;
   }
 
-  constructor(public timerService: TimerService) { }
+  constructor(private timerService: TimerService) { }
 
   onStartOrPause() {
     this.timerService.onStartOrPause();
