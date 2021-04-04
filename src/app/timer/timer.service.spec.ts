@@ -1,5 +1,7 @@
 import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { asyncScheduler } from 'rxjs';
+import { CalculatorService } from './calculator/calculator.service';
+import { RateService } from './rate/rate.service';
 
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
@@ -12,7 +14,9 @@ describe('TimerService', () => {
     const watcherService = new WatcherService();
     // for testing we update status every two seconds (fakeAsync will rewind the time for us)
     watcherService.setTimeBetweenExecutions(2_000)
-    tested = new TimerService(watcherService);
+    const calculatorService = new CalculatorService();
+    const rateService = new RateService();
+    tested = new TimerService(watcherService, calculatorService, rateService);
   });
 
   it('should be created', () => {
@@ -162,4 +166,32 @@ describe('TimerService', () => {
     // then
     expect(actual).toEqual('Start');
   });
+
+  it('resuming timer should not clear current value', fakeAsync(() => {
+    // given
+    let actual = 0;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // start
+    tested.onStartOrPause();
+    tick(2_300);
+    // pause
+    tested.onStartOrPause();
+    tick(123_456);
+    // resume
+    tested.onStartOrPause();
+    tick(5_400);
+    // pause
+    tested.onStartOrPause();
+    tick(123_456);
+
+    // then
+    // but our service updates the value every two seconds... so
+    expect(actual).toEqual(7_700);
+
+    // turn off counting
+    tested.ngOnDestroy();
+  }));
 });

@@ -8,6 +8,7 @@ import { WatcherService } from './watcher/watcher.service';
 @Injectable()
 export class TimerService implements OnDestroy {
 
+  private sumOfElapsed = 0;
   private startedAt = 0;
   private lastUpdated = 0;
 
@@ -39,6 +40,9 @@ export class TimerService implements OnDestroy {
       this.buttonTextSource.next('Pause');
       this.counting = true;
     } else {
+      const measuredTime = Date.now() - this.startedAt;
+      this.sumOfElapsed = this.sumOfElapsed + measuredTime;
+      this.elapsedMillisSource.next(this.sumOfElapsed);
       this.watcherService.stop();
       this.buttonTextSource.next('Start');
       this.counting = false;
@@ -60,7 +64,8 @@ export class TimerService implements OnDestroy {
 
   private updateElapsed() {
     this.lastUpdated = Date.now();
-    const newElapsed = this.lastUpdated - this.startedAt;
+    const delta = this.lastUpdated - this.startedAt;
+    const newElapsed = this.sumOfElapsed + delta;
     this.elapsedMillisSource.next(newElapsed);
   }
 }

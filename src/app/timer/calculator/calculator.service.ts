@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class CalculatorService {
-
-  constructor() { }
 
   toMoney(millis: number, hourlyRate: number): number {
     const elapsedSeconds = millis / 1000;

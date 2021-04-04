@@ -3,7 +3,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
 @Component({
   selector: 'app-earned',
   templateUrl: './earned.component.html',
-  styleUrls: ['./earned.component.sass'],
+  styleUrls: ['./earned.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
