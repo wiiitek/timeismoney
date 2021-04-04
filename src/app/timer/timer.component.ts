@@ -1,10 +1,14 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 import { TimerService } from './timer.service';
+import { WatcherService } from './watcher/watcher.service';
+import { CalculatorService } from './calculator/calculator.service';
+import { RateService } from './rate/rate.service';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
-  providers: [TimerService],
+  styleUrls: ['./timer.component.scss'],
+  providers: [TimerService, WatcherService, CalculatorService, RateService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -21,6 +25,10 @@ export class TimerComponent {
     return this.timerService.elapsed$;
   }
 
+  get earned() {
+    return this.timerService.earned$;
+  }
+
   get statusClass() {
     const countingCss = '';
     const notCountingCss = 'button-primary';
@@ -31,5 +39,9 @@ export class TimerComponent {
 
   onStartOrPause() {
     this.timerService.onStartOrPause();
+  }
+
+  onReset() {
+    this.timerService.onReset();
   }
 }

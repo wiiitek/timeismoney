@@ -1,71 +1,197 @@
 import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { asyncScheduler } from 'rxjs';
+import { CalculatorService } from './calculator/calculator.service';
+import { RateService } from './rate/rate.service';
 
 import { TimerService } from './timer.service';
+import { WatcherService } from './watcher/watcher.service';
 
 describe('TimerService', () => {
-  let service: TimerService;
+
+  let tested: TimerService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = new TimerService();
+    const watcherService = new WatcherService();
+    // for testing we update status every two seconds (fakeAsync will rewind the time for us)
+    watcherService.setTimeBetweenExecutions(2_000)
+    const calculatorService = new CalculatorService();
+    const rateService = new RateService();
+    tested = new TimerService(watcherService, calculatorService, rateService);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(tested).toBeTruthy();
   });
 
   it('should show default button text', fakeAsync(() => {
-    // then
+    // when
     let actual = '<should be overwritten>';
-    service.buttonText$.subscribe(newValue => {
+    tested.buttonText$.subscribe(newValue => {
       actual = newValue;
     });
 
+    // then
     expect(actual).toBe('Start');
   }));
 
   it('should asynchronously change button text', waitForAsync(() => {
-    // when
-    service.onStartOrPause();
-
-    // then
+    // given
     let actual = '<should be overwritten>';
-    service.buttonText$.subscribe(newValue => {
+    tested.buttonText$.subscribe(newValue => {
       actual = newValue;
     });
 
+    // when
+    tested.onStartOrPause();
+
+    // then
     expect(actual).toBe('Pause');
-    // to stop counting
-    service.onStartOrPause();
+
+    // turn off counting
+    tested.ngOnDestroy();
   }));
 
   it('should asynchronously change button text back to Start after pausing', fakeAsync(() => {
     // when
-    service.onStartOrPause();
-    service.onStartOrPause();
+    tested.onStartOrPause();
+    tested.onStartOrPause();
 
     // then
     let actual = '<should be overwritten>';
-    service.buttonText$.subscribe(newValue => {
+    tested.buttonText$.subscribe(newValue => {
       actual = newValue;
     });
 
     expect(actual).toBe('Start');
   }));
 
-  it('should update converted elapsed text', fakeAsync(() => {
-    // when
-    service.onStartOrPause();
+  it('reset should stop counting', fakeAsync(() => {
+    // given
+    tested.onStartOrPause();
 
-    tick(600);
+    // when
+    tested.onReset()
+
     // then
-    let actual = 0;
-    service.elapsed$.subscribe(newValue => {
+    expect(tested.counting).toBeFalse();
+    // counting should stop
+    tick(600)
+    expect(tested.counting).toBeFalse();
+
+    // turn off counting
+    tested.ngOnDestroy();
+  }));
+
+  it('reset should change button text', fakeAsync(() => {
+    // given
+    tested.onStartOrPause();
+    let actual = '<should be changed in test>';
+    tested.buttonText$.subscribe(newValue => {
       actual = newValue;
     });
 
-    expect(actual).toBeGreaterThan(10);
+    // when
+    tested.onReset()
+
+    // then
+    expect(actual).toEqual('Start');
+
     // turn off counting
-    service.onStartOrPause();
+    tested.ngOnDestroy();
+  }));
+
+  it('reset should change elapsed to zero', fakeAsync(() => {
+    // given
+    let actual = 0;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+    tested.onStartOrPause();
+    // wait over 5 seconds
+    tick(5_678);
+
+    // when
+    tested.onReset();
+
+    // then
+    expect(actual).toEqual(0);
+    // and
+  }));
+
+
+  it('should update converted elapsed text', fakeAsync(() => {
+    // given
+    let actual = 0;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    tested.onStartOrPause();
+    // wait over 5 seconds
+    tick(5_678);
+
+    // then
+    // but our service updates the value every two seconds... so
+    expect(actual).toEqual(4_000);
+
+    // turn off counting
+    tested.ngOnDestroy();
+  }));
+
+  it('reset does not change elapsed if not counting', () => {
+    // given
+    let actual = -1;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    tested.onReset();
+
+    // then
+    expect(actual).toEqual(0);
+  });
+
+  it('reset does not change button text if not counting', () => {
+    // given
+    let actual = '<should be changed in test>';
+    tested.buttonText$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // when
+    tested.onReset();
+
+    // then
+    expect(actual).toEqual('Start');
+  });
+
+  it('resuming timer should not clear current value', fakeAsync(() => {
+    // given
+    let actual = 0;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // start
+    tested.onStartOrPause();
+    tick(2_300);
+    // pause
+    tested.onStartOrPause();
+    tick(123_456);
+    // resume
+    tested.onStartOrPause();
+    tick(5_400);
+    // pause
+    tested.onStartOrPause();
+    tick(123_456);
+
+    // then
+    // but our service updates the value every two seconds... so
+    expect(actual).toEqual(7_700);
+
+    // turn off counting
+    tested.ngOnDestroy();
   }));
 });

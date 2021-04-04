@@ -6,7 +6,6 @@ describe('ElapsedService', () => {
   let service: ElapsedService;
 
   beforeEach(() => {
-    // TestBed.configureTestingModule({});
     service = new ElapsedService();
   });
 

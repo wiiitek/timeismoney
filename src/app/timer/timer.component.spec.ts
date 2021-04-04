@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
 
@@ -8,9 +8,9 @@ describe('TimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimerComponent ]
+      declarations: [TimerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -29,21 +29,50 @@ describe('TimerComponent', () => {
     const compiled = fixture.nativeElement;
 
     // then
-    expect(compiled.querySelector('.timer__button').textContent).toBe('Start');
+    expect(compiled.querySelector('.timer__main_button').textContent).toBe('Start');
   });
 
 
   it('button should change text when clicked', waitForAsync(() => {
+    // given
+    const compiled = fixture.nativeElement;
 
     // when
     component.onStartOrPause();
     fixture.detectChanges();
 
-    const compiled = fixture.nativeElement;
-
     // then
-    expect(compiled.querySelector('.timer__button').textContent).toBe('Pause');
+    expect(compiled.querySelector('.timer__main_button').textContent).toBe('Pause');
     // turn off counting
     component.onStartOrPause();
+  }));
+
+  it('reset should change button text', fakeAsync(() => {
+    // given
+    const compiled = fixture.nativeElement;
+    component.onStartOrPause();
+    tick(1234);
+
+    // when
+    component.onReset();
+
+    // then
+    expect(compiled.querySelector('.timer__main_button').textContent).toBe('Start');
+  }));
+
+  it('reset should change timer to zero', fakeAsync(() => {
+    // given
+    let actual = -1;
+    component.elapsed.subscribe(newValue => {
+      actual = newValue;
+    });
+    component.onStartOrPause();
+    tick(1234);
+
+    // when
+    component.onReset();
+
+    //then
+    expect(actual).toBe(0);
   }));
 });
