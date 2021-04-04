@@ -16,10 +16,9 @@ export class EarnedComponent {
 
   @Input()
   set earned(earned: number | any) {
-    // const value = earned || 0;
     this.cents = this.earnedService.cents(earned);
     this.wholeNumber = this.earnedService.wholeNumber(earned);
   }
 
-  constructor(private earnedService: EarnedService) { };
+  constructor(private earnedService: EarnedService) { }
 }
