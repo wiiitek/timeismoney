@@ -1,7 +1,7 @@
 import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { asyncScheduler } from 'rxjs';
 import { CalculatorService } from './calculator/calculator.service';
-import { RateService } from './rate/rate.service';
+import { RateService } from '../rate/rate.service';
 
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';

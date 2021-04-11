@@ -2,13 +2,13 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
 import { CalculatorService } from './calculator/calculator.service';
-import { RateService } from './rate/rate.service';
+import { RateService } from '../rate/rate.service';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
-  providers: [TimerService, WatcherService, CalculatorService, RateService],
+  providers: [TimerService, WatcherService, CalculatorService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
