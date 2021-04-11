@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RateComponent } from './rate.component';
+import { RateService } from './rate.service';
 
 describe('RateComponent', () => {
   let component: RateComponent;
@@ -8,7 +9,8 @@ describe('RateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RateComponent ]
+      declarations: [ RateComponent ],
+      providers: [ RateService]
     })
     .compileComponents();
   });
