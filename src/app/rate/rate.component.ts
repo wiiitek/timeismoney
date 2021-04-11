@@ -14,7 +14,7 @@ export class RateComponent {
   @Input('ngModel')
   set hourlyRate(typed: string) {
     console.log('provided: ' + typed);
-    const parsed = parseInt(typed);
+    const parsed = parseFloat(typed);
 
     this.rateService.rate(parsed);
   }
