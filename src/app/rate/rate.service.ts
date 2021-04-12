@@ -10,7 +10,7 @@ export class RateService {
 
   hourlyRate$ = this.hourlyRateSource.asObservable();
 
-  setHourlyRate(newValue: string) {
+  setHourlyRate(newValue: string): void {
     const parsed = parseFloat(newValue);
     if (parsed || parsed === 0) {
       this.hourlyRateSource.next(parsed);

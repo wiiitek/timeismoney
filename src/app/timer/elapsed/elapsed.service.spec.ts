@@ -15,7 +15,7 @@ describe('ElapsedService', () => {
 
   it('should convert elapsed two minutes', () => {
     // when
-    let actual = service.convert(135_000);
+    const actual = service.convert(135_000);
 
     // then
     expect(actual).toBe('00:02:15');
@@ -23,7 +23,7 @@ describe('ElapsedService', () => {
 
   it('should convert elapsed 59 minutes', () => {
     // when
-    let actual = service.convert(3_540_000);
+    const actual = service.convert(3_540_000);
 
     // then
     expect(actual).toBe('00:59:00');
@@ -31,7 +31,7 @@ describe('ElapsedService', () => {
 
   it('should convert elapsed 60 minutes', () => {
     // when
-    let actual = service.convert(3_600_000);
+    const actual = service.convert(3_600_000);
 
     // then
     expect(actual).toBe('01:00:00');
@@ -39,7 +39,7 @@ describe('ElapsedService', () => {
 
   it('should convert elapsed 123 hours', () => {
     // when
-    let actual = service.convert(442_800_000);
+    const actual = service.convert(442_800_000);
 
     // then
     expect(actual).toBe('123:00:00');

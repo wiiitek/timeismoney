@@ -8,7 +8,7 @@ export class ElapsedService {
 
   public convertedValue$ = this.behaviorSubject.asObservable();
 
-  elapsed(elapsedMillis: number) {
+  elapsed(elapsedMillis: number): void {
     const converted = this.convert(elapsedMillis);
     this.behaviorSubject.next(converted);
   }

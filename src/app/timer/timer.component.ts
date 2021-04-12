@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@a
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
 import { CalculatorService } from './calculator/calculator.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
@@ -16,19 +17,19 @@ export class TimerComponent {
   @Input()
   label = 'Elapsed';
 
-  get buttonText() {
+  get buttonText(): Observable<string> {
     return this.timerService.buttonText$;
   }
 
-  get elapsed() {
+  get elapsed(): Observable<number> {
     return this.timerService.elapsed$;
   }
 
-  get earned() {
+  get earned(): Observable<number> {
     return this.timerService.earned$;
   }
 
-  get statusClass() {
+  get statusClass(): string {
     const countingCss = '';
     const notCountingCss = 'button-primary';
     return this.timerService.counting ? countingCss : notCountingCss;
@@ -36,11 +37,11 @@ export class TimerComponent {
 
   constructor(private timerService: TimerService) { }
 
-  onStartOrPause() {
+  onStartOrPause(): void {
     this.timerService.onStartOrPause();
   }
 
-  onReset() {
+  onReset(): void {
     this.timerService.onReset();
   }
 }
