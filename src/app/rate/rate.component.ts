@@ -11,8 +11,6 @@ import { RateService } from './rate.service';
 })
 export class RateComponent {
 
-  _hourlyRate = -1;
-
   get hourlyRateFromService(): Observable<string> | string {
     const hourlyRate = this.rateService.getHourlyRate();
     return hourlyRate.toString();
@@ -21,7 +19,7 @@ export class RateComponent {
   constructor(private rateService: RateService) { }
 
   // https://stackoverflow.com/a/57200419
-  onRateChange(newValue: string) {
+  onRateChange(newValue: string): void {
     this.rateService.setHourlyRate(newValue);
   }
 }

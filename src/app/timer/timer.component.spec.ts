@@ -72,7 +72,7 @@ describe('TimerComponent', () => {
     // when
     component.onReset();
 
-    //then
+    // then
     expect(actual).toBe(0);
   }));
 });

@@ -1,6 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
+
+type SimpleFunction = () => void;
 
 /**
  * Executes provided function periodically.
@@ -16,29 +18,32 @@ export class WatcherService {
     this.timeBetweenExecutions = environment.watcherRefreshDelayInMillis;
   }
 
-  start(fun: Function, functionContext: any) {
+  start(fun: SimpleFunction, functionContext: any): void {
     this.stop();
     this._repeat(fun, functionContext);
   }
 
-  stop() {
+  stop(): void {
     if (this.timeoutRef) {
       clearTimeout(this.timeoutRef);
       this.timeoutRef = null;
     }
   }
 
-  setTimeBetweenExecutions(millis: number) {
+  setTimeBetweenExecutions(millis: number): void {
     this.timeBetweenExecutions = millis;
   }
 
-  private _repeat(fun: Function, functionContext: any) {
+  private _repeat(fun: SimpleFunction, functionContext: any): void {
     const watcher = this;
 
     // it is safe to overwrite timeoutRef, because this method is executed after time elapsed
-    this.timeoutRef = setTimeout(function () {
-      fun.apply(functionContext);
-      watcher._repeat(fun, functionContext);
-    }, this.timeBetweenExecutions);
+    this.timeoutRef = setTimeout(
+      () => {
+        fun.apply(functionContext);
+        watcher._repeat(fun, functionContext);
+      },
+      this.timeBetweenExecutions
+    );
   }
 }

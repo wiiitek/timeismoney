@@ -18,7 +18,7 @@ export class ElapsedComponent {
   }
 
   get converted(): Observable<string> {
-    return this.elapsedService.convertedValue$
+    return this.elapsedService.convertedValue$;
   }
 
   constructor(private elapsedService: ElapsedService) { }

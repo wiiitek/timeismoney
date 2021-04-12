@@ -15,13 +15,13 @@ export class TimerService implements OnDestroy {
   private buttonTextSource = new BehaviorSubject<string>('Start');
   private elapsedMillisSource = new BehaviorSubject<number>(0);
 
-  public counting: boolean = false;
+  public counting = false;
   public buttonText$ = this.buttonTextSource.asObservable();
   public elapsed$ = this.elapsedMillisSource.asObservable();
   public earned$ = this.elapsed$.pipe(
     map<number, number>((newElapsed: number) => {
       const hourlyRate = this.rateService.getHourlyRate();
-      return this.calculatorService.toMoney(newElapsed, hourlyRate)
+      return this.calculatorService.toMoney(newElapsed, hourlyRate);
     })
   );
 
@@ -30,7 +30,7 @@ export class TimerService implements OnDestroy {
     private calculatorService: CalculatorService,
     private rateService: RateService) { }
 
-  onStartOrPause() {
+  onStartOrPause(): void {
     const startAction = !this.counting;
     if (startAction) {
       this.startedAt = Date.now();
@@ -49,7 +49,7 @@ export class TimerService implements OnDestroy {
     }
   }
 
-  onReset() {
+  onReset(): void {
     if (this.counting) {
       this.counting = false;
       this.watcherService.stop();
@@ -63,7 +63,7 @@ export class TimerService implements OnDestroy {
     this.watcherService.stop();
   }
 
-  private updateElapsed() {
+  private updateElapsed(): void {
     this.lastUpdated = Date.now();
     const delta = this.lastUpdated - this.startedAt;
     const newElapsed = this.sumOfElapsed + delta;

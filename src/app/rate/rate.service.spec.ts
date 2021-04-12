@@ -13,7 +13,7 @@ describe('RateService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return updated hourly rate', () =>{
+  it('should return updated hourly rate', () => {
     // given
     service.setHourlyRate('123.456');
 

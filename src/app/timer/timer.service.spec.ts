@@ -13,7 +13,7 @@ describe('TimerService', () => {
   beforeEach(() => {
     const watcherService = new WatcherService();
     // for testing we update status every two seconds (fakeAsync will rewind the time for us)
-    watcherService.setTimeBetweenExecutions(2_000)
+    watcherService.setTimeBetweenExecutions(2_000);
     const calculatorService = new CalculatorService();
     const rateService = new RateService();
     tested = new TimerService(watcherService, calculatorService, rateService);
@@ -70,12 +70,12 @@ describe('TimerService', () => {
     tested.onStartOrPause();
 
     // when
-    tested.onReset()
+    tested.onReset();
 
     // then
     expect(tested.counting).toBeFalse();
     // counting should stop
-    tick(600)
+    tick(600);
     expect(tested.counting).toBeFalse();
 
     // turn off counting
@@ -91,7 +91,7 @@ describe('TimerService', () => {
     });
 
     // when
-    tested.onReset()
+    tested.onReset();
 
     // then
     expect(actual).toEqual('Start');
@@ -215,7 +215,7 @@ describe('TimerService', () => {
 
     // start again
     tested.onStartOrPause();
-    tick(3_000)
+    tick(3_000);
 
     // then
     // but our service updates the value every two seconds... so
