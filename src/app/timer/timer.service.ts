@@ -54,6 +54,7 @@ export class TimerService implements OnDestroy {
       this.counting = false;
       this.watcherService.stop();
     }
+    this.sumOfElapsed = 0;
     this.elapsedMillisSource.next(0);
     this.buttonTextSource.next('Start');
   }

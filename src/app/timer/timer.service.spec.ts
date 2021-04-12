@@ -194,4 +194,34 @@ describe('TimerService', () => {
     // turn off counting
     tested.ngOnDestroy();
   }));
+
+
+  it('should correctly reset timer after pausing', fakeAsync(() => {
+    // given
+    let actual = 999_999;
+    tested.elapsed$.subscribe(newValue => {
+      actual = newValue;
+    });
+
+    // start
+    tested.onStartOrPause();
+    tick(10_000);
+    // pause
+    tested.onStartOrPause();
+    tick(4_000);
+    // reset
+    tested.onReset();
+    tick(3_000);
+
+    // start again
+    tested.onStartOrPause();
+    tick(3_000)
+
+    // then
+    // but our service updates the value every two seconds... so
+    expect(actual).toEqual(2_000);
+
+    // turn off counting
+    tested.ngOnDestroy();
+  }));
 });
