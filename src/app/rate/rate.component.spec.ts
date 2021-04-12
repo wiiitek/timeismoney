@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { RateComponent } from './rate.component';
 import { RateService } from './rate.service';
@@ -18,7 +18,7 @@ describe('RateComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RateComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    //fixture.detectChanges();
   });
 
   it('should create', () => {

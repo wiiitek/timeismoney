@@ -5,6 +5,6 @@
     placeholder="your hourly rate"
     id="hourlyRate"
     [ngModel]="hourlyRateFromService | async"
-    (ngModel)="hourlyRateFromInputField"
+    (ngModelChange)="onRateChange($event)"
     />
 </div>

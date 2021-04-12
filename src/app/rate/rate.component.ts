@@ -12,18 +12,21 @@ import { RateService } from './rate.service';
 })
 export class RateComponent {
 
-  @Input('ngModel')
-  set hourlyRateFromInputField(newValue: string) {
-    this.rateService.setHourlyRate(newValue);
-  }
+  _hourlyRate = -1;
 
   get hourlyRateFromService(): Observable<string> {
     return this.rateService.hourlyRate$
       .pipe(map<number, string>(
-        numberValue => numberValue.toString()
+        (numberValue) => {
+          this._hourlyRate = numberValue;
+          return numberValue.toString();}
       ));
   }
 
   constructor(private rateService: RateService) { }
 
+  // https://stackoverflow.com/a/57200419
+  onRateChange(newValue: string) {
+    this.rateService.setHourlyRate(newValue);
+  }
 }
