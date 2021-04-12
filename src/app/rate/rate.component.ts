@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { RateService } from './rate.service';
 
 @Component({
@@ -12,17 +13,15 @@ import { RateService } from './rate.service';
 export class RateComponent {
 
   @Input('ngModel')
-  set hourlyRate(typed: string) {
-    console.log('provided: ' + typed);
-    const parsed = parseFloat(typed);
-
-    this.rateService.rate(parsed);
+  set hourlyRateFromInputField(newValue: string) {
+    this.rateService.setHourlyRate(newValue);
   }
 
-  get hourlyRate(): string {
-    const value = this.rateService.getHourlyRate();
-    console.log('get: ' + value);
-    return value.toString();
+  get hourlyRateFromService(): Observable<string> {
+    return this.rateService.hourlyRate$
+      .pipe(map<number, string>(
+        numberValue => numberValue.toString()
+      ));
   }
 
   constructor(private rateService: RateService) { }

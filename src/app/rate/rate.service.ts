@@ -6,15 +6,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class RateService {
 
-  private hourlyRateSubject = new BehaviorSubject<number>(100);
+  hourlyRateSource = new BehaviorSubject<number>(100);
 
-  public hourlyRate$ = this.hourlyRateSubject.asObservable();
+  hourlyRate$ = this.hourlyRateSource.asObservable();
 
-  rate(newValue: number) {
-    this.hourlyRateSubject.next(newValue);
+  setHourlyRate(newValue: string) {
+    const parsed = parseFloat(newValue);
+    if (parsed || parsed === 0) {
+      this.hourlyRateSource.next(parsed);
+    }
   }
 
   getHourlyRate(): number {
-    return this.hourlyRateSubject.value;
+    return this.hourlyRateSource.value;
   }
 }
