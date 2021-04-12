@@ -1,0 +1,10 @@
+
+<div class="rate">
+  <input
+    class="rate__input u-full-width"
+    placeholder="your hourly rate"
+    id="hourlyRate"
+    [ngModel]="(hourlyRateFromService)"
+    (ngModelChange)="onRateChange($event)"
+    />
+</div>
