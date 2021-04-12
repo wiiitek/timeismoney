@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 import { RateComponent } from './rate.component';
@@ -13,8 +12,7 @@ describe('RateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule, CommonModule,
-        ReactiveFormsModule,],
+      imports: [FormsModule],
       declarations: [RateComponent],
       providers: [RateService]
     })
@@ -25,7 +23,6 @@ describe('RateComponent', () => {
     fixture = TestBed.createComponent(RateComponent);
     component = fixture.componentInstance;
     service = fixture.debugElement.injector.get(RateService);
-    //fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -46,7 +43,7 @@ describe('RateComponent', () => {
       const inputElement = fixture.debugElement.query(By.css('.rate__input'));
       expect(inputElement.nativeElement.value).toContain('4567');
     });
-  })
+  });
 
   it('should update from component to service', async () => {
 
@@ -58,5 +55,5 @@ describe('RateComponent', () => {
 
     // then
     expect(actual).toBe(7654);
-  })
+  });
 });
