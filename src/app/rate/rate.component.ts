@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { RateService } from './rate.service';
 
 @Component({
@@ -15,14 +14,8 @@ export class RateComponent {
   _hourlyRate = -1;
 
   get hourlyRateFromService(): Observable<string> | string {
-    // return this.rateService.hourlyRate$
-    //   .pipe(map<number, string>(
-    //     (numberValue) => {
-    //       this._hourlyRate = numberValue;
-    //       return numberValue.toString();}
-    //   ));
-    const value = this.rateService.getHourlyRate().toString();
-    return value;
+    const hourlyRate = this.rateService.getHourlyRate();
+    return hourlyRate.toString();
   }
 
   constructor(private rateService: RateService) { }
