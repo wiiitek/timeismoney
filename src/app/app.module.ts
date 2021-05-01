@@ -20,13 +20,13 @@ import { HourlyRateEditIconComponent } from './rate/hourly-rate-edit-icon/hourly
     ElapsedComponent,
     EarnedComponent,
     RateComponent,
-    HourlyRateEditIconComponent,
+    HourlyRateEditIconComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ModalModule,
+    ModalModule
   ],
   providers: [RateService],
   bootstrap: [AppComponent]

@@ -11,8 +11,7 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('rateConfigModal') modal: ModalComponent | undefined;
 
-  constructor(private modalWrapperService: ModalWrapperService) {
-  }
+  constructor(private modalWrapperService: ModalWrapperService) { }
 
   ngAfterViewInit() {
     if (this.modal) {

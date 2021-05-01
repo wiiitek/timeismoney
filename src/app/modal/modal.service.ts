@@ -4,7 +4,7 @@ import { ModalComponent } from 'angular-custom-modal';
 @Injectable({
   providedIn: 'root'
 })
-export class ModalWrapperService {
+export class ModalService {
 
   modal: ModalComponent | undefined;
 
