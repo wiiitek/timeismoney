@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: yarn install
+      - name: Yarn Install
         run: |
           yarn install
 
@@ -43,7 +43,7 @@ jobs:
       # https://github.com/marketplace/actions/yarn-node-install-cache
       - name: Dev Tools Cache
         uses: egordm/gha-yarn-node-cache@v1
-      - name: Tests
+      - name: Tests and Sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -67,7 +67,7 @@ jobs:
       - name: Archive built project
         uses: actions/upload-artifact@v2
         with:
-          name: dist
+          name: timeismoney-dist
           path: |
             dist
           retention-days: 1
@@ -79,11 +79,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download build project
+      - name: Download Build Project
         uses: actions/download-artifact@v2
         with:
-          name: dist
-
+          name: timeismoney-dist
+          path: dist
+      - name: List Current Folder
+        run: |
+          ls -R
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action#configuration-
         uses: JamesIves/github-pages-deploy-action@4.1.0
