@@ -1,6 +1,6 @@
 # timeismoney
 
-[![GitHub Actions](https://github.com/wiiitek/timeismoney/actions/workflows/build.yml/badge.svg)](https://github.com/wiiitek/timeismoney/actions/workflows/build.yml)
+[![Parallel build](https://github.com/wiiitek/timeismoney/actions/workflows/parallel-build.yml/badge.svg)](https://github.com/wiiitek/timeismoney/actions/workflows/parallel-build.yml)
 [![sonarcloud.io](https://sonarcloud.io/api/project_badges/measure?project=wiiitek_timeismoney&metric=alert_status)](https://sonarcloud.io/dashboard?id=wiiitek_timeismoney)
 
 [This project](https://timeismoney.dev/) was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
