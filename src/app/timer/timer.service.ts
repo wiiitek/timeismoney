@@ -17,6 +17,7 @@ export class TimerService implements OnDestroy {
 
   public counting = false;
   public buttonText$ = this.buttonTextSource.asObservable();
+  public hourlyRate$ = this.rateService.hourlyRate$;
   public elapsed$ = this.elapsedMillisSource.asObservable();
   public earned$ = this.elapsed$.pipe(
     map<number, number>((newElapsed: number) => {
@@ -28,7 +29,8 @@ export class TimerService implements OnDestroy {
   constructor(
     private watcherService: WatcherService,
     private calculatorService: CalculatorService,
-    private rateService: RateService) { }
+    private rateService: RateService,
+  ) { }
 
   onStartOrPause(): void {
     const startAction = !this.counting;

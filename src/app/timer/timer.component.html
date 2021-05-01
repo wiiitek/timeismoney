@@ -1,7 +1,13 @@
 <div class="timer">
 
   <hr />
-  <div>{{label}}</div>
+  <div class="timer__hourly_rate">
+    <div>
+      <app-hourly-rate-edit-icon></app-hourly-rate-edit-icon> Hourly rate:
+    </div>
+    <div>{{ hourlyRate | async }}</div>
+  </div>
+
   <app-elapsed [elapsed]="elapsed | async"></app-elapsed>
   <app-earned [earned]="earned | async"></app-earned>
 

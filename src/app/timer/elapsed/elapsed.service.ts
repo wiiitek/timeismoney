@@ -23,7 +23,7 @@ export class ElapsedService {
     const millis = elapsedMillis % minute;
     const seconds = Math.floor(millis / 1000);
 
-    return this.present(hours) + ':' + this.present(minutes) + ':' + this.present(seconds);
+    return `${this.present(hours)}:${this.present(minutes)}:${this.present(seconds)}`;
   }
 
   private present(value: number): string {
