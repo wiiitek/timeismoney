@@ -1,4 +1,6 @@
+import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalComponent } from 'angular-custom-modal';
 
 import { HourlyRateEditIconComponent } from './hourly-rate-edit-icon.component';
 
@@ -8,9 +10,9 @@ describe('HourlyRateEditIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HourlyRateEditIconComponent ]
+      declarations: [HourlyRateEditIconComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +24,9 @@ describe('HourlyRateEditIconComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should throw exception if modal is missing', () => {
+    expect(component.onRateEditClick).toThrow();
+  })
+
 });

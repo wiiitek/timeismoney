@@ -6,9 +6,7 @@ import { ModalComponent } from 'angular-custom-modal';
 })
 export class ModalService {
 
-  modal: ModalComponent | undefined;
-
-  constructor() { }
+  private modal: ModalComponent | undefined;
 
   setModal(modal: ModalComponent) {
     this.modal = modal;
@@ -17,12 +15,8 @@ export class ModalService {
   open() {
     if (this.modal) {
       this.modal.open();
-    }
-  }
-
-  close() {
-    if (this.modal) {
-      this.modal.close();
+    } else {
+      throw new Error("ModalService is not initialized with modal.");
     }
   }
 }

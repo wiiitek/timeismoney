@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { ModalWrapperService } from 'src/app/modal/modal-wrapper.service';
+import { ModalService } from 'src/app/modal/modal.service';
 
 @Component({
   selector: 'app-hourly-rate-edit-icon',
@@ -10,10 +10,9 @@ import { ModalWrapperService } from 'src/app/modal/modal-wrapper.service';
 })
 export class HourlyRateEditIconComponent {
 
-  constructor(private modalWrapperService: ModalWrapperService) { }
+  constructor(private modalService: ModalService) { }
 
   onRateEditClick(): void {
-    //this.modalWrapperService.modal?.open();
-    this.modalWrapperService.open();
+    this.modalService.open();
   }
 }

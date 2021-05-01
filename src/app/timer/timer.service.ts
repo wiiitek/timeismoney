@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 import { CalculatorService } from './calculator/calculator.service';
 import { RateService } from '../rate/rate.service';
 import { WatcherService } from './watcher/watcher.service';
-import { ModalWrapperService } from '../modal/modal-wrapper.service';
 
 @Injectable()
 export class TimerService implements OnDestroy {

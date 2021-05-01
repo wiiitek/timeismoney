@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { ModalComponent } from 'angular-custom-modal';
-import { ModalWrapperService } from './modal/modal-wrapper.service';
+import { ModalService } from './modal/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,11 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('rateConfigModal') modal: ModalComponent | undefined;
 
-  constructor(private modalWrapperService: ModalWrapperService) { }
+  constructor(private modalService: ModalService) { }
 
   ngAfterViewInit() {
     if (this.modal) {
-      this.modalWrapperService.setModal(this.modal);
+      this.modalService.setModal(this.modal);
     }
   }
 }
