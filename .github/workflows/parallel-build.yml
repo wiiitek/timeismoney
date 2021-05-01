@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v1
       # https://github.com/marketplace/actions/yarn-node-install-cache
       - name: Dev Tools Cache
         uses: egordm/gha-yarn-node-cache@v1
-      - uses: actions/checkout@v1
       - name: Node 12.x
         uses: actions/setup-node@v1
         with:
