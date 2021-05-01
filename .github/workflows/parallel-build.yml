@@ -79,6 +79,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v1
       - name: Download Build Project
         uses: actions/download-artifact@v2
         with:
@@ -93,5 +94,5 @@ jobs:
         with:
           repository-name: wiiitek/timeismoney.page
           branch: main
-          folder: ./
+          folder: ./dist/timeismoney
           token: ${{ secrets.GH_TOKEN }}
