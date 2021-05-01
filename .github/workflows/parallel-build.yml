@@ -52,7 +52,7 @@ jobs:
           yarn sonar
 
   build:
-    needs: [lint, test]
+    needs: install
     name: Build
     runs-on: ubuntu-latest
 
@@ -73,7 +73,8 @@ jobs:
           retention-days: 1
 
   deploy:
-    needs: build
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [lint, test, build]
     name: Deploy
     runs-on: ubuntu-latest
 
@@ -84,7 +85,6 @@ jobs:
           name: dist
 
       - name: Deploy
-        if: ${{ github.ref == 'refs/heads/main' }}
         # https://github.com/JamesIves/github-pages-deploy-action#configuration-
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
