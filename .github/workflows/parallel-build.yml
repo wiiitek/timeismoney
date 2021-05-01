@@ -1,0 +1,94 @@
+name: Parallel build
+
+on: push
+
+jobs:
+  install:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      # https://github.com/marketplace/actions/yarn-node-install-cache
+      - name: Dev Tools Cache
+        uses: egordm/gha-yarn-node-cache@v1
+      - name: Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: yarn install
+        run: |
+          yarn install
+
+  lint:
+    needs: install
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      # https://github.com/marketplace/actions/yarn-node-install-cache
+      - name: Dev Tools Cache
+        uses: egordm/gha-yarn-node-cache@v1
+      - name: Lint
+        run: |
+          yarn lint
+  test:
+    needs: install
+    name: Run Tests and Sonar
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      # https://github.com/marketplace/actions/yarn-node-install-cache
+      - name: Dev Tools Cache
+        uses: egordm/gha-yarn-node-cache@v1
+      - name: Tests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          yarn test
+          yarn sonar
+
+  build:
+    needs: install
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      # https://github.com/marketplace/actions/yarn-node-install-cache
+      - name: Dev Tools Cache
+        uses: egordm/gha-yarn-node-cache@v1
+      - name: Build
+        run: |
+          yarn build
+      - name: Archive built project
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: |
+            dist
+          retention-days: 1
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [lint, test, build]
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build project
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+
+      - name: Deploy
+        # https://github.com/JamesIves/github-pages-deploy-action#configuration-
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          repository-name: wiiitek/timeismoney.page
+          branch: main
+          folder: dist/timeismoney
+          token: ${{ secrets.GH_TOKEN }}
