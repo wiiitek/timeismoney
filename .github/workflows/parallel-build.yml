@@ -90,5 +90,5 @@ jobs:
         with:
           repository-name: wiiitek/timeismoney.page
           branch: main
-          folder: dist/timeismoney
+          folder: ./
           token: ${{ secrets.GH_TOKEN }}
