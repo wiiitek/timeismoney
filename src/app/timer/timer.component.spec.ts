@@ -1,16 +1,21 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { RateService, RateType } from '../rate/rate.service';
 
 import { TimerComponent } from './timer.component';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
   let fixture: ComponentFixture<TimerComponent>;
+  let rateService: RateService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TimerComponent]
+      declarations: [TimerComponent],
+      providers: [RateService],
     })
       .compileComponents();
+
+    rateService = TestBed.inject(RateService);
   });
 
   beforeEach(() => {
@@ -63,9 +68,9 @@ describe('TimerComponent', () => {
   it('reset should change timer to zero', fakeAsync(() => {
     // given
     let actual = -1;
-    component.elapsed.subscribe(newValue => {
-      actual = newValue;
-    });
+    component.elapsed.subscribe(
+      newValue => actual = newValue
+    );
     component.onStartOrPause();
     tick(1234);
 
@@ -75,4 +80,19 @@ describe('TimerComponent', () => {
     // then
     expect(actual).toBe(0);
   }));
+
+  it('swith to monthly rate type should change displayed rate', () => {
+    // given:
+    const precision = 10;
+    let actual = null;
+    component.hourlyRate.subscribe(
+      newValue => actual = newValue
+    );
+
+    // when
+    rateService.setRateType(RateType.PER_MONTH);
+
+    //then
+    expect(actual).toBeCloseTo(0.595238095238, precision);
+  })
 });
