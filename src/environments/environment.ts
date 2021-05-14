@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  watcherRefreshDelayInMillis: 333,
+  watcherRefreshDelayInMillis: 1000,
 };
 
 /*

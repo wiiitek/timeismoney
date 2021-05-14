@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  watcherRefreshDelayInMillis: 333,
+  watcherRefreshDelayInMillis: 1000,
 };

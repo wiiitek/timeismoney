@@ -1,24 +1,51 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
-import { EarnedService } from './earned.service';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-earned',
   templateUrl: './earned.component.html',
-  providers: [EarnedService],
+  styleUrls: ['./earned.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EarnedComponent {
+export class EarnedComponent implements AfterViewInit {
 
-  wholeNumber = '000';
+  @ViewChild('board') boardElement: ElementRef<HTMLDivElement> | undefined;
 
-  cents = '00';
+  earnedCents: number = 0;
+
+  @Input()
+  boardLength: number = 12;
+
+  departureBoard: any = null;
 
   @Input()
   set earned(earned: number | any) {
-    this.cents = this.earnedService.cents(earned);
-    this.wholeNumber = this.earnedService.wholeNumber(earned);
+    this.earnedCents = earned;
+    this.updateDepartureBoard()
   }
 
-  constructor(private earnedService: EarnedService) { }
+  ngAfterViewInit() {
+    if (this.boardElement) {
+      if (DepartureBoard) {
+        DepartureBoard.LETTERS = ' 0123456789.';
+        this.departureBoard = new DepartureBoard(this.boardElement.nativeElement, {
+          rowCount: 1,
+          letterCount: this.boardLength
+        });
+        this.updateDepartureBoard();
+      }
+    }
+  }
+
+  private updateDepartureBoard() {
+    if (this.departureBoard) {
+
+      const earned = this.earnedCents / 100;
+      const formatted = earned.toFixed(2);
+      const leadingSpaces = this.boardLength - formatted.length;
+      const prefix = new Array(leadingSpaces + 1).join(' ');
+      const forBoard = `${prefix}${formatted}`;
+      this.departureBoard.setValue(forBoard);
+    }
+  }
 }

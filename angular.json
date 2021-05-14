@@ -35,10 +35,13 @@
             "styles": [
               "./node_modules/skeleton-css/css/normalize.css",
               "./node_modules/skeleton-css/css/skeleton.css",
+              "src/assets/libs/departure-board/css/departure-board.css",
               "src/assets/modal.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/libs/departure-board/js/departure-board.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -100,10 +103,13 @@
             "styles": [
               "./node_modules/skeleton-css/css/normalize.css",
               "./node_modules/skeleton-css/css/skeleton.css",
+              "src/assets/libs/departure-board/css/departure-board.css",
               "src/assets/modal.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/libs/departure-board/js/departure-board.js"
+            ]
           }
         },
         "lint": {

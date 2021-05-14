@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { EarnedComponent } from './earned.component';
 
@@ -22,19 +22,19 @@ describe('EarnedComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should correctly format numeric value', () => {
+  it('should create board component', fakeAsync(() => {
     // given
     const compiled = fixture.nativeElement;
 
     // when
-    component.earned = 1209;
-    // > fixture.detectChanges() works ONLY the first time with ChangeDetectionStrategy.OnPush and karma reports
-    // https://medium.com/@juliapassynkova/how-to-test-onpush-components-c9b39871fe1e#06d6
+    component.earned = 12345;
     fixture.detectChanges();
+    // wait two seconds for board to update
+    tick(2000);
+
+    const lastDigitEl = compiled.querySelectorAll('.earned__board .letter')[component.boardLength - 1];
 
     // then
-    expect(compiled.querySelector('.earned__whole-number').textContent).toBe('012');
-    // and
-    expect(compiled.querySelector('.earned__cents').textContent).toBe('09');
-  });
+    expect(lastDigitEl.querySelector('.flap.top .text').textContent).toBe('5');
+  }));
 });
