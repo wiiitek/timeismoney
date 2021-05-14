@@ -45,8 +45,9 @@ export class RateService {
     const parsed = parseFloat(newValue);
     const parsedOk = parsed || parsed === 0;
     if (parsedOk) {
+      const valid = parsed >= 0;
       const hasChanged = parsed !== this.rate;
-      if (hasChanged) {
+      if (valid && hasChanged) {
         this.rate = parsed;
         this.recalculateHourlyRate();
       }

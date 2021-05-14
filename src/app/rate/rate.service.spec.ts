@@ -97,7 +97,6 @@ describe('RateService', () => {
     expect(service.getHourlyRate()).toBe(84);
   })
 
-
   it('should return default rate', () => {
     expect(service.getHourlyRate()).toBe(100);
   })
@@ -126,4 +125,12 @@ describe('RateService', () => {
       expect(service.getHourlyRate()).toBeCloseTo(param.expected, precision);
     })
   });
+
+
+  it('should ignore rate lower than zero', () => {
+    // when
+    service.setRate('-12345')
+    // then
+    expect(service.getHourlyRate()).toBe(100);
+  })
 });
