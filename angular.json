@@ -107,7 +107,9 @@
               "src/assets/modal.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/libs/departure-board/js/departure-board.js"
+            ]
           }
         },
         "lint": {

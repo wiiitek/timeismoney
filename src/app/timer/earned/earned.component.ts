@@ -1,11 +1,9 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { EarnedService } from './earned.service';
 
 @Component({
   selector: 'app-earned',
   templateUrl: './earned.component.html',
   styleUrls: ['./earned.component.scss'],
-  providers: [EarnedService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -28,12 +26,14 @@ export class EarnedComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.boardElement) {
-      DepartureBoard.LETTERS = ' .0123456789';
-      this.departureBoard = new DepartureBoard(this.boardElement.nativeElement, {
-        rowCount: 1,
-        letterCount: this.boardLength
-      });
-      this.updateDepartureBoard();
+      if (DepartureBoard) {
+        DepartureBoard.LETTERS = ' 0123456789.';
+        this.departureBoard = new DepartureBoard(this.boardElement.nativeElement, {
+          rowCount: 1,
+          letterCount: this.boardLength
+        });
+        this.updateDepartureBoard();
+      }
     }
   }
 

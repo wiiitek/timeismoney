@@ -22,19 +22,4 @@ describe('EarnedComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should correctly format numeric value', () => {
-    // given
-    const compiled = fixture.nativeElement;
-
-    // when
-    component.earned = 1209;
-    // > fixture.detectChanges() works ONLY the first time with ChangeDetectionStrategy.OnPush and karma reports
-    // https://medium.com/@juliapassynkova/how-to-test-onpush-components-c9b39871fe1e#06d6
-    fixture.detectChanges();
-
-    // then
-    expect(compiled.querySelector('.earned__whole-number').textContent).toBe('012');
-    // and
-    expect(compiled.querySelector('.earned__cents').textContent).toBe('09');
-  });
 });
