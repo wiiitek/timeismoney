@@ -1,12 +1,12 @@
 <div class="rate">
   <div class="rate__input">
-    <input type="number" class="u-full-width" placeholder="your hourly rate" id="hourlyRate" [ngModel]="(hourlyRateFromService)"
-      (ngModelChange)="onRateChange($event)" />
+    <input type="number" class="u-full-width" placeholder="your hourly rate" id="hourlyRate"
+      [ngModel]="(rateFromService)" (ngModelChange)="onRateChange($event)" />
   </div>
   <div class="rate__select">
-    <select>
-      <option value="per-hour">per hour</option>
-      <option value="per-month">per month</option>
+    <select (change)="onRateTypeChange($event)">
+      <option value="per-hour" [selected]="perHour()">per hour</option>
+      <option value="per-month" [selected]="perMonth()">per month</option>
     </select>
   </div>
 </div>

@@ -41,12 +41,11 @@ describe('RateComponent', () => {
 
       // then
       const inputElement = fixture.debugElement.query(By.css('.rate__input input'));
-      expect(inputElement.nativeElement.value).toContain('4567');
+      expect(inputElement.nativeElement.value).toBe('4567');
     });
   });
 
   it('should update from component to service', async () => {
-
     // given
     component.onRateChange('7654');
 
@@ -55,5 +54,23 @@ describe('RateComponent', () => {
 
     // then
     expect(actual).toBe(7654);
+  });
+
+  it('should not change rate when rate type is changed', () => {
+    // given:
+    const event = { target: { value: "per-month" } };
+
+    // when
+    component.onRateTypeChange(event);
+    fixture.detectChanges();
+
+    // https://codecraft.tv/courses/angular/unit-testing/asynchronous/#_code_async_code_and_code_whenstable_code
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      // then
+      const inputElement = fixture.debugElement.query(By.css('.rate__input input'));
+      expect(inputElement.nativeElement.value).toBe('100');
+    });
   });
 });

@@ -21,11 +21,13 @@ export class RateService {
 
   hourlyRate$ = this.hourlyRateSource.asObservable();
 
+  getRate(): number {
+    return this.rate;
+  }
+
   getHourlyRate(): number {
     return this.hourlyRateSource.value;
   }
-
-  // ----------- setters -------------------
 
   setRateType(newRateType: RateType) {
     if (newRateType !== this.rateType) {

@@ -11,9 +11,9 @@ import { RateService, RateType } from './rate.service';
 })
 export class RateComponent {
 
-  get hourlyRateFromService(): Observable<string> | string {
-    const hourlyRate = this.rateService.getHourlyRate();
-    return hourlyRate.toString();
+  get rateFromService(): Observable<string> | string {
+    const rate = this.rateService.getRate();
+    return rate.toString();
   }
 
   constructor(private rateService: RateService) { }
@@ -21,5 +21,20 @@ export class RateComponent {
   // https://stackoverflow.com/a/57200419
   onRateChange(newRate: string): void {
     this.rateService.setRate(newRate);
+  }
+
+  onRateTypeChange(event: any): void {
+    const rateType: RateType = event.target.value;
+    if (rateType !== this.rateService.rateType) {
+      this.rateService.setRateType(rateType);
+    }
+  }
+
+  perHour(): boolean {
+    return this.rateService.rateType === RateType.PER_HOUR;
+  }
+
+  perMonth(): boolean {
+    return this.rateService.rateType === RateType.PER_MONTH;
   }
 }
