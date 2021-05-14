@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { EarnedComponent } from './earned.component';
 
@@ -22,4 +22,19 @@ describe('EarnedComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should create board component', fakeAsync(() => {
+    // given
+    const compiled = fixture.nativeElement;
+
+    // when
+    component.earned = 12345;
+    fixture.detectChanges();
+    // wait two seconds for board to update
+    tick(2000);
+
+    const lastDigitEl = compiled.querySelectorAll('.earned__board .letter')[component.boardLength - 1];
+
+    // then
+    expect(lastDigitEl.querySelector('.flap.top .text').textContent).toBe('5');
+  }));
 });
