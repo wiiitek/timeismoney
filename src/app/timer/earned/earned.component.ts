@@ -4,6 +4,7 @@ import { EarnedService } from './earned.service';
 @Component({
   selector: 'app-earned',
   templateUrl: './earned.component.html',
+  styleUrls: ['./earned.component.scss'],
   providers: [EarnedService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -12,9 +13,7 @@ export class EarnedComponent implements AfterViewInit {
 
   @ViewChild('board') boardElement: ElementRef<HTMLDivElement> | undefined;
 
-  wholeNumber = '000';
-
-  cents = '00';
+  earnedCents: number = 0;
 
   @Input()
   boardLength: number = 12;
@@ -23,13 +22,9 @@ export class EarnedComponent implements AfterViewInit {
 
   @Input()
   set earned(earned: number | any) {
-    this.cents = this.earnedService.cents(earned);
-    this.wholeNumber = this.earnedService.wholeNumber(earned);
-
+    this.earnedCents = earned;
     this.updateDepartureBoard()
   }
-
-  constructor(private earnedService: EarnedService) { }
 
   ngAfterViewInit() {
     if (this.boardElement) {
@@ -44,7 +39,9 @@ export class EarnedComponent implements AfterViewInit {
 
   private updateDepartureBoard() {
     if (this.departureBoard) {
-      const formatted = `${this.wholeNumber}.${this.cents}`;
+
+      const earned = this.earnedCents / 100;
+      const formatted = earned.toFixed(2);
       const leadingSpaces = this.boardLength - formatted.length;
       const prefix = new Array(leadingSpaces + 1).join(' ');
       const forBoard = `${prefix}${formatted}`;
