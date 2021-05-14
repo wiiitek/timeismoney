@@ -32,7 +32,7 @@ describe('RateComponent', () => {
   it('should update value from service', async () => {
 
     // when
-    service.setHourlyRate('4567');
+    service.setRate('4567');
     fixture.detectChanges();
 
     // https://codecraft.tv/courses/angular/unit-testing/asynchronous/#_code_async_code_and_code_whenstable_code
@@ -40,7 +40,7 @@ describe('RateComponent', () => {
       fixture.detectChanges();
 
       // then
-      const inputElement = fixture.debugElement.query(By.css('.rate__input'));
+      const inputElement = fixture.debugElement.query(By.css('.rate__input input'));
       expect(inputElement.nativeElement.value).toContain('4567');
     });
   });

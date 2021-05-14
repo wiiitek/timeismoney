@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-export enum Range {
+export enum RateType {
   PER_HOUR = "per-hour",
   PER_MONTH = "per-month",
 }
@@ -11,22 +11,59 @@ export enum Range {
 })
 export class RateService {
 
+  hoursInMonth = 168;
+
+  rate = 100;
+
+  rateType = RateType.PER_HOUR;
+
   hourlyRateSource = new BehaviorSubject<number>(100);
 
   hourlyRate$ = this.hourlyRateSource.asObservable();
 
-  setHourlyRate(newValue: string): void {
-    const parsed = parseFloat(newValue);
-    if (parsed || parsed === 0) {
-      this.hourlyRateSource.next(parsed);
+  getHourlyRate(): number {
+    return this.hourlyRateSource.value;
+  }
+
+  // ----------- setters -------------------
+
+  setRateType(newRateType: RateType) {
+    if (newRateType !== this.rateType) {
+      this.rateType = newRateType;
+      this.recalculateHourlyRate();
     }
   }
 
-  setRange(range: Range) {
-
+  setHoursInMonth(newHoursInMonth: number): void {
+    if (newHoursInMonth !== this.hoursInMonth) {
+      this.hoursInMonth = newHoursInMonth;
+      this.recalculateHourlyRate();
+    }
   }
 
-  getHourlyRate(): number {
-    return this.hourlyRateSource.value;
+  setRate(newValue: string): void {
+    const parsed = parseFloat(newValue);
+    const parsedOk = parsed || parsed === 0;
+    if (parsedOk) {
+      const hasChanged = parsed !== this.rate;
+      if (hasChanged) {
+        this.rate = parsed;
+        this.recalculateHourlyRate();
+      }
+    }
+  }
+
+  private recalculateHourlyRate() {
+    switch (this.rateType) {
+      case RateType.PER_HOUR:
+        this.hourlyRateSource.next(this.rate);
+        break;
+      case RateType.PER_MONTH:
+        const perHour = this.rate / this.hoursInMonth;
+        this.hourlyRateSource.next(perHour);
+        break;
+      default:
+        throw new Error(`Unexpected rate type: ${this.rateType}`);
+    }
   }
 }
