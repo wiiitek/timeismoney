@@ -16,6 +16,8 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (this.modal) {
       this.modalService.setModal(this.modal);
+      // TODO: for dev
+      this.modal.open();
     }
   }
 }

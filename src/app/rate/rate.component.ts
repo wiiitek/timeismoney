@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RateService } from './rate.service';
+import { RateService, Range } from './rate.service';
 
 @Component({
   selector: 'app-rate',
@@ -19,7 +19,7 @@ export class RateComponent {
   constructor(private rateService: RateService) { }
 
   // https://stackoverflow.com/a/57200419
-  onRateChange(newValue: string): void {
-    this.rateService.setHourlyRate(newValue);
+  onRateChange(newRate: string): void {
+    this.rateService.setHourlyRate(newRate);
   }
 }
