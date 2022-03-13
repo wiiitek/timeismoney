@@ -93,7 +93,7 @@ jobs:
         run: ls -R
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action#configuration-
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           repository-name: wiiitek/timeismoney
           branch: gh-pages
