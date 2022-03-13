@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'angular-custom-modal';
 
@@ -24,7 +23,6 @@ import { HourlyRateEditIconComponent } from './rate/hourly-rate-edit-icon/hourly
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ModalModule
   ],

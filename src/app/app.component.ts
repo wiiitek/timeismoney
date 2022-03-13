@@ -3,7 +3,7 @@ import { ModalComponent } from 'angular-custom-modal';
 import { ModalService } from './modal/modal.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-timeismoney',
   templateUrl: './app.component.html',
   encapsulation: ViewEncapsulation.None
 })
