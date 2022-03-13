@@ -42,7 +42,7 @@
             "scripts": [
               "src/assets/libs/departure-board/js/departure-board.js"
             ],
-            "baseHref": "/timeismoney"
+            "baseHref": "/timeismoney/"
           },
           "configurations": {
             "production": {
