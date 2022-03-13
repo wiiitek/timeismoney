@@ -1,0 +1,16 @@
+<div class="timer">
+
+  <hr />
+  <div class="timer__hourly_rate">
+    <div>
+      <app-hourly-rate-edit-icon></app-hourly-rate-edit-icon> Hourly rate:
+    </div>
+    <div>{{ hourlyRate | async }}</div>
+  </div>
+
+  <app-elapsed [elapsed]="elapsed | async"></app-elapsed>
+  <app-earned [earned]="earned | async"></app-earned>
+
+  <button class="timer__main_button" (click)="onStartOrPause()" [ngClass]="statusClass">{{ buttonText | async }}</button>
+  <button class="timer__reset_button" (click)="onReset()">Reset</button>
+</div>
