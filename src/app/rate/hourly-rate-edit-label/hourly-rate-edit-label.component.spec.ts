@@ -2,21 +2,21 @@ import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalComponent } from 'angular-custom-modal';
 
-import { HourlyRateEditIconComponent } from './hourly-rate-edit-icon.component';
+import { HourlyRateEditLabelComponent } from './hourly-rate-edit-label.component';
 
 describe('HourlyRateEditIconComponent', () => {
-  let component: HourlyRateEditIconComponent;
-  let fixture: ComponentFixture<HourlyRateEditIconComponent>;
+  let component: HourlyRateEditLabelComponent;
+  let fixture: ComponentFixture<HourlyRateEditLabelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HourlyRateEditIconComponent]
+      declarations: [HourlyRateEditLabelComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HourlyRateEditIconComponent);
+    fixture = TestBed.createComponent(HourlyRateEditLabelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
