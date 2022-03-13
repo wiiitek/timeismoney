@@ -10,9 +10,6 @@ import { ModalService } from 'src/app/modal/modal.service';
 })
 export class HourlyRateEditLabelComponent {
 
-  @Input()
-  text: string = '';
-
   constructor(private modalService: ModalService) { }
 
   onRateEditClick(): void {
