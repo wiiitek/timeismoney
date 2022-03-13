@@ -11,7 +11,7 @@ import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { RateComponent } from './rate/rate.component';
 import { RateService } from './rate/rate.service';
-import { HourlyRateEditIconComponent } from './rate/hourly-rate-edit-icon/hourly-rate-edit-icon.component';
+import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { HourlyRateEditIconComponent } from './rate/hourly-rate-edit-icon/hourly
     ElapsedComponent,
     EarnedComponent,
     RateComponent,
-    HourlyRateEditIconComponent
+    HourlyRateEditLabelComponent
   ],
   imports: [
     BrowserModule,
