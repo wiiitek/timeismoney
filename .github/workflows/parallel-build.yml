@@ -5,6 +5,8 @@ on:
     branches-ignore:
       - gh-pages
 
+env:
+  ANGULAR_BASE_HREF: /timeismoney/
 
 jobs:
   install:
@@ -68,7 +70,7 @@ jobs:
         uses: egordm/gha-yarn-node-cache@v1
       - name: Build
         run: |
-          yarn build
+          yarn build --base-href ${ANGULAR_BASE_HREF}
       - name: Archive built project
         uses: actions/upload-artifact@v2
         with:
