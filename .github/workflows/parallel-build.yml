@@ -67,7 +67,7 @@ jobs:
         uses: egordm/gha-yarn-node-cache@v1
       - name: Build
         run: |
-          yarn build
+          yarn build --configuration production
       - name: Archive built project
         uses: actions/upload-artifact@v2
         with:
