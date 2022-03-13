@@ -1,6 +1,10 @@
 name: Parallel build
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
 
 jobs:
   install:
@@ -33,6 +37,7 @@ jobs:
       - name: Lint
         run: |
           yarn lint
+
   test:
     needs: install
     name: Run Tests and Sonar
@@ -68,8 +73,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: timeismoney-dist
-          path: |
-            dist
+          path: dist
           retention-days: 1
 
   deploy:
@@ -86,13 +90,12 @@ jobs:
           name: timeismoney-dist
           path: dist
       - name: List Current Folder
-        run: |
-          ls -R
+        run: ls -R
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action#configuration-
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          repository-name: wiiitek/timeismoney.page
-          branch: main
+          repository-name: wiiitek/timeismoney
+          branch: gh-pages
           folder: ./dist/timeismoney
           token: ${{ secrets.GH_TOKEN }}
