@@ -27,10 +27,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To manually run Sonar analysis run `export SONAR_TOKEN=<sonar token>` for Sonar credentials and then `yarn sonar`.
 
-## GitHub Pages configuration
-
-See https://blog.cleberg.io/post/github-pages-subdomain-to-tld.html.
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
