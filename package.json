@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node_modules/.bin/ng serve",
-    "build": "node_modules/.bin/ng build --prod",
+    "build": "node_modules/.bin/ng build --configuration production",
     "test": "node_modules/.bin/ng test --watch=false --code-coverage --browsers ChromeHeadless",
     "test:watch": "node_modules/.bin/ng test",
     "lint": "node_modules/.bin/ng lint",
