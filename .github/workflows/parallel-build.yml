@@ -69,7 +69,7 @@ jobs:
         run: |
           yarn build --configuration production
       - name: Archive built project
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: timeismoney-dist
           path: dist
