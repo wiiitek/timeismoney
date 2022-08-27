@@ -37,4 +37,17 @@ describe('EarnedComponent', () => {
     // then
     expect(lastDigitEl.querySelector('.flap.top .text').textContent).toBe('5');
   }));
+
+
+  it('should correctly compute earned cents to show', () => {
+    // given
+    const compiled = fixture.nativeElement;
+
+    // when
+    component.earned = 123456789;
+
+    // then
+    // we show truncated earned cents when number has too many digits for DepartureBoard
+    expect(component.earnedCents).toBe(3456789);
+  });
 });
