@@ -14,14 +14,16 @@ export class EarnedComponent implements AfterViewInit {
   earnedCents: number = 0;
 
   @Input()
-  boardLength: number = 12;
+  boardLength: number = 8;
 
   departureBoard: any = null;
 
   @Input()
   set earned(earned: number | any) {
-    this.earnedCents = earned;
-    this.updateDepartureBoard()
+    const fractionalSeparatorLenght = 1;
+    const displayedCentsLimit = Math.pow(10, this.boardLength - fractionalSeparatorLenght);
+    this.earnedCents = earned % displayedCentsLimit;
+    this.updateDepartureBoard();
   }
 
   ngAfterViewInit() {
