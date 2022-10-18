@@ -15,10 +15,10 @@ jobs:
       # https://github.com/marketplace/actions/yarn-node-install-cache
       - name: Dev Tools Cache
         uses: egordm/gha-yarn-node-cache@v1
-      - name: Node 12.x
+      - name: Node 14.x
         uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 14
       - name: Yarn Install
         run: |
           yarn install
