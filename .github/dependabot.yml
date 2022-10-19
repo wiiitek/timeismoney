@@ -10,11 +10,11 @@ updates:
     labels:
       - dependencies
       - actions
-  - package-ecosystem: gradle
+  - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
-      time: '01:23'
+      time: '02:10'
       timezone: Europe/Warsaw
     labels:
       - dependencies
