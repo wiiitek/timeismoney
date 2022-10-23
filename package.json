@@ -1,5 +1,5 @@
 {
-  "name": "wiiitek_timeismoney",
+  "name": "timeismoney",
   "version": "0.0.0",
   "scripts": {
     "start": "node_modules/.bin/ng serve",
