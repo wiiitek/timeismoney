@@ -53,8 +53,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ./pipeline.verify.sh
-#          yarn test
-#          yarn sonar
+          yarn test
+          yarn sonar
 
   build:
     needs: install
