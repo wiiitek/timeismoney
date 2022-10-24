@@ -22,6 +22,7 @@ jobs:
   test:
     name: Run Tests and Sonar
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v3
@@ -33,6 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          ./sonar-token-check.sh
           yarn test
           yarn sonar
 
