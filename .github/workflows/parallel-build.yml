@@ -39,7 +39,6 @@ jobs:
         run: |
           ./sonar-token-check.sh
           export NG_CLI_ANALYTICS=false
-          java -version
           yarn test
           yarn sonar
 
