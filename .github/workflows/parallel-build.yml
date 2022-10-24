@@ -29,12 +29,16 @@ jobs:
       - name: Yarn Install
         run: |
           yarn install
+      - name: Sonar version
+        run: |
+          yarn sonar --version
       - name: Tests and Sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ./sonar-token-check.sh
+          export NG_CLI_ANALYTICS=false
           yarn test
           yarn sonar
 
