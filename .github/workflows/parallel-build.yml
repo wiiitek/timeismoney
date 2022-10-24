@@ -39,8 +39,9 @@ jobs:
         run: |
           ./sonar-token-check.sh
           export SONAR_SCANNER_OPTS="-Xmx2048m"
+          java -version
           yarn test
-          yarn sonar
+#          yarn sonar
 
   build:
     name: Build
