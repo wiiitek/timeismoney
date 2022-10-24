@@ -6,47 +6,28 @@ on:
       - gh-pages
 
 jobs:
-  install:
-    name: Install Dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      # https://github.com/marketplace/actions/yarn-node-install-cache
-      - name: Dev Tools Cache
-        uses: egordm/gha-yarn-node-cache@v1
-      - name: Node 14.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      - name: Yarn Install
-        run: |
-          yarn install
-
   lint:
-    needs: install
     name: Lint
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      # https://github.com/marketplace/actions/yarn-node-install-cache
-      - name: Dev Tools Cache
-        uses: egordm/gha-yarn-node-cache@v1
+      - name: Yarn Install
+        run: |
+          yarn install
       - name: Lint
         run: |
           yarn lint
 
   test:
-    needs: install
     name: Run Tests and Sonar
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      # https://github.com/marketplace/actions/yarn-node-install-cache
-      - name: Dev Tools Cache
-        uses: egordm/gha-yarn-node-cache@v1
+      - name: Yarn Install
+        run: |
+          yarn install
       - name: Tests and Sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -56,15 +37,14 @@ jobs:
           yarn sonar
 
   build:
-    needs: install
     name: Build
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      # https://github.com/marketplace/actions/yarn-node-install-cache
-      - name: Dev Tools Cache
-        uses: egordm/gha-yarn-node-cache@v1
+      - name: Yarn Install
+        run: |
+          yarn install
       - name: Build
         run: |
           yarn build --configuration production
