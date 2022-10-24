@@ -38,10 +38,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ./sonar-token-check.sh
-          export SONAR_SCANNER_OPTS="-Xmx2048m"
+          export NG_CLI_ANALYTICS=false
           java -version
           yarn test
-#          yarn sonar
+          yarn sonar
 
   build:
     name: Build
