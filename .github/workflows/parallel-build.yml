@@ -53,7 +53,7 @@ jobs:
           yarn install
       - name: Build
         run: |
-          yarn build --configuration production
+          yarn build
       - name: Archive built project
         uses: actions/upload-artifact@v3
         with:
