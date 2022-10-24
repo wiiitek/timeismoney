@@ -38,7 +38,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ./sonar-token-check.sh
-          export SONAR_SCANNER_OPTS="-Xmx512m"
+          export SONAR_SCANNER_OPTS="-Xmx2048m"
           yarn test
           yarn sonar
 
