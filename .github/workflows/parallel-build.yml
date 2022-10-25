@@ -20,12 +20,26 @@ jobs:
           yarn lint
 
   test:
-    name: Run Tests and Sonar
+    name: Run Tests
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     timeout-minutes: 10
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Yarn Install
+        run: |
+          yarn install
+      - name: Tests
+        run: |
+          export NG_CLI_ANALYTICS=false
+          yarn test
+
+  test-and-sonar:
+    name: Run Tests and Sonar Analysis
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v3
