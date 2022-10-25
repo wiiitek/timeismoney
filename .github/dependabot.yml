@@ -10,6 +10,7 @@ updates:
     labels:
       - dependencies
       - actions
+    open-pull-requests-limit: 10
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -19,3 +20,4 @@ updates:
     labels:
       - dependencies
       - libs
+    open-pull-requests-limit: 30
