@@ -80,7 +80,7 @@ jobs:
 
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [lint, test, build]
+    needs: [lint, test, test-and-sonar, build]
     name: Deploy
     runs-on: ubuntu-latest
 
