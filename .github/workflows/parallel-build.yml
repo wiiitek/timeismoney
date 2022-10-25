@@ -80,7 +80,8 @@ jobs:
           retention-days: 1
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    #if: ${{ github.ref == 'refs/heads/main' }}
+    if: "!(failure() || cancelled())"
     needs:
       - lint
       - test
