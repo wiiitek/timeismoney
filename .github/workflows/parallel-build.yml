@@ -61,6 +61,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          echo "Checking env variables..."
+          if [ -z "${SONAR_TOKEN}" ]; then
+              echo "\${SONAR_TOKEN} is blank";
+              exit 123;
+          else
+              echo "\${SONAR_TOKEN} is set";
+          fi
           export NG_CLI_ANALYTICS=false
           yarn test
           yarn sonar
