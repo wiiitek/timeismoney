@@ -84,6 +84,8 @@ jobs:
         run: |
           yarn install
       - name: Build
+        env:
+          NG_CLI_ANALYTICS: false
         run: |
           yarn build
       - name: Archive built project
