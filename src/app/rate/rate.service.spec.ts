@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 
 import { RateService, RateType } from './rate.service';
 

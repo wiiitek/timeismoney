@@ -1,6 +1,4 @@
-import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModalComponent } from 'angular-custom-modal';
 
 import { HourlyRateEditLabelComponent } from './hourly-rate-edit-label.component';
 

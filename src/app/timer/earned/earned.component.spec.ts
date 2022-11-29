@@ -40,9 +40,6 @@ describe('EarnedComponent', () => {
 
 
   it('should correctly compute earned cents to show', () => {
-    // given
-    const compiled = fixture.nativeElement;
-
     // when
     component.earned = 123456789;
 
