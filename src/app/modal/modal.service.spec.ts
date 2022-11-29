@@ -1,4 +1,3 @@
-import { ElementRef, ChangeDetectorRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ModalComponent } from 'angular-custom-modal';
 
