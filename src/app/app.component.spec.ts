@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
+import { Rate2Component } from './rate2/rate2.component';
 import { TimerComponent } from './timer/timer.component';
 
 describe('AppComponent', () => {
@@ -11,10 +12,11 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       // we could import whole AppModule, but it is better
-      // to specify all dependencies directly in declarations 
+      // to specify all dependencies directly in declarations
       imports: [],
       declarations: [
         AppComponent,
+        Rate2Component,
         TimerComponent,
         ModalComponent,
         HourlyRateEditLabelComponent,

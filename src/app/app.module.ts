@@ -11,6 +11,7 @@ import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { RateComponent } from './rate/rate.component';
 import { RateService } from './rate/rate.service';
+import { Rate2Service } from './rate2/rate2.service';
 import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 
 @NgModule({
@@ -28,7 +29,7 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
     FormsModule,
     ModalModule
   ],
-  providers: [RateService],
+  providers: [RateService, Rate2Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
