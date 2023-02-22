@@ -1,0 +1,21 @@
+$field_width: 12em;
+
+.rate2 {
+  &__input {
+    width: $field_width;
+
+    input {
+      height: 39px;
+      border: 1px solid #999999;
+      padding: 5px;
+    }
+  }
+
+  &__select {
+    width: $field_width;
+
+    select {
+      width: 100%;
+    }
+  }
+}

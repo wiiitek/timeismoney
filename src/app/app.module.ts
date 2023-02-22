@@ -5,6 +5,7 @@ import { ModalModule } from 'angular-custom-modal';
 
 import { AppComponent } from './app.component';
 
+import { Rate2Component } from './rate2/rate2.component';
 import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
@@ -15,6 +16,7 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
 @NgModule({
   declarations: [
     AppComponent,
+    Rate2Component,
     TimerComponent,
     ElapsedComponent,
     EarnedComponent,
