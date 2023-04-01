@@ -1,4 +1,4 @@
 <div class="rate-info">
   <div class="rate-info__label">Hourly rate:</div>
-  <div class="rate-info__value">{{ this.hourlyRate | async }}</div>
+  <div class="rate-info__value">{{ this.hourlyRate | async | number: '.2-2' }}</div>
 </div>

@@ -2,7 +2,6 @@
 
   <hr />
 
-  <app-elapsed [elapsed]="elapsed | async"></app-elapsed>
   <app-earned [earned]="earned | async"></app-earned>
 
   <button class="timer__main_button" (click)="onStartOrPause()" [ngClass]="statusClass">{{ buttonText | async }}</button>

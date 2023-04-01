@@ -67,20 +67,4 @@ describe('TimerComponent', () => {
     // then
     expect(compiled.querySelector('.timer__main_button').textContent).toBe('Start');
   }));
-
-  it('reset should change timer to zero', fakeAsync(() => {
-    // given
-    let actual = -1;
-    component.elapsed.subscribe(
-      newValue => actual = newValue
-    );
-    component.onStartOrPause();
-    tick(1234);
-
-    // when
-    component.onReset();
-
-    // then
-    expect(actual).toBe(0);
-  }));
 });
