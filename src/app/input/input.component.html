@@ -1,0 +1,11 @@
+<div class="input">
+  <div class="input__rate">
+    <input type="number" class="u-full-width" placeholder="your rate" id="rate" />
+  </div>
+  <div class="input__rate_type">
+    <select (change)="onRateTypeChange($event)">
+      <option value="per-hour" [selected]="perHour()">per hour</option>
+      <option value="per-month" [selected]="perMonth()">per month</option>
+    </select>
+  </div>
+</div>

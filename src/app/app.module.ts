@@ -5,19 +5,18 @@ import { ModalModule } from 'angular-custom-modal';
 
 import { AppComponent } from './app.component';
 
-import { Rate2Component } from './rate2/rate2.component';
+import { InputComponent } from './input/input.component';
 import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { RateComponent } from './rate/rate.component';
 import { RateService } from './rate/rate.service';
-import { Rate2Service } from './rate2/rate2.service';
 import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Rate2Component,
+    InputComponent,
     TimerComponent,
     ElapsedComponent,
     EarnedComponent,
@@ -29,7 +28,7 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
     FormsModule,
     ModalModule
   ],
-  providers: [RateService, Rate2Service],
+  providers: [RateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
