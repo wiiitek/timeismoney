@@ -21,10 +21,6 @@ export class TimerComponent {
     return this.timerService.buttonText$;
   }
 
-  get hourlyRate(): Observable<number> {
-    return this.timerService.hourlyRate$;
-  }
-
   get elapsed(): Observable<number> {
     return this.timerService.elapsed$;
   }

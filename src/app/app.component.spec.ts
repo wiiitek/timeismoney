@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { ModalComponent } from 'angular-custom-modal';
 import { AppComponent } from './app.component';
-import { InputComponent } from './rate/rate-input/rate-input.component';
+import { RateInputComponent } from './rate/rate-input/rate-input.component';
+import { RateInfoComponent } from './rate/rate-info/rate-info.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { TimerComponent } from './timer/timer.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
 
@@ -12,10 +14,13 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       // we could import whole AppModule, but it is better
       // to specify all dependencies directly in declarations
-      imports: [],
+      imports: [
+        FormsModule
+      ],
       declarations: [
         AppComponent,
-        InputComponent,
+        RateInputComponent,
+        RateInfoComponent,
         TimerComponent,
         ModalComponent,
         ElapsedComponent,
