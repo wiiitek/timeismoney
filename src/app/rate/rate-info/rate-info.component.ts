@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Observable } from 'rxjs/internal/Observable';
 import { RateService } from '../rate.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class RateInfoComponent {
 
   constructor(private rateService: RateService) { }
 
-  get hourlyRateSource(): BehaviorSubject<number> {
-    return this.rateService.hourlyRateSource
+  get hourlyRateSource(): Observable<number> {
+    return this.rateService.hourlyRateSource.asObservable()
   }
 }
