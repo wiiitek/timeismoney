@@ -1,10 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { ModalComponent } from 'angular-custom-modal';
 import { AppComponent } from './app.component';
-import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
+import { InputComponent } from './input/input.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
-import { Rate2Component } from './rate2/rate2.component';
 import { TimerComponent } from './timer/timer.component';
 
 describe('AppComponent', () => {
@@ -16,10 +15,9 @@ describe('AppComponent', () => {
       imports: [],
       declarations: [
         AppComponent,
-        Rate2Component,
+        InputComponent,
         TimerComponent,
         ModalComponent,
-        HourlyRateEditLabelComponent,
         ElapsedComponent,
         EarnedComponent,
       ],

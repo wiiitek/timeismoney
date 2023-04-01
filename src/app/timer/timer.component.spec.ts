@@ -1,5 +1,4 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
-import { HourlyRateEditLabelComponent } from '../rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 import { RateService, RateType } from '../rate/rate.service';
 import { EarnedComponent } from './earned/earned.component';
 import { ElapsedComponent } from './elapsed/elapsed.component';
@@ -15,7 +14,6 @@ describe('TimerComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         TimerComponent,
-        HourlyRateEditLabelComponent,
         ElapsedComponent,
         EarnedComponent,
     ],
