@@ -3,19 +3,17 @@ import { RateService } from '../rate/rate.service';
 import { CalculatorService } from '../calculator/calculator.service';
 
 import { TimerService } from './timer.service';
-import { WatcherService } from './watcher/watcher.service';
+import { RepeaterService } from '../repeater/repeater.service';
 
 describe('TimerService', () => {
 
   let tested: TimerService;
 
   beforeEach(() => {
-    const watcherService = new WatcherService();
-    // for testing we update status every two seconds (fakeAsync will rewind the time for us)
-    watcherService.setTimeBetweenExecutions(2_000);
+    const repeaterService = new RepeaterService();
     const calculatorService = new CalculatorService();
     const rateService = new RateService();
-    tested = new TimerService(watcherService, calculatorService, rateService);
+    tested = new TimerService(repeaterService, calculatorService, rateService);
   });
 
   it('should be created', () => {
@@ -132,7 +130,7 @@ describe('TimerService', () => {
 
     // then
     // but our service updates the value every two seconds... so
-    expect(actual).toEqual(4_000);
+    expect(actual).toEqual(5_000);
 
     // turn off counting
     tested.ngOnDestroy();
@@ -187,7 +185,6 @@ describe('TimerService', () => {
     tick(123_456);
 
     // then
-    // but our service updates the value every two seconds... so
     expect(actual).toEqual(7_700);
 
     // turn off counting
@@ -217,8 +214,7 @@ describe('TimerService', () => {
     tick(3_000);
 
     // then
-    // but our service updates the value every two seconds... so
-    expect(actual).toEqual(2_000);
+    expect(actual).toEqual(3_000);
 
     // turn off counting
     tested.ngOnDestroy();

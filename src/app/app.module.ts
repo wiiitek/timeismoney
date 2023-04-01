@@ -11,6 +11,9 @@ import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './elapsed/elapsed.component';
 import { EarnedComponent } from './earned/earned.component';
 import { RateService } from './rate/rate.service';
+import { RepeaterService } from './repeater/repeater.service';
+import { TimerService } from './timer/timer.service';
+import { CalculatorService } from './calculator/calculator.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,12 @@ import { RateService } from './rate/rate.service';
     FormsModule,
     ModalModule
   ],
-  providers: [RateService],
+  providers: [
+    RateService,
+    RepeaterService,
+    TimerService,
+    CalculatorService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
