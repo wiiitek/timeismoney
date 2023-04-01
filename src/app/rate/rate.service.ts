@@ -21,7 +21,7 @@ export class RateService {
 
   hourlyRate$ = this.hourlyRateSource.asObservable();
 
-  getRate(): number {
+  getRawRate(): number {
     return this.rate;
   }
 
