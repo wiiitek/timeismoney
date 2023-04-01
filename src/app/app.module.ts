@@ -9,7 +9,7 @@ import { RateInputComponent } from './rate/rate-input/rate-input.component';
 import { RateInfoComponent } from './rate/rate-info/rate-info.component';
 import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
-import { EarnedComponent } from './timer/earned/earned.component';
+import { EarnedComponent } from './earned/earned.component';
 import { RateService } from './rate/rate.service';
 
 @NgModule({

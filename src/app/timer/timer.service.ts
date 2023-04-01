@@ -1,9 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CalculatorService } from './calculator/calculator.service';
+import { CalculatorService } from '../calculator/calculator.service';
 import { RateService } from '../rate/rate.service';
-import { WatcherService } from './watcher/watcher.service';
+import { RepeaterService } from '../repeater/repeater.service';
 
 @Injectable()
 export class TimerService implements OnDestroy {
@@ -27,7 +27,7 @@ export class TimerService implements OnDestroy {
   );
 
   constructor(
-    private watcherService: WatcherService,
+    private repeaterService: RepeaterService,
     private calculatorService: CalculatorService,
     private rateService: RateService,
   ) { }
@@ -38,14 +38,14 @@ export class TimerService implements OnDestroy {
       this.startedAt = Date.now();
       this.lastUpdated = this.startedAt;
 
-      this.watcherService.start(this.updateElapsed, this);
+      this.repeaterService.start(this.updateElapsed, this);
       this.buttonTextSource.next('Pause');
       this.counting = true;
     } else {
       const measuredTime = Date.now() - this.startedAt;
       this.sumOfElapsed = this.sumOfElapsed + measuredTime;
       this.elapsedMillisSource.next(this.sumOfElapsed);
-      this.watcherService.stop();
+      this.repeaterService.stop();
       this.buttonTextSource.next('Start');
       this.counting = false;
     }
@@ -54,7 +54,7 @@ export class TimerService implements OnDestroy {
   onReset(): void {
     if (this.counting) {
       this.counting = false;
-      this.watcherService.stop();
+      this.repeaterService.stop();
     }
     this.sumOfElapsed = 0;
     this.elapsedMillisSource.next(0);
@@ -62,7 +62,7 @@ export class TimerService implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.watcherService.stop();
+    this.repeaterService.stop();
   }
 
   private updateElapsed(): void {

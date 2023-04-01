@@ -3,7 +3,7 @@ import { ModalComponent } from 'angular-custom-modal';
 import { AppComponent } from './app.component';
 import { RateInputComponent } from './rate/rate-input/rate-input.component';
 import { RateInfoComponent } from './rate/rate-info/rate-info.component';
-import { EarnedComponent } from './timer/earned/earned.component';
+import { EarnedComponent } from './earned/earned.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { TimerComponent } from './timer/timer.component';
 import { FormsModule } from '@angular/forms';

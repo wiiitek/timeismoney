@@ -1,14 +1,14 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 import { TimerService } from './timer.service';
-import { WatcherService } from './watcher/watcher.service';
-import { CalculatorService } from './calculator/calculator.service';
+import { RepeaterService } from '../repeater/repeater.service';
+import { CalculatorService } from '../calculator/calculator.service';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
-  providers: [TimerService, WatcherService, CalculatorService],
+  providers: [TimerService, RepeaterService, CalculatorService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
