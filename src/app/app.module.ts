@@ -9,7 +9,6 @@ import { InputComponent } from './input/input.component';
 import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
-import { RateComponent } from './rate/rate.component';
 import { RateService } from './rate/rate.service';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { RateService } from './rate/rate.service';
     TimerComponent,
     ElapsedComponent,
     EarnedComponent,
-    RateComponent,
   ],
   imports: [
     BrowserModule,
