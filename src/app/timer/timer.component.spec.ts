@@ -1,7 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { RateService } from '../rate/rate.service';
 import { EarnedComponent } from '../earned/earned.component';
-import { ElapsedComponent } from './elapsed/elapsed.component';
+import { ElapsedComponent } from '../elapsed/elapsed.component';
 
 import { TimerComponent } from './timer.component';
 

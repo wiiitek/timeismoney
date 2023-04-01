@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { RateInputComponent } from './rate/rate-input/rate-input.component';
 import { RateInfoComponent } from './rate/rate-info/rate-info.component';
 import { EarnedComponent } from './earned/earned.component';
-import { ElapsedComponent } from './timer/elapsed/elapsed.component';
+import { ElapsedComponent } from './elapsed/elapsed.component';
 import { TimerComponent } from './timer/timer.component';
 import { FormsModule } from '@angular/forms';
 
