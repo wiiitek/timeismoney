@@ -1,21 +1,14 @@
-import { Component, ViewChild, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ModalComponent } from 'angular-custom-modal';
-import { ModalService } from './modal/modal.service';
 
 @Component({
   selector: 'app-timeismoney',
   templateUrl: './app.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
   @ViewChild('rateConfigModal') modal: ModalComponent | undefined;
 
-  constructor(private modalService: ModalService) { }
-
-  ngAfterViewInit() {
-    if (this.modal) {
-      this.modalService.setModal(this.modal);
-    }
-  }
+  constructor() { }
 }

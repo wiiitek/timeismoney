@@ -11,7 +11,6 @@ import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { RateComponent } from './rate/rate.component';
 import { RateService } from './rate/rate.service';
-import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
     ElapsedComponent,
     EarnedComponent,
     RateComponent,
-    HourlyRateEditLabelComponent
   ],
   imports: [
     BrowserModule,
