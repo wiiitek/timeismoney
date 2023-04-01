@@ -13,17 +13,15 @@ export class RateService {
 
   hoursInMonth = 168;
 
-  rate = 100;
-
   rateType = RateType.PER_HOUR;
 
-  hourlyRateSource = new BehaviorSubject<number>(100);
+  private rawRateSource = new BehaviorSubject<number>(100);
+
+  rawRate$ = this.rawRateSource.asObservable();
+
+  private hourlyRateSource = new BehaviorSubject<number>(100);
 
   hourlyRate$ = this.hourlyRateSource.asObservable();
-
-  getRawRate(): number {
-    return this.rate;
-  }
 
   getHourlyRate(): number {
     return this.hourlyRateSource.value;
@@ -48,9 +46,9 @@ export class RateService {
     const parsedOk = parsed || parsed === 0;
     if (parsedOk) {
       const valid = parsed >= 0;
-      const hasChanged = parsed !== this.rate;
+      const hasChanged = parsed !== this.rawRateSource.value;
       if (valid && hasChanged) {
-        this.rate = parsed;
+        this.rawRateSource.next(parsed);
         this.recalculateHourlyRate();
       }
     }
@@ -59,10 +57,10 @@ export class RateService {
   private recalculateHourlyRate() {
     switch (this.rateType) {
       case RateType.PER_HOUR:
-        this.hourlyRateSource.next(this.rate);
+        this.hourlyRateSource.next(this.rawRateSource.value);
         break;
       case RateType.PER_MONTH:
-        const perHour = this.rate / this.hoursInMonth;
+        const perHour = this.rawRateSource.value / this.hoursInMonth;
         this.hourlyRateSource.next(perHour);
         break;
       default:

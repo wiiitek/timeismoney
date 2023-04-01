@@ -1,7 +1,7 @@
 <div class="input">
   <div class="input__rate">
     <input type="number" class="u-full-width" placeholder="your rate" id="rate"
-      [ngModel]="(this.rate)" (ngModelChange)="onRateChange($event)" />
+      [ngModel]="(this.rate | async)" (ngModelChange)="onRateChange($event)" />
   </div>
   <div class="input__rate_type">
     <select (change)="onRateTypeChange($event)">

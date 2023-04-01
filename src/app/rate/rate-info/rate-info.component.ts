@@ -13,7 +13,7 @@ export class RateInfoComponent {
 
   constructor(private rateService: RateService) { }
 
-  get hourlyRateSource(): Observable<number> {
-    return this.rateService.hourlyRateSource.asObservable()
+  get hourlyRate(): Observable<number> {
+    return this.rateService.hourlyRate$;
   }
 }

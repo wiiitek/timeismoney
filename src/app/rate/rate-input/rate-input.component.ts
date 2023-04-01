@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { RateService, RateType } from '../rate.service';
 
 @Component({
@@ -12,9 +13,8 @@ export class RateInputComponent {
 
   constructor(private rateService: RateService) { }
 
-  get rate(): string {
-    const rate = this.rateService.getRawRate();
-    return rate.toString();
+  get rate(): Observable<number> {
+    return this.rateService.rawRate$;
   }
 
   // https://stackoverflow.com/a/57200419
