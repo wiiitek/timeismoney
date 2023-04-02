@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 import { RateInputComponent } from './rate-input.component';
-import { RateService } from './rate.service';
+import { RateService } from '../rate.service';
 
 describe('RateInputComponent', () => {
   let component: RateInputComponent;

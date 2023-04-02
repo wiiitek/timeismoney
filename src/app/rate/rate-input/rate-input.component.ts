@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
-import { RateService, RateType } from './rate.service';
+import { RateService, RateType } from '../rate.service';
 
 @Component({
   selector: 'app-rate-input',
