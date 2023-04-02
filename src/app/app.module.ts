@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { ModalModule } from 'angular-custom-modal';
-import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 
 import { AppComponent } from './app.component';
 
 import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
-import { RateComponent } from './rate/rate.component';
 import { RateInputComponent } from './rate/rate-input.component';
 import { RateService } from './rate/rate.service';
-import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 
 @NgModule({
   declarations: [
@@ -20,18 +16,11 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
     TimerComponent,
     ElapsedComponent,
     EarnedComponent,
-    RateComponent,
     RateInputComponent,
-    HourlyRateEditLabelComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ModalModule,
-    LoggerModule.forRoot({
-      level: NgxLoggerLevel.DEBUG,
-      serverLogLevel: NgxLoggerLevel.ERROR
-    }),
   ],
   providers: [RateService],
   bootstrap: [AppComponent]

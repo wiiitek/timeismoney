@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
 import { CalculatorService } from './calculator/calculator.service';
@@ -13,9 +13,6 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimerComponent {
-
-  @Input()
-  label = 'Elapsed';
 
   get buttonText(): Observable<string> {
     return this.timerService.buttonText$;

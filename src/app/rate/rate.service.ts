@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { NGXLogger } from "ngx-logger";
 import { BehaviorSubject } from 'rxjs';
 
 export enum RateType {
@@ -21,8 +20,6 @@ export class RateService {
   hourlyRateSource = new BehaviorSubject<number>(100);
 
   hourlyRate$ = this.hourlyRateSource.asObservable();
-
-  constructor(private log: NGXLogger) { }
 
   getRate(): number {
     return this.rate;
@@ -71,6 +68,5 @@ export class RateService {
       default:
         throw new Error(`Unexpected rate type: ${this.rateType}`);
     }
-    this.log.info("Hourly rate recalculated to: " + this.hourlyRateSource.value);
   }
 }

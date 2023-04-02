@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { NGXLogger } from "ngx-logger";
 
 import { RateService, RateType } from './rate.service';
 
@@ -13,7 +12,6 @@ import { RateService, RateType } from './rate.service';
 export class RateInputComponent {
 
   constructor(
-    private log: NGXLogger,
     private rateService: RateService,
   ) { }
 
@@ -24,14 +22,12 @@ export class RateInputComponent {
   // https://stackoverflow.com/a/57200419
   onRateChange(newRate: string): void {
     this.rateService.setRate(newRate);
-    this.log.debug("Rate changed to: " + newRate);
   }
 
   onRateTypeChange(event: any): void {
     const rateType: RateType = event.target.value;
     if (rateType !== this.rateService.rateType) {
       this.rateService.setRateType(rateType);
-      this.log.debug("Rate type changed to: " + rateType);
     }
   }
 
