@@ -1,9 +1,10 @@
 <div class="input">
-  <div class="input__rate">
+  <div class="rate-input__label">How much you earn:</div>
+  <div class="rate-input__value">
     <input type="number" class="u-full-width" placeholder="your rate" id="rate"
       [ngModel]="(this.rate)" (ngModelChange)="onRateChange($event)" />
   </div>
-  <div class="input__rate_type">
+  <div class="rate-input__type">
     <select (change)="onRateTypeChange($event)">
       <option value="per-hour" [selected]="perHour()">per hour</option>
       <option value="per-month" [selected]="perMonth()">per month</option>

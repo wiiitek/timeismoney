@@ -1,7 +1,7 @@
 $field_width: 12em;
 
-.input {
-  &__rate {
+.rate-input {
+  &__value {
     width: $field_width;
 
     input {
@@ -11,7 +11,7 @@ $field_width: 12em;
     }
   }
 
-  &__rate_type {
+  &__type {
     width: $field_width;
 
     select {

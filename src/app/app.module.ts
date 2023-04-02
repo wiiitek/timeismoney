@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'angular-custom-modal';
+import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 
 import { AppComponent } from './app.component';
 
@@ -26,7 +27,11 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
   imports: [
     BrowserModule,
     FormsModule,
-    ModalModule
+    ModalModule,
+    LoggerModule.forRoot({
+      level: NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR
+    }),
   ],
   providers: [RateService],
   bootstrap: [AppComponent]
