@@ -1,22 +1,23 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
-import { RateService, RateType } from './rate.service';
+
+import { RateService, RateType } from '../rate.service';
 
 @Component({
-  selector: 'app-rate',
-  templateUrl: './rate.component.html',
-  styleUrls: ['./rate.component.scss'],
+  selector: 'app-rate-input',
+  templateUrl: './rate-input.component.html',
+  styleUrls: ['./rate-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RateComponent {
+export class RateInputComponent {
 
-  get rateFromService(): Observable<string> | string {
-    const rate = this.rateService.getRate();
-    return rate.toString();
+  constructor(
+    private rateService: RateService,
+  ) { }
+
+  get rate(): number {
+    return this.rateService.getRate();
   }
-
-  constructor(private rateService: RateService) { }
 
   // https://stackoverflow.com/a/57200419
   onRateChange(newRate: string): void {

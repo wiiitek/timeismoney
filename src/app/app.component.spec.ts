@@ -1,25 +1,19 @@
 import { TestBed } from '@angular/core/testing';
-import { ModalComponent } from 'angular-custom-modal';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
-import { EarnedComponent } from './timer/earned/earned.component';
-import { ElapsedComponent } from './timer/elapsed/elapsed.component';
-import { TimerComponent } from './timer/timer.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       // we could import whole AppModule, but it is better
-      // to specify all dependencies directly in declarations 
-      imports: [],
-      declarations: [
-        AppComponent,
-        TimerComponent,
-        ModalComponent,
-        HourlyRateEditLabelComponent,
-        ElapsedComponent,
-        EarnedComponent,
+      // to specify all dependencies directly in declarations
+      imports: [
+        BrowserModule,
+        FormsModule,
+        AppModule,
       ],
     }).compileComponents();
   });

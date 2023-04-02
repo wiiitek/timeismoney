@@ -1,10 +1,10 @@
 <div class="timer">
 
   <hr />
+  <app-rate-input></app-rate-input>
+
   <div class="timer__hourly_rate">
-    <div>
-      <app-hourly-rate-edit-label></app-hourly-rate-edit-label>
-    </div>
+    <div>Hourly rate:</div>
     <div>{{ hourlyRate | async }}</div>
   </div>
 

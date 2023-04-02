@@ -1,4 +1,3 @@
-
 import { RateService, RateType } from './rate.service';
 
 describe('RateService', () => {

@@ -2,25 +2,25 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { RateComponent } from './rate.component';
-import { RateService } from './rate.service';
+import { RateInputComponent } from './rate-input.component';
+import { RateService } from '../rate.service';
 
-describe('RateComponent', () => {
-  let component: RateComponent;
+describe('RateInputComponent', () => {
+  let component: RateInputComponent;
   let service: RateService;
-  let fixture: ComponentFixture<RateComponent>;
+  let fixture: ComponentFixture<RateInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [RateComponent],
+      declarations: [RateInputComponent],
       providers: [RateService]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RateComponent);
+    fixture = TestBed.createComponent(RateInputComponent);
     component = fixture.componentInstance;
     service = fixture.debugElement.injector.get(RateService);
   });
@@ -40,7 +40,7 @@ describe('RateComponent', () => {
       fixture.detectChanges();
 
       // then
-      const inputElement = fixture.debugElement.query(By.css('.rate__input input'));
+      const inputElement = fixture.debugElement.query(By.css('.rate-input__value input'));
       expect(inputElement.nativeElement.value).toBe('4567');
     });
   });
