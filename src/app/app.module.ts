@@ -9,6 +9,7 @@ import { TimerComponent } from './timer/timer.component';
 import { ElapsedComponent } from './timer/elapsed/elapsed.component';
 import { EarnedComponent } from './timer/earned/earned.component';
 import { RateComponent } from './rate/rate.component';
+import { RateInputComponent } from './rate/rate-input.component';
 import { RateService } from './rate/rate.service';
 import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hourly-rate-edit-label.component';
 
@@ -19,6 +20,7 @@ import { HourlyRateEditLabelComponent } from './rate/hourly-rate-edit-label/hour
     ElapsedComponent,
     EarnedComponent,
     RateComponent,
+    RateInputComponent,
     HourlyRateEditLabelComponent
   ],
   imports: [
