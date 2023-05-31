@@ -13,8 +13,10 @@ import { ElapsedService } from './elapsed.service';
 export class ElapsedComponent {
 
   @Input()
-  set elapsed(value: number | any) {
-    this.elapsedService.elapsed(value);
+  set elapsed(value: number | null) {
+    if (value != null) {
+      this.elapsedService.elapsed(value);
+    }
   }
 
   get converted(): Observable<string> {

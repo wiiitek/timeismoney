@@ -19,11 +19,13 @@ export class EarnedComponent implements AfterViewInit {
   departureBoard: any = null;
 
   @Input()
-  set earned(earned: number | any) {
-    const fractionalSeparatorLenght = 1;
-    const displayedCentsLimit = Math.pow(10, this.boardLength - fractionalSeparatorLenght);
-    this.earnedCents = earned % displayedCentsLimit;
-    this.updateDepartureBoard();
+  set earned(earned: number | null) {
+    if (earned != null) {
+      const fractionalSeparatorLenght = 1;
+      const displayedCentsLimit = Math.pow(10, this.boardLength - fractionalSeparatorLenght);
+      this.earnedCents = earned % displayedCentsLimit;
+      this.updateDepartureBoard();
+    }
   }
 
   ngAfterViewInit() {
