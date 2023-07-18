@@ -54,7 +54,7 @@ describe('TimerService', () => {
     tested.onStartOrPause();
 
     // then
-    let actual = '<should be overwritten>';
+    let actual = '';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });

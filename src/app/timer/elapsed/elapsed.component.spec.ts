@@ -14,7 +14,6 @@ describe('ElapsedComponent', () => {
 
     fixture = TestBed.createComponent(ElapsedComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

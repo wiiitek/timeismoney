@@ -52,9 +52,9 @@ describe('ElapsedService', () => {
     tested.elapsed(399_903_300);
 
     // then
-    let actual = '<should be overwritten>';
-    tested.convertedValue$.subscribe(newValue => {
-      actual = newValue;
+    let actual = '';
+    tested.convertedValue$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     expect(actual).toBe('111:05:03');
