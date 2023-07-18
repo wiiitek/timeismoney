@@ -1,4 +1,4 @@
-import { fakeAsync, tick, waitForAsync } from '@angular/core/testing';
+import { fakeAsync, tick } from '@angular/core/testing';
 import { RateService } from '../rate/rate.service';
 import { CalculatorService } from './calculator/calculator.service';
 
@@ -34,7 +34,7 @@ describe('TimerService', () => {
     expect(actual).toBe('Start');
   }));
 
-  it('should asynchronously change button text', waitForAsync(() => {
+  it('should asynchronously change button text', () => {
     // given
     let actual = '';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
@@ -46,10 +46,7 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toBe('Pause');
-
-    // turn off counting
-    tested.ngOnDestroy();
-  }));
+  });
 
   it('should asynchronously change button text back to Start after pausing', fakeAsync(() => {
     // when
@@ -77,9 +74,6 @@ describe('TimerService', () => {
     // counting should stop
     tick(600);
     expect(tested.counting).toBeFalse();
-
-    // turn off counting
-    tested.ngOnDestroy();
   }));
 
   it('reset should change button text', fakeAsync(() => {
@@ -95,9 +89,6 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toEqual('Start');
-
-    // turn off counting
-    tested.ngOnDestroy();
   }));
 
   it('reset should change elapsed to zero', fakeAsync(() => {
@@ -115,7 +106,6 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toEqual(0);
-    // and
   }));
 
 
@@ -135,7 +125,7 @@ describe('TimerService', () => {
     // but our service updates the value every two seconds... so
     expect(actual).toEqual(4_000);
 
-    // turn off counting
+    // somehow this is nt working in afterEach
     tested.ngOnDestroy();
   }));
 
@@ -190,11 +180,7 @@ describe('TimerService', () => {
     // then
     // but our service updates the value every two seconds... so
     expect(actual).toEqual(7_700);
-
-    // turn off counting
-    tested.ngOnDestroy();
   }));
-
 
   it('should correctly reset timer after pausing', fakeAsync(() => {
     // given
@@ -218,10 +204,10 @@ describe('TimerService', () => {
     tick(3_000);
 
     // then
-    // but our service updates the value every two seconds... so
+    // because our service updates the value every two seconds we show 2_000
     expect(actual).toEqual(2_000);
 
-    // turn off counting
+    // somehow this is nt working in afterEach
     tested.ngOnDestroy();
   }));
 });
