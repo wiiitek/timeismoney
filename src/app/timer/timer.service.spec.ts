@@ -9,6 +9,7 @@ describe('TimerService', () => {
 
   let tested: TimerService;
 
+  // we are using *real* (not mocked) dependencies for unit test
   beforeEach(() => {
     const watcherService = new WatcherService();
     // for testing we update status every two seconds (fakeAsync will rewind the time for us)
@@ -24,9 +25,9 @@ describe('TimerService', () => {
 
   it('should show default button text', fakeAsync(() => {
     // when
-    let actual = '<should be overwritten>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    let actual = '';
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // then
@@ -35,9 +36,9 @@ describe('TimerService', () => {
 
   it('should asynchronously change button text', waitForAsync(() => {
     // given
-    let actual = '<should be overwritten>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    let actual = '';
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -57,8 +58,8 @@ describe('TimerService', () => {
 
     // then
     let actual = '<should be overwritten>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     expect(actual).toBe('Start');
@@ -85,8 +86,8 @@ describe('TimerService', () => {
     // given
     tested.onStartOrPause();
     let actual = '<should be changed in test>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -102,8 +103,8 @@ describe('TimerService', () => {
   it('reset should change elapsed to zero', fakeAsync(() => {
     // given
     let actual = 0;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
     tested.onStartOrPause();
     // wait over 5 seconds
@@ -121,8 +122,8 @@ describe('TimerService', () => {
   it('should update converted elapsed text', fakeAsync(() => {
     // given
     let actual = 0;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -141,8 +142,8 @@ describe('TimerService', () => {
   it('reset does not change elapsed if not counting', () => {
     // given
     let actual = -1;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -155,8 +156,8 @@ describe('TimerService', () => {
   it('reset does not change button text if not counting', () => {
     // given
     let actual = '<should be changed in test>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -169,8 +170,8 @@ describe('TimerService', () => {
   it('resuming timer should not clear current value', fakeAsync(() => {
     // given
     let actual = 0;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // start
@@ -198,8 +199,8 @@ describe('TimerService', () => {
   it('should correctly reset timer after pausing', fakeAsync(() => {
     // given
     let actual = 999_999;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // start

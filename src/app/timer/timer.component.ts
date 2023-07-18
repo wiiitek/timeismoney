@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
 import { CalculatorService } from './calculator/calculator.service';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimerComponent {
+export class TimerComponent implements OnDestroy {
 
   get buttonText(): Observable<string> {
     return this.timerService.buttonText$;
@@ -44,5 +44,9 @@ export class TimerComponent {
 
   onReset(): void {
     this.timerService.onReset();
+  }
+
+  ngOnDestroy(): void {
+    this.timerService.ngOnDestroy();
   }
 }

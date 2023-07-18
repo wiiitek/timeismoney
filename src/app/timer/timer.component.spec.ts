@@ -8,20 +8,20 @@ import { ElapsedComponent } from './elapsed/elapsed.component';
 import { TimerComponent } from './timer.component';
 
 describe('TimerComponent', () => {
-  let component: TimerComponent;
   let fixture: ComponentFixture<TimerComponent>;
+  let component: TimerComponent;
   let rateService: RateService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
+      providers: [RateService],
       declarations: [
         TimerComponent,
         RateInputComponent,
         ElapsedComponent,
         EarnedComponent,
-    ],
-      providers: [RateService],
+      ],
     })
       .compileComponents();
 
