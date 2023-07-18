@@ -12,8 +12,8 @@ describe('TimerComponent', () => {
   let component: TimerComponent;
   let rateService: RateService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       imports: [FormsModule],
       providers: [RateService],
       declarations: [
@@ -25,12 +25,12 @@ describe('TimerComponent', () => {
     })
       .compileComponents();
 
-    rateService = TestBed.inject(RateService);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(TimerComponent);
     component = fixture.componentInstance;
+    // gets RateService directly from TestBed
+    rateService = TestBed.inject(RateService);
+
     fixture.detectChanges();
   });
 
