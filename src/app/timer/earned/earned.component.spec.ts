@@ -6,14 +6,12 @@ describe('EarnedComponent', () => {
   let component: EarnedComponent;
   let fixture: ComponentFixture<EarnedComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [EarnedComponent]
     })
       .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(EarnedComponent);
     component = fixture.componentInstance;
   });

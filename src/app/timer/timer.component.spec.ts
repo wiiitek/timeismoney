@@ -8,9 +8,9 @@ import { ElapsedComponent } from './elapsed/elapsed.component';
 import { TimerComponent } from './timer.component';
 
 describe('TimerComponent', () => {
-  let fixture: ComponentFixture<TimerComponent>;
-  let component: TimerComponent;
   let rateService: RateService;
+  let component: TimerComponent;
+  let fixture: ComponentFixture<TimerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -25,11 +25,9 @@ describe('TimerComponent', () => {
     })
       .compileComponents();
 
-
+    rateService = TestBed.inject(RateService);
     fixture = TestBed.createComponent(TimerComponent);
     component = fixture.componentInstance;
-    // gets RateService directly from TestBed
-    rateService = TestBed.inject(RateService);
 
     fixture.detectChanges();
   });

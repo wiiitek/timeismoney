@@ -6,12 +6,12 @@ import { RateInputComponent } from './rate-input.component';
 import { RateService } from '../rate.service';
 
 describe('RateInputComponent', () => {
-  let fixture: ComponentFixture<RateInputComponent>;
+  let rateService: RateService;
   let component: RateInputComponent;
-  let service: RateService;
+  let fixture: ComponentFixture<RateInputComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       imports: [FormsModule],
       providers: [RateService],
       declarations: [RateInputComponent],
@@ -20,7 +20,7 @@ describe('RateInputComponent', () => {
 
     fixture = TestBed.createComponent(RateInputComponent);
     component = fixture.componentInstance;
-    service = fixture.debugElement.injector.get(RateService);
+    rateService = fixture.debugElement.injector.get(RateService);
   });
 
   it('should create', () => {
@@ -30,7 +30,7 @@ describe('RateInputComponent', () => {
   it('should update value from service', fakeAsync(() => {
 
     // when
-    service.setRate('4567');
+    rateService.setRate('4567');
     fixture.detectChanges();
     // https://codecraft.tv/courses/angular/unit-testing/asynchronous/#_fakeasync_and_tick
     tick();
@@ -45,7 +45,7 @@ describe('RateInputComponent', () => {
     component.onRateChange('7654');
 
     // when
-    const actual = service.getHourlyRate();
+    const actual = rateService.getHourlyRate();
 
     // then
     expect(actual).toBe(7654);

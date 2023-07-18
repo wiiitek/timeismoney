@@ -6,14 +6,12 @@ describe('ElapsedComponent', () => {
   let component: ElapsedComponent;
   let fixture: ComponentFixture<ElapsedComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ElapsedComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ElapsedComponent]
+    })
+      .compileComponents();
+
     fixture = TestBed.createComponent(ElapsedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
