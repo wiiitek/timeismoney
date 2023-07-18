@@ -1,4 +1,4 @@
-import { fakeAsync, tick, waitForAsync } from '@angular/core/testing';
+import { fakeAsync, tick } from '@angular/core/testing';
 import { RateService } from '../rate/rate.service';
 import { CalculatorService } from './calculator/calculator.service';
 
@@ -9,6 +9,7 @@ describe('TimerService', () => {
 
   let tested: TimerService;
 
+  // we are using *real* (not mocked) dependencies for unit test
   beforeEach(() => {
     const watcherService = new WatcherService();
     // for testing we update status every two seconds (fakeAsync will rewind the time for us)
@@ -24,20 +25,20 @@ describe('TimerService', () => {
 
   it('should show default button text', fakeAsync(() => {
     // when
-    let actual = '<should be overwritten>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    let actual = '';
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // then
     expect(actual).toBe('Start');
   }));
 
-  it('should asynchronously change button text', waitForAsync(() => {
+  it('should asynchronously change button text', () => {
     // given
-    let actual = '<should be overwritten>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    let actual = '';
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -45,10 +46,7 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toBe('Pause');
-
-    // turn off counting
-    tested.ngOnDestroy();
-  }));
+  });
 
   it('should asynchronously change button text back to Start after pausing', fakeAsync(() => {
     // when
@@ -56,9 +54,9 @@ describe('TimerService', () => {
     tested.onStartOrPause();
 
     // then
-    let actual = '<should be overwritten>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    let actual = '';
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     expect(actual).toBe('Start');
@@ -76,17 +74,14 @@ describe('TimerService', () => {
     // counting should stop
     tick(600);
     expect(tested.counting).toBeFalse();
-
-    // turn off counting
-    tested.ngOnDestroy();
   }));
 
   it('reset should change button text', fakeAsync(() => {
     // given
     tested.onStartOrPause();
     let actual = '<should be changed in test>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -94,16 +89,13 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toEqual('Start');
-
-    // turn off counting
-    tested.ngOnDestroy();
   }));
 
   it('reset should change elapsed to zero', fakeAsync(() => {
     // given
     let actual = 0;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
     tested.onStartOrPause();
     // wait over 5 seconds
@@ -114,15 +106,14 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toEqual(0);
-    // and
   }));
 
 
   it('should update converted elapsed text', fakeAsync(() => {
     // given
     let actual = 0;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -134,15 +125,15 @@ describe('TimerService', () => {
     // but our service updates the value every two seconds... so
     expect(actual).toEqual(4_000);
 
-    // turn off counting
+    // somehow this is not working in afterEach
     tested.ngOnDestroy();
   }));
 
   it('reset does not change elapsed if not counting', () => {
     // given
     let actual = -1;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -155,8 +146,8 @@ describe('TimerService', () => {
   it('reset does not change button text if not counting', () => {
     // given
     let actual = '<should be changed in test>';
-    tested.buttonText$.subscribe(newValue => {
-      actual = newValue;
+    tested.buttonText$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // when
@@ -169,8 +160,8 @@ describe('TimerService', () => {
   it('resuming timer should not clear current value', fakeAsync(() => {
     // given
     let actual = 0;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // start
@@ -189,17 +180,13 @@ describe('TimerService', () => {
     // then
     // but our service updates the value every two seconds... so
     expect(actual).toEqual(7_700);
-
-    // turn off counting
-    tested.ngOnDestroy();
   }));
-
 
   it('should correctly reset timer after pausing', fakeAsync(() => {
     // given
     let actual = 999_999;
-    tested.elapsed$.subscribe(newValue => {
-      actual = newValue;
+    tested.elapsed$.subscribe(valuePublishedByComponent => {
+      actual = valuePublishedByComponent;
     });
 
     // start
@@ -217,10 +204,10 @@ describe('TimerService', () => {
     tick(3_000);
 
     // then
-    // but our service updates the value every two seconds... so
+    // because our service updates the value every two seconds we show 2_000
     expect(actual).toEqual(2_000);
 
-    // turn off counting
+    // somehow this is not working in afterEach
     tested.ngOnDestroy();
   }));
 });

@@ -2,13 +2,13 @@
 import { WatcherService } from './watcher.service';
 
 describe('WatcherService', () => {
-  let service: WatcherService;
+  let tested: WatcherService;
 
   beforeEach(() => {
-    service = new WatcherService();
+    tested = new WatcherService();
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(tested).toBeTruthy();
   });
 });

@@ -2,13 +2,13 @@
 import { CalculatorService } from './calculator.service';
 
 describe('CalculatorService', () => {
-  let service: CalculatorService;
+  let tested: CalculatorService;
 
   beforeEach(() => {
-    service = new CalculatorService();
+    tested = new CalculatorService();
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(tested).toBeTruthy();
   });
 });

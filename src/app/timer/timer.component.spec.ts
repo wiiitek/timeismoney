@@ -8,31 +8,33 @@ import { ElapsedComponent } from './elapsed/elapsed.component';
 import { TimerComponent } from './timer.component';
 
 describe('TimerComponent', () => {
+  let rateService: RateService;
   let component: TimerComponent;
   let fixture: ComponentFixture<TimerComponent>;
-  let rateService: RateService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       imports: [FormsModule],
+      providers: [RateService],
       declarations: [
         TimerComponent,
         RateInputComponent,
         ElapsedComponent,
         EarnedComponent,
-    ],
-      providers: [RateService],
+      ],
     })
       .compileComponents();
 
     rateService = TestBed.inject(RateService);
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(TimerComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
+
+  afterEach(() => {
+    component.ngOnDestroy();
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
