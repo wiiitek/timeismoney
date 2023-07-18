@@ -39,7 +39,6 @@
               "./node_modules/skeleton-css/css/normalize.css",
               "./node_modules/skeleton-css/css/skeleton.css",
               "src/assets/libs/departure-board/css/departure-board.css",
-              "src/assets/modal.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -120,7 +119,6 @@
               "./node_modules/skeleton-css/css/normalize.css",
               "./node_modules/skeleton-css/css/skeleton.css",
               "src/assets/libs/departure-board/css/departure-board.css",
-              "src/assets/modal.css",
               "src/styles.scss"
             ],
             "scripts": [
