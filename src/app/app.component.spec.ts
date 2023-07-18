@@ -6,8 +6,8 @@ import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       // we could import whole AppModule, but it is better
       // to specify all dependencies directly in declarations
       imports: [

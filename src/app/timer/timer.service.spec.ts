@@ -125,7 +125,7 @@ describe('TimerService', () => {
     // but our service updates the value every two seconds... so
     expect(actual).toEqual(4_000);
 
-    // somehow this is nt working in afterEach
+    // somehow this is not working in afterEach
     tested.ngOnDestroy();
   }));
 
@@ -207,7 +207,7 @@ describe('TimerService', () => {
     // because our service updates the value every two seconds we show 2_000
     expect(actual).toEqual(2_000);
 
-    // somehow this is nt working in afterEach
+    // somehow this is not working in afterEach
     tested.ngOnDestroy();
   }));
 });
