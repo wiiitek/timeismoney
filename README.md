@@ -4,6 +4,8 @@
 [![sonarcloud.io](https://sonarcloud.io/api/project_badges/measure?project=wiiitek_timeismoney&metric=alert_status)](https://sonarcloud.io/dashboard?id=wiiitek_timeismoney)
 [![Known Vulnerabilities](https://snyk.io/test/github/wiiitek/timeismoney/badge.svg)](https://snyk.io/test/github/wiiitek/timeismoney)
 
+Please use NodeJS version hydrogen (18.x).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/timeismoney/`. The app will automatically reload if you change any of the source files.
