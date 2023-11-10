@@ -22,6 +22,11 @@ updates:
       - libs
     open-pull-requests-limit: 30
     groups:
+      angular:
+        patterns:
+          - '@angular/*'
+        exclude-patterns:
+          - '@angular/cli'
       angular-eslint:
         patterns:
           - '@angular-eslint/*'
