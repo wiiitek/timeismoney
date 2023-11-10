@@ -27,7 +27,6 @@ updates:
           - '@angular/*'
         exclude-patterns:
           - '@angular/cli'
-          - '@angular/compiler-cli'
       angular-eslint:
         patterns:
           - '@angular-eslint/*'
