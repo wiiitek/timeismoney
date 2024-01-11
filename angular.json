@@ -135,9 +135,7 @@
       }
     }
   },
-  "defaultProject": "timeismoney",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics",
     "analytics": false
   }
 }
