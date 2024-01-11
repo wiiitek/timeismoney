@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CalculatorService } from './calculator/calculator.service';
 import { RateService } from '../rate/rate.service';
@@ -15,9 +15,9 @@ export class TimerService implements OnDestroy {
   private buttonTextSource = new BehaviorSubject<string>('Start');
   private elapsedMillisSource = new BehaviorSubject<number>(0);
 
+  public hourlyRate$ : Observable<number>;
   public counting = false;
   public buttonText$ = this.buttonTextSource.asObservable();
-  public hourlyRate$ = this.rateService.hourlyRate$;
   public elapsed$ = this.elapsedMillisSource.asObservable();
   public earned$ = this.elapsed$.pipe(
     map<number, number>((newElapsed: number) => {
@@ -30,7 +30,9 @@ export class TimerService implements OnDestroy {
     private watcherService: WatcherService,
     private calculatorService: CalculatorService,
     private rateService: RateService,
-  ) { }
+  ) {
+    this.hourlyRate$ = this.rateService.hourlyRate$;
+  }
 
   onStartOrPause(): void {
     const startAction = !this.counting;
