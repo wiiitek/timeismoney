@@ -62,8 +62,7 @@ export class RateService {
         this.hourlyRateSource.next(this.rate);
         break;
       case RateType.PER_MONTH:
-        const perHour = this.rate / this.hoursInMonth;
-        this.hourlyRateSource.next(perHour);
+        this.hourlyRateSource.next(this.rate / this.hoursInMonth);
         break;
       default:
         throw new Error(`Unexpected rate type: ${this.rateType}`);
