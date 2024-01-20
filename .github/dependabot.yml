@@ -30,6 +30,9 @@ updates:
       angular-eslint:
         patterns:
           - '@angular-eslint/*'
+      typescript-eslint:
+        patterns:
+          - '@typescript-eslint/*'
       angular-cli:
         patterns:
           - '@angular-devkit/build-angular'
