@@ -47,6 +47,6 @@
     "puppeteer": "^22.6.0",
     "sonarqube-scanner": "^3.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.2"
+    "typescript": "~5.4.3"
   }
 }
