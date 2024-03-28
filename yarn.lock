@@ -7025,10 +7025,10 @@ socks@^2.7.1:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
 
-sonarqube-scanner@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-3.3.0.tgz#6fdb4e529db538aad6c3acca6870ec2e1e9dc4c9"
-  integrity sha512-G1A6nXT3GwoK5eRwHfFrR/7ThiDfaRefWPIFQ+ifwFOQ/V9OwziLpZBdWZgmZp21kBRnzAMvjcTzgZMqGBXQKA==
+sonarqube-scanner@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-3.4.0.tgz#2ed77859ab009d38c04b217d390e95ad9db89a11"
+  integrity sha512-2B/IgA2CkTg8GPKlkqxSPuWLlcEZcoRxWkcZYr47f8Ni1YOEbCS/EUl9/bn68sanZ0lee5adRPuQpGj0EiEW2A==
   dependencies:
     adm-zip "^0.5.10"
     fancy-log "^2.0.0"
