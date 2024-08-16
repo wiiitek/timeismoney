@@ -7613,10 +7613,10 @@ socks@^2.7.1:
     ip-address "^9.0.5"
     smart-buffer "^4.2.0"
 
-sonarqube-scanner@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-4.2.0.tgz#805db39e8c389a3dfa63f0607281538c22d80e7c"
-  integrity sha512-i3R1QK3WQxIu6WkjEe0jzKTkLcZOK57OEWRbezuRZq5OzYkqklFTIzZ6cG2oEpFJRRhUynqxisLN2EH8Bp2ESQ==
+sonarqube-scanner@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-4.2.1.tgz#7af877710e1b0582155d2fea7b8e80f17f71b5c7"
+  integrity sha512-7HQfyUJ48YVqI/buk+CVvcof5Occz/nRIazjOPzx24NlyXrEgs0ytAF5MqinxQq0iRcTwOvxutumlRIiFTCy9w==
   dependencies:
     adm-zip "0.5.12"
     axios "1.6.8"
