@@ -3069,10 +3069,10 @@ autoprefixer@10.4.20:
     picocolors "^1.0.1"
     postcss-value-parser "^4.2.0"
 
-axios@1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
-  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+axios@1.7.7:
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.7.tgz#2f554296f9892a72ac8d8e4c5b79c14a91d0a47f"
+  integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -7144,13 +7144,13 @@ socks@^2.7.1:
     ip-address "^9.0.5"
     smart-buffer "^4.2.0"
 
-sonarqube-scanner@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-4.2.1.tgz#7af877710e1b0582155d2fea7b8e80f17f71b5c7"
-  integrity sha512-7HQfyUJ48YVqI/buk+CVvcof5Occz/nRIazjOPzx24NlyXrEgs0ytAF5MqinxQq0iRcTwOvxutumlRIiFTCy9w==
+sonarqube-scanner@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/sonarqube-scanner/-/sonarqube-scanner-4.2.2.tgz#c112afbd1306a41fdf59c6ebc3a28eddd035a9af"
+  integrity sha512-MBvQbmyro4A/gHAMTTihWXvF0fpu4H9azWLFSahY0wvztzgy/QHrL7nqTaZZg70CoZY3mqiPJ/XgY9TSrZuvOg==
   dependencies:
     adm-zip "0.5.12"
-    axios "1.6.8"
+    axios "1.7.7"
     commander "12.0.0"
     fs-extra "11.2.0"
     hpagent "1.2.0"
