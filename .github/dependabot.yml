@@ -5,7 +5,7 @@ updates:
     directory: /
     schedule:
       interval: daily
-      time: '01:23'
+      time: "01:23"
       timezone: Europe/Warsaw
     labels:
       - dependencies
@@ -15,7 +15,7 @@ updates:
     directory: /
     schedule:
       interval: daily
-      time: '02:10'
+      time: "02:10"
       timezone: Europe/Warsaw
     labels:
       - dependencies
@@ -24,16 +24,12 @@ updates:
     groups:
       angular:
         patterns:
-          - '@angular/*'
-        exclude-patterns:
-          - '@angular/cli'
+          - "@angular/*"
+          - "@angular-devkit/build-angular"
+          - "@angular/cli"
       angular-eslint:
         patterns:
-          - '@angular-eslint/*'
+          - "@angular-eslint/*"
       typescript-eslint:
         patterns:
-          - '@typescript-eslint/*'
-      angular-cli:
-        patterns:
-          - '@angular-devkit/build-angular'
-          - '@angular/cli'
+          - "@typescript-eslint/*"
