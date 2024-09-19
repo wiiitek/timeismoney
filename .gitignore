@@ -19,3 +19,4 @@
 /coverage
 yarn-error.log
 /.scannerwork
+/.sonar

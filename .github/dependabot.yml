@@ -5,31 +5,40 @@ updates:
     directory: /
     schedule:
       interval: daily
-      time: "01:23"
+      time: '01:23'
       timezone: Europe/Warsaw
     labels:
       - dependencies
       - actions
     open-pull-requests-limit: 10
+    groups:
+      actions-patches:
+        patterns:
+          - 'patch'
+          - 'minor'
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
-      time: "02:10"
+      time: '02:10'
       timezone: Europe/Warsaw
     labels:
       - dependencies
       - libs
     open-pull-requests-limit: 30
     groups:
+      npm-patches:
+        patterns:
+          - 'patch'
+          - 'minor'
       angular:
         patterns:
-          - "@angular/*"
-          - "@angular-devkit/build-angular"
-          - "@angular/cli"
+          - '@angular/*'
+          - '@angular-devkit/build-angular'
+          - '@angular/cli'
       angular-eslint:
         patterns:
-          - "@angular-eslint/*"
+          - '@angular-eslint/*'
       typescript-eslint:
         patterns:
-          - "@typescript-eslint/*"
+          - '@typescript-eslint/*'

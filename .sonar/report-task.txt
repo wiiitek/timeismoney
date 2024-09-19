@@ -1,7 +1,0 @@
-organization=wiiitek-github
-projectKey=wiiitek_timeismoney
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.55018
-dashboardUrl=https://sonarcloud.io/dashboard?id=wiiitek_timeismoney
-ceTaskId=AZADBb31TyXEKQH3x18z
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZADBb31TyXEKQH3x18z
