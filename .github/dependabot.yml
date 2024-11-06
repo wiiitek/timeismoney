@@ -11,6 +11,11 @@ updates:
       - dependencies
       - actions
     open-pull-requests-limit: 10
+    groups:
+      actions-patches:
+        patterns:
+          - 'patch'
+          - 'minor'
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -22,10 +27,14 @@ updates:
       - libs
     open-pull-requests-limit: 30
     groups:
+      npm-patches:
+        patterns:
+          - 'patch'
+          - 'minor'
       angular:
         patterns:
           - '@angular/*'
-        exclude-patterns:
+          - '@angular-devkit/build-angular'
           - '@angular/cli'
       angular-eslint:
         patterns:
@@ -33,7 +42,3 @@ updates:
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
-      angular-cli:
-        patterns:
-          - '@angular-devkit/build-angular'
-          - '@angular/cli'
