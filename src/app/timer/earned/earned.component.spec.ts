@@ -8,8 +8,8 @@ describe('EarnedComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [EarnedComponent]
-})
+      imports: [EarnedComponent]
+    })
       .compileComponents();
 
     fixture = TestBed.createComponent(EarnedComponent);

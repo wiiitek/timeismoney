@@ -13,9 +13,9 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(BrowserModule, FormsModule),
-        RateService
-    ]
+  providers: [
+    importProvidersFrom(BrowserModule, FormsModule),
+    RateService
+  ]
 })
   .catch(err => console.error(err));

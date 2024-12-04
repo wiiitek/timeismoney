@@ -9,14 +9,14 @@ import { EarnedComponent } from './earned/earned.component';
 import { NgClass, AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-timer',
-    templateUrl: './timer.component.html',
-    styleUrls: ['./timer.component.scss'],
-    providers: [TimerService, WatcherService, CalculatorService],
-    encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [RateInputComponent, ElapsedComponent, EarnedComponent, NgClass, AsyncPipe]
+  selector: 'app-timer',
+  templateUrl: './timer.component.html',
+  styleUrls: ['./timer.component.scss'],
+  providers: [TimerService, WatcherService, CalculatorService],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RateInputComponent, ElapsedComponent, EarnedComponent, NgClass, AsyncPipe]
 })
 export class TimerComponent implements OnDestroy {
 

@@ -14,12 +14,12 @@ describe('TimerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [FormsModule, TimerComponent,
+      imports: [FormsModule, TimerComponent,
         RateInputComponent,
         ElapsedComponent,
         EarnedComponent],
-    providers: [RateService],
-})
+      providers: [RateService],
+    })
       .compileComponents();
 
     rateService = TestBed.inject(RateService);

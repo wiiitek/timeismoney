@@ -12,8 +12,8 @@ describe('RateInputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [FormsModule, RateInputComponent],
-    providers: [RateService],
+      imports: [FormsModule, RateInputComponent],
+      providers: [RateService],
 })
       .compileComponents();
 

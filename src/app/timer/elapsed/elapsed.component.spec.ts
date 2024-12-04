@@ -8,8 +8,8 @@ describe('ElapsedComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [ElapsedComponent]
-})
+      imports: [ElapsedComponent]
+    })
       .compileComponents();
 
     fixture = TestBed.createComponent(ElapsedComponent);
