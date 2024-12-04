@@ -27,18 +27,22 @@ updates:
       - libs
     open-pull-requests-limit: 30
     groups:
-      npm-patches:
+      npm-small-upgrades:
         patterns:
-          - 'patch'
+          - '*'
+        update-types:
           - 'minor'
+          - 'patch'
       angular:
         patterns:
           - '@angular/*'
           - '@angular-devkit/build-angular'
           - '@angular/cli'
-      angular-eslint:
+        update-types:
+          - 'major'
+      eslint:
         patterns:
           - '@angular-eslint/*'
-      typescript-eslint:
-        patterns:
           - '@typescript-eslint/*'
+        update-types:
+          - 'major'
