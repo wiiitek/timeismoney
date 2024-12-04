@@ -12,10 +12,9 @@ describe('RateInputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
-      providers: [RateService],
-      declarations: [RateInputComponent],
-    })
+    imports: [FormsModule, RateInputComponent],
+    providers: [RateService],
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(RateInputComponent);

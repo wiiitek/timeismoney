@@ -1,11 +1,12 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-earned',
-  templateUrl: './earned.component.html',
-  styleUrls: ['./earned.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-earned',
+    templateUrl: './earned.component.html',
+    styleUrls: ['./earned.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true
 })
 export class EarnedComponent implements AfterViewInit {
 
