@@ -5,7 +5,8 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild
   templateUrl: './earned.component.html',
   styleUrls: ['./earned.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true
 })
 export class EarnedComponent implements AfterViewInit {
 

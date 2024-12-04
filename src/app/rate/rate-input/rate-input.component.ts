@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { RateService, RateType } from '../rate.service';
 
@@ -7,7 +8,9 @@ import { RateService, RateType } from '../rate.service';
   templateUrl: './rate-input.component.html',
   styleUrls: ['./rate-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [FormsModule]
 })
 export class RateInputComponent {
 

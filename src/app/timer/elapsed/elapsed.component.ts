@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { ElapsedService } from './elapsed.service';
 
@@ -8,7 +9,9 @@ import { ElapsedService } from './elapsed.service';
   styleUrls: ['./elapsed.component.scss'],
   providers: [ElapsedService],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [AsyncPipe]
 })
 export class ElapsedComponent {
 

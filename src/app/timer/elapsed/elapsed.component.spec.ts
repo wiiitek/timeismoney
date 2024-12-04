@@ -8,7 +8,7 @@ describe('ElapsedComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ElapsedComponent]
+      imports: [ElapsedComponent]
     })
       .compileComponents();
 

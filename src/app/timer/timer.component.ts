@@ -1,8 +1,13 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { NgClass, AsyncPipe } from '@angular/common';
+import { Observable } from 'rxjs';
+
+import { RateInputComponent } from '../rate/rate-input/rate-input.component';
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
 import { CalculatorService } from './calculator/calculator.service';
-import { Observable } from 'rxjs';
+import { ElapsedComponent } from './elapsed/elapsed.component';
+import { EarnedComponent } from './earned/earned.component';
 
 @Component({
   selector: 'app-timer',
@@ -10,7 +15,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./timer.component.scss'],
   providers: [TimerService, WatcherService, CalculatorService],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgClass,
+    AsyncPipe,
+    RateInputComponent,
+    ElapsedComponent,
+    EarnedComponent,
+  ]
 })
 export class TimerComponent implements OnDestroy {
 
