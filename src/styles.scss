@@ -1,11 +1,11 @@
 /* ----------------------------------
 // Fonts
 //----------------------------------*/
-@import 'style/_fonts';
-@import 'style/_colors';
+@use 'style/_fonts';
+@use 'style/_colors';
 
-$background: $light-gray;
-$default-text: $prussian-blue;
+$background: colors.$light-gray;
+$default-text: colors.$prussian-blue;
 
 body {
     margin-top: 3em;
