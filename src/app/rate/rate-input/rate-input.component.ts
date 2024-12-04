@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { RateService, RateType } from '../rate.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-rate-input',

@@ -1,12 +1,13 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { NgClass, AsyncPipe } from '@angular/common';
+import { Observable } from 'rxjs';
+
+import { RateInputComponent } from '../rate/rate-input/rate-input.component';
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
 import { CalculatorService } from './calculator/calculator.service';
-import { Observable } from 'rxjs';
-import { RateInputComponent } from '../rate/rate-input/rate-input.component';
 import { ElapsedComponent } from './elapsed/elapsed.component';
 import { EarnedComponent } from './earned/earned.component';
-import { NgClass, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-timer',
