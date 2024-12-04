@@ -12,6 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Print Node JS version
+        run: |
+          node -v
       - name: Yarn Install
         run: |
           yarn install
@@ -28,6 +31,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Print Node JS version
+        run: |
+          node -v
       - name: Yarn Install
         run: |
           yarn install
@@ -44,6 +50,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Print Node JS version
+        run: |
+          node -v
       - name: Yarn Install
         run: |
           yarn install
@@ -66,6 +75,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Print Node JS version
+        run: |
+          node -v
       - name: Yarn Install
         run: |
           yarn install
