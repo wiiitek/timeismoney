@@ -14,7 +14,7 @@ describe('RateInputComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule, RateInputComponent],
       providers: [RateService],
-})
+    })
       .compileComponents();
 
     fixture = TestBed.createComponent(RateInputComponent);

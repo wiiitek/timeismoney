@@ -17,7 +17,13 @@ import { EarnedComponent } from './earned/earned.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [RateInputComponent, ElapsedComponent, EarnedComponent, NgClass, AsyncPipe]
+  imports: [
+    NgClass,
+    AsyncPipe,
+    RateInputComponent,
+    ElapsedComponent,
+    EarnedComponent,
+  ]
 })
 export class TimerComponent implements OnDestroy {
 
