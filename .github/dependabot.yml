@@ -30,9 +30,26 @@ updates:
       npm-small-upgrades:
         patterns:
           - '*'
+        exclude-patterns:
+          - 'typescript'
         update-types:
           - 'minor'
           - 'patch'
+      typescript-patch:
+        patterns:
+          - 'typescript'
+        update-types:
+          - 'patch'
+      typescript-minor:
+        patterns:
+          - 'typescript'
+        update-types:
+          - 'minor'
+      typescript-major:
+        patterns:
+          - 'typescript'
+        update-types:
+          - 'major'
       angular:
         patterns:
           - '@angular/*'
