@@ -59,7 +59,8 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: JEST Tests
-          path: test-results/junit.xml
+          # We use combined file that wraps results into `<testsuites>` tag
+          path: test-results/combined.xml
           reporter: jest-junit
 
   test-and-sonar:
@@ -106,7 +107,8 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: JEST Tests
-          path: test-results/junit.xml
+          # We use combined file that wraps results into `<testsuites>` tag
+          path: test-results/combined.xml
           reporter: jest-junit
 
   build:
