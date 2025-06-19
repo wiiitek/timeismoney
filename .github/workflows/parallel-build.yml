@@ -12,9 +12,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Print Node JS version
-        run: |
-          node -v
+      - name: Use Specific Node.js Version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          cache: yarn
       - name: Yarn Install
         run: |
           yarn install
@@ -35,6 +37,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
+          cache: yarn
       - name: Yarn Install
         run: |
           yarn install
@@ -75,6 +78,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
+          cache: yarn
       - name: Yarn Install
         run: |
           yarn install
@@ -121,6 +125,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
+          cache: yarn
       - name: Yarn Install
         run: |
           yarn install
