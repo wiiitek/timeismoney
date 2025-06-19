@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class ElapsedService {
 
-  private behaviorSubject = new BehaviorSubject<string>('00:00:00');
+  private readonly behaviorSubject = new BehaviorSubject<string>('00:00:00');
 
   public convertedValue$ = this.behaviorSubject.asObservable();
 

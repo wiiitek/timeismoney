@@ -26,7 +26,7 @@ import { EarnedComponent } from './earned/earned.component';
   ]
 })
 export class TimerComponent implements OnDestroy {
-  private timerService = inject(TimerService);
+  private readonly timerService = inject(TimerService);
 
 
   get buttonText(): Observable<string> {

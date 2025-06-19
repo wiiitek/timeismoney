@@ -13,7 +13,7 @@ import { RateService, RateType } from '../rate.service';
   imports: [FormsModule]
 })
 export class RateInputComponent {
-  private rateService = inject(RateService);
+  private readonly rateService = inject(RateService);
 
 
   get rate(): number {

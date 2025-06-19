@@ -14,7 +14,7 @@ import { ElapsedService } from './elapsed.service';
   imports: [AsyncPipe]
 })
 export class ElapsedComponent {
-  private elapsedService = inject(ElapsedService);
+  private readonly elapsedService = inject(ElapsedService);
 
 
   @Input()
