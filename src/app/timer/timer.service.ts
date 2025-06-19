@@ -7,17 +7,17 @@ import { WatcherService } from './watcher/watcher.service';
 
 @Injectable()
 export class TimerService implements OnDestroy {
-  private watcherService = inject(WatcherService);
-  private calculatorService = inject(CalculatorService);
-  private rateService = inject(RateService);
+  private readonly watcherService = inject(WatcherService);
+  private readonly calculatorService = inject(CalculatorService);
+  private readonly rateService = inject(RateService);
 
 
   private sumOfElapsed = 0;
   private startedAt = 0;
   private lastUpdated = 0;
 
-  private buttonTextSource = new BehaviorSubject<string>('Start');
-  private elapsedMillisSource = new BehaviorSubject<number>(0);
+  private readonly buttonTextSource = new BehaviorSubject<string>('Start');
+  private readonly elapsedMillisSource = new BehaviorSubject<number>(0);
 
   public hourlyRate$ : Observable<number>;
   public counting = false;
