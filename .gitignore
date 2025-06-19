@@ -17,6 +17,7 @@
 # misc
 /.angular
 /coverage
+/test-results
 yarn-error.log
 /.scannerwork
 /.sonar
