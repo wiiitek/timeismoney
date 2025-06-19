@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, inject } from '@angular/core';
 import { NgClass, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
@@ -26,6 +26,8 @@ import { EarnedComponent } from './earned/earned.component';
   ]
 })
 export class TimerComponent implements OnDestroy {
+  private timerService = inject(TimerService);
+
 
   get buttonText(): Observable<string> {
     return this.timerService.buttonText$;
@@ -48,8 +50,6 @@ export class TimerComponent implements OnDestroy {
     const notCountingCss = 'button-primary';
     return this.timerService.counting ? countingCss : notCountingCss;
   }
-
-  constructor(private timerService: TimerService) { }
 
   onStartOrPause(): void {
     this.timerService.onStartOrPause();

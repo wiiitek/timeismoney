@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { ElapsedService } from './elapsed.service';
@@ -14,6 +14,8 @@ import { ElapsedService } from './elapsed.service';
   imports: [AsyncPipe]
 })
 export class ElapsedComponent {
+  private elapsedService = inject(ElapsedService);
+
 
   @Input()
   set elapsed(value: number | null) {
@@ -25,7 +27,5 @@ export class ElapsedComponent {
   get converted(): Observable<string> {
     return this.elapsedService.convertedValue$;
   }
-
-  constructor(private elapsedService: ElapsedService) { }
 
 }
