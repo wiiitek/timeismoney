@@ -4,19 +4,29 @@ import { CalculatorService } from './calculator/calculator.service';
 
 import { TimerService } from './timer.service';
 import { WatcherService } from './watcher/watcher.service';
+import { TestBed } from '@angular/core/testing';
 
 describe('TimerService', () => {
 
   let tested: TimerService;
 
-  // we are using *real* (not mocked) dependencies for unit test
+  // use Angular's inject mechanism for dependencies
+
   beforeEach(() => {
-    const watcherService = new WatcherService();
+    TestBed.configureTestingModule({
+      providers: [
+        WatcherService,
+        CalculatorService,
+        RateService,
+        TimerService,
+      ],
+    });
+
     // for testing we update status every two seconds (fakeAsync will rewind the time for us)
+    const watcherService = TestBed.inject(WatcherService);
     watcherService.setTimeBetweenExecutions(2_000);
-    const calculatorService = new CalculatorService();
-    const rateService = new RateService();
-    tested = new TimerService(watcherService, calculatorService, rateService);
+
+    tested = TestBed.inject(TimerService);
   });
 
   it('should be created', () => {
