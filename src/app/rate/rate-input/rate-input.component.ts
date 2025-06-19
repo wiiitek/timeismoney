@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { RateService, RateType } from '../rate.service';
@@ -13,10 +13,8 @@ import { RateService, RateType } from '../rate.service';
   imports: [FormsModule]
 })
 export class RateInputComponent {
+  private rateService = inject(RateService);
 
-  constructor(
-    private rateService: RateService,
-  ) { }
 
   get rate(): number {
     return this.rateService.getRate();

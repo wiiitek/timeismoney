@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CalculatorService } from './calculator/calculator.service';
@@ -7,6 +7,10 @@ import { WatcherService } from './watcher/watcher.service';
 
 @Injectable()
 export class TimerService implements OnDestroy {
+  private watcherService = inject(WatcherService);
+  private calculatorService = inject(CalculatorService);
+  private rateService = inject(RateService);
+
 
   private sumOfElapsed = 0;
   private startedAt = 0;
@@ -26,11 +30,7 @@ export class TimerService implements OnDestroy {
     })
   );
 
-  constructor(
-    private watcherService: WatcherService,
-    private calculatorService: CalculatorService,
-    private rateService: RateService,
-  ) {
+  constructor() {
     this.hourlyRate$ = this.rateService.hourlyRate$;
   }
 
