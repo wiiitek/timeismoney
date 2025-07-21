@@ -2638,10 +2638,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@>=10.0.0", "@types/node@^24.0.14":
-  version "24.0.14"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.14.tgz#6e3d4fb6d858c48c69707394e1a0e08ce1ecc1bc"
-  integrity sha512-4zXMWD91vBLGRtHK3YbIoFMia+1nqEz72coM42C5ETjnNCa/heoj7NT1G67iAfOqMmcfhuCZ4uNpyz8EjlAejw==
+"@types/node@*", "@types/node@>=10.0.0", "@types/node@^24.0.15":
+  version "24.0.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.15.tgz#f34fbc973e7d64217106e0c59ed8761e6b51381e"
+  integrity sha512-oaeTSbCef7U/z7rDeJA138xpG3NuKc64/rZ2qmUFkFJmnMsAPaluIifqyWd8hSSMxyP9oie3dLAqYPblag9KgA==
   dependencies:
     undici-types "~7.8.0"
 
@@ -5271,10 +5271,10 @@ jasmine-core@^4.1.0:
   resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-4.6.1.tgz#5ebb8afa07282078f8d7b15871737a83b74e58f2"
   integrity sha512-VYz/BjjmC3klLJlLwA4Kw8ytk0zDSmbbDLNs794VnWmkcCB7I9aAL/D48VNQtmITyPvea2C3jdUMfc3kAoy0PQ==
 
-jasmine-core@^5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-5.8.0.tgz#8a68b7b209b06c2247d67490bca8604c2fa498cd"
-  integrity sha512-Q9dqmpUAfptwyueW3+HqBOkSuYd9I/clZSSfN97wXE/Nr2ROFNCwIBEC1F6kb3QXS9Fcz0LjFYSDQT+BiwjuhA==
+jasmine-core@^5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-5.9.0.tgz#140199862ee83f906bf0ff88287e7c440a1776e7"
+  integrity sha512-OMUvF1iI6+gSRYOhMrH4QYothVLN9C3EJ6wm4g7zLJlnaTl8zbaPOr0bTw70l7QxkoM7sVFOWo83u9B2Fe2Zng==
 
 jasmine-spec-reporter@^7.0.0:
   version "7.0.0"
