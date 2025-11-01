@@ -11,8 +11,8 @@ import { EarnedComponent } from './earned/earned';
 
 @Component({
   selector: 'app-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss'],
+  templateUrl: './timer.html',
+  styleUrls: ['./timer.scss'],
   providers: [TimerService, WatcherService, CalculatorService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

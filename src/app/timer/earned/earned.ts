@@ -2,8 +2,8 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild
 
 @Component({
   selector: 'app-earned',
-  templateUrl: './earned.component.html',
-  styleUrls: ['./earned.component.scss'],
+  templateUrl: './earned.html',
+  styleUrls: ['./earned.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true

@@ -3,7 +3,7 @@ import { TimerComponent } from './timer/timer';
 
 @Component({
   selector: 'app-timeismoney',
-  templateUrl: './app.component.html',
+  templateUrl: './app.html',
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [TimerComponent]

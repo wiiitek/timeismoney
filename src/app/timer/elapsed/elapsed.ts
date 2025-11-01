@@ -5,8 +5,8 @@ import { ElapsedService } from './elapsed.service';
 
 @Component({
   selector: 'app-elapsed',
-  templateUrl: './elapsed.component.html',
-  styleUrls: ['./elapsed.component.scss'],
+  templateUrl: './elapsed.html',
+  styleUrls: ['./elapsed.scss'],
   providers: [ElapsedService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
