@@ -40,7 +40,7 @@
     "eslint": "^9.39.0",
     "jasmine-core": "^5.12.1",
     "jasmine-spec-reporter": "^7.0.0",
-    "junit-report-merger": "^7.0.1",
+    "junit-report-merger": "^8.0.0",
     "karma": "^6.4.4",
     "karma-chrome-launcher": "^3.2.0",
     "karma-coverage": "^2.2.1",
