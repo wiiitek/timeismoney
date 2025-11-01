@@ -2,22 +2,22 @@ import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angul
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { RateInputComponent } from './rate-input';
-import { RateService } from '../rate.service';
+import { RateInput } from './rate-input';
+import { RateService } from '../rate-service';
 
-describe('RateInputComponent', () => {
+describe('RateInput', () => {
   let rateService: RateService;
-  let component: RateInputComponent;
-  let fixture: ComponentFixture<RateInputComponent>;
+  let component: RateInput;
+  let fixture: ComponentFixture<RateInput>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RateInputComponent],
+      imports: [FormsModule, RateInput],
       providers: [RateService],
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(RateInputComponent);
+    fixture = TestBed.createComponent(RateInput);
     component = fixture.componentInstance;
     rateService = fixture.debugElement.injector.get(RateService);
   });

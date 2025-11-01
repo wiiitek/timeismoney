@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElapsedComponent } from './elapsed';
+import { Elapsed } from './elapsed';
 
-describe('ElapsedComponent', () => {
-  let component: ElapsedComponent;
-  let fixture: ComponentFixture<ElapsedComponent>;
+describe('Elapsed', () => {
+  let component: Elapsed;
+  let fixture: ComponentFixture<Elapsed>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ElapsedComponent]
+      imports: [Elapsed]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(ElapsedComponent);
+    fixture = TestBed.createComponent(Elapsed);
     component = fixture.componentInstance;
   });
 

@@ -8,7 +8,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
-export class EarnedComponent implements AfterViewInit {
+export class Earned implements AfterViewInit {
 
   @ViewChild('board') boardElement: ElementRef<HTMLDivElement> | undefined;
 

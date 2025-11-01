@@ -1,18 +1,18 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
-import { EarnedComponent } from './earned';
+import { Earned } from './earned';
 
-describe('EarnedComponent', () => {
-  let component: EarnedComponent;
-  let fixture: ComponentFixture<EarnedComponent>;
+describe('Earned', () => {
+  let component: Earned;
+  let fixture: ComponentFixture<Earned>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [EarnedComponent]
+      imports: [Earned]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(EarnedComponent);
+    fixture = TestBed.createComponent(Earned);
     component = fixture.componentInstance;
   });
 

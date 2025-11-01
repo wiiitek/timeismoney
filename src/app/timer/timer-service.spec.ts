@@ -1,5 +1,5 @@
 import { fakeAsync, tick } from '@angular/core/testing';
-import { RateService } from '../rate/rate.service';
+import { RateService } from '../rate/rate-service';
 import { CalculatorService } from './calculator/calculator-service';
 
 import { TimerService } from './timer-service';

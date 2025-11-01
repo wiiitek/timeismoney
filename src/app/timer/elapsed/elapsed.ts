@@ -13,7 +13,7 @@ import { ElapsedService } from './elapsed-service';
   standalone: true,
   imports: [AsyncPipe]
 })
-export class ElapsedComponent {
+export class Elapsed {
   private readonly elapsedService = inject(ElapsedService);
 
 
