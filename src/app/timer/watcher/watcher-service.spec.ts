@@ -1,5 +1,5 @@
 
-import { WatcherService } from './watcher.service';
+import { WatcherService } from './watcher-service';
 
 describe('WatcherService', () => {
   let tested: WatcherService;

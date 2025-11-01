@@ -1,19 +1,19 @@
 import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
-import { ElapsedService } from './elapsed.service';
+import { ElapsedService } from './elapsed-service';
 
 @Component({
   selector: 'app-elapsed',
-  templateUrl: './elapsed.component.html',
-  styleUrls: ['./elapsed.component.scss'],
+  templateUrl: './elapsed.html',
+  styleUrls: ['./elapsed.scss'],
   providers: [ElapsedService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [AsyncPipe]
 })
-export class ElapsedComponent {
+export class Elapsed {
   private readonly elapsedService = inject(ElapsedService);
 
 

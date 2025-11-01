@@ -1,6 +1,6 @@
 import { fakeAsync } from '@angular/core/testing';
 
-import { ElapsedService } from './elapsed.service';
+import { ElapsedService } from './elapsed-service';
 
 describe('ElapsedService', () => {
   let tested: ElapsedService;

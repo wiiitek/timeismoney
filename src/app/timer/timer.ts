@@ -2,17 +2,17 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, injec
 import { NgClass, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { RateInputComponent } from '../rate/rate-input/rate-input.component';
-import { TimerService } from './timer.service';
-import { WatcherService } from './watcher/watcher.service';
-import { CalculatorService } from './calculator/calculator.service';
-import { ElapsedComponent } from './elapsed/elapsed.component';
-import { EarnedComponent } from './earned/earned.component';
+import { RateInput } from '../rate/rate-input/rate-input';
+import { TimerService } from './timer-service';
+import { WatcherService } from './watcher/watcher-service';
+import { CalculatorService } from './calculator/calculator-service';
+import { Elapsed } from './elapsed/elapsed';
+import { Earned } from './earned/earned';
 
 @Component({
   selector: 'app-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss'],
+  templateUrl: './timer.html',
+  styleUrls: ['./timer.scss'],
   providers: [TimerService, WatcherService, CalculatorService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,12 +20,12 @@ import { EarnedComponent } from './earned/earned.component';
   imports: [
     NgClass,
     AsyncPipe,
-    RateInputComponent,
-    ElapsedComponent,
-    EarnedComponent,
+    RateInput,
+    Elapsed,
+    Earned,
   ]
 })
-export class TimerComponent implements OnDestroy {
+export class Timer implements OnDestroy {
   private readonly timerService = inject(TimerService);
 
 

@@ -1,4 +1,4 @@
-import { RateService, RateType } from './rate.service';
+import { RateService, RateType } from './rate-service';
 
 describe('RateService', () => {
 

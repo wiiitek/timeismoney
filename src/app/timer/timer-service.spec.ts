@@ -1,9 +1,9 @@
 import { fakeAsync, tick } from '@angular/core/testing';
-import { RateService } from '../rate/rate.service';
-import { CalculatorService } from './calculator/calculator.service';
+import { RateService } from '../rate/rate-service';
+import { CalculatorService } from './calculator/calculator-service';
 
-import { TimerService } from './timer.service';
-import { WatcherService } from './watcher/watcher.service';
+import { TimerService } from './timer-service';
+import { WatcherService } from './watcher/watcher-service';
 import { TestBed } from '@angular/core/testing';
 
 describe('TimerService', () => {

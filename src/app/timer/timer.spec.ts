@@ -1,32 +1,32 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { RateInputComponent } from '../rate/rate-input/rate-input.component';
-import { RateService, RateType } from '../rate/rate.service';
-import { EarnedComponent } from './earned/earned.component';
-import { ElapsedComponent } from './elapsed/elapsed.component';
+import { RateInput } from '../rate/rate-input/rate-input';
+import { RateService, RateType } from '../rate/rate-service';
+import { Earned } from './earned/earned';
+import { Elapsed } from './elapsed/elapsed';
 
-import { TimerComponent } from './timer.component';
+import { Timer } from './timer';
 
-describe('TimerComponent', () => {
+describe('Timer', () => {
   let rateService: RateService;
-  let component: TimerComponent;
-  let fixture: ComponentFixture<TimerComponent>;
+  let component: Timer;
+  let fixture: ComponentFixture<Timer>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        TimerComponent,
-        RateInputComponent,
-        ElapsedComponent,
-        EarnedComponent,
+        Timer,
+        RateInput,
+        Elapsed,
+        Earned,
       ],
       providers: [RateService],
     })
       .compileComponents();
 
     rateService = TestBed.inject(RateService);
-    fixture = TestBed.createComponent(TimerComponent);
+    fixture = TestBed.createComponent(Timer);
     component = fixture.componentInstance;
 
     fixture.detectChanges();
