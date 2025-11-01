@@ -1,5 +1,5 @@
 
-import { CalculatorService } from './calculator.service';
+import { CalculatorService } from './calculator-service';
 
 describe('CalculatorService', () => {
   let tested: CalculatorService;

@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
-import { ElapsedService } from './elapsed.service';
+import { ElapsedService } from './elapsed-service';
 
 @Component({
   selector: 'app-elapsed',

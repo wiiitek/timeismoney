@@ -3,9 +3,9 @@ import { NgClass, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { RateInputComponent } from '../rate/rate-input/rate-input';
-import { TimerService } from './timer.service';
-import { WatcherService } from './watcher/watcher.service';
-import { CalculatorService } from './calculator/calculator.service';
+import { TimerService } from './timer-service';
+import { WatcherService } from './watcher/watcher-service';
+import { CalculatorService } from './calculator/calculator-service';
 import { ElapsedComponent } from './elapsed/elapsed';
 import { EarnedComponent } from './earned/earned';
 

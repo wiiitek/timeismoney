@@ -1,9 +1,9 @@
 import { Injectable, OnDestroy, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CalculatorService } from './calculator/calculator.service';
+import { CalculatorService } from './calculator/calculator-service';
 import { RateService } from '../rate/rate.service';
-import { WatcherService } from './watcher/watcher.service';
+import { WatcherService } from './watcher/watcher-service';
 
 @Injectable()
 export class TimerService implements OnDestroy {
