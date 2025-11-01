@@ -16,6 +16,10 @@ updates:
         patterns:
           - 'patch'
           - 'minor'
+      artifacts-upload-and-download:
+        patterns:
+          - 'actions/upload-artifact'
+          - 'actions/download-artifact'
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -35,15 +39,11 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
-      typescript-patch:
+      typescript:
         patterns:
           - 'typescript'
         update-types:
           - 'patch'
-      typescript-minor:
-        patterns:
-          - 'typescript'
-        update-types:
           - 'minor'
       typescript-major:
         patterns:
@@ -55,6 +55,7 @@ updates:
           - '@angular/*'
           - '@angular-devkit/build-angular'
           - '@angular/cli'
+          - '@angular-eslint/*'
         update-types:
           - 'major'
       eslint:
