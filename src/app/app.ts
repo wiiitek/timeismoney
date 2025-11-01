@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { TimerComponent } from './timer/timer.component';
+import { TimerComponent } from './timer/timer';
 
 @Component({
   selector: 'app-timeismoney',

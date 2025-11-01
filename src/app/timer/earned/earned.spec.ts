@@ -1,6 +1,6 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
-import { EarnedComponent } from './earned.component';
+import { EarnedComponent } from './earned';
 
 describe('EarnedComponent', () => {
   let component: EarnedComponent;

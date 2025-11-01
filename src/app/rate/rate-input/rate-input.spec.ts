@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angul
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { RateInputComponent } from './rate-input.component';
+import { RateInputComponent } from './rate-input';
 import { RateService } from '../rate.service';
 
 describe('RateInputComponent', () => {

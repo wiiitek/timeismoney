@@ -1,11 +1,11 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { RateInputComponent } from '../rate/rate-input/rate-input.component';
+import { RateInputComponent } from '../rate/rate-input/rate-input';
 import { RateService, RateType } from '../rate/rate.service';
-import { EarnedComponent } from './earned/earned.component';
-import { ElapsedComponent } from './elapsed/elapsed.component';
+import { EarnedComponent } from './earned/earned';
+import { ElapsedComponent } from './elapsed/elapsed';
 
-import { TimerComponent } from './timer.component';
+import { TimerComponent } from './timer';
 
 describe('TimerComponent', () => {
   let rateService: RateService;
