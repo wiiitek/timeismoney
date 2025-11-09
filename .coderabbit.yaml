@@ -1,11 +1,20 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 # https://docs.coderabbit.ai/configure-coderabbit/
-language: en-US
-tone_instructions: Provide links to external sources like documentation or blog posts.
-early_access: false
-enable_free_tier: true
 reviews:
   poem: false
   collapse_walkthrough: true
   sequence_diagrams: false
+  auto_review:
+    enabled: true
+    drafts: false
+  # update to the tools you use, see full list: https://docs.coderabbit.ai/tools/list
+  tools:
+    eslint:
+      enabled: true
+
+chat:
+  art: false
+  auto-replay: false
+
 knowledge_base:
   opt_out: true
