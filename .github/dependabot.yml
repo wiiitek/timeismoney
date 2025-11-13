@@ -24,7 +24,7 @@ updates:
     directory: /
     schedule:
       interval: daily
-      time: '16:16'
+      time: '14:54'
       timezone: Europe/Warsaw
     labels:
       - dependencies
