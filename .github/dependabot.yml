@@ -24,22 +24,13 @@ updates:
     directory: /
     schedule:
       interval: daily
-      time: '16:16'
+      time: '14:54'
       timezone: Europe/Warsaw
     labels:
       - dependencies
       - libs
     open-pull-requests-limit: 30
     groups:
-      npm-small-upgrades:
-        patterns:
-          - '**'
-          - '**/**'
-        exclude-patterns:
-          - 'typescript'
-        update-types:
-          - 'minor'
-          - 'patch'
       typescript:
         patterns:
           - 'typescript'
@@ -65,3 +56,12 @@ updates:
           - '@typescript-eslint/*'
         update-types:
           - 'major'
+      npm-small-upgrades:
+        patterns:
+          - '**'
+          - '**/**'
+        exclude-patterns:
+          - 'typescript'
+        update-types:
+          - 'minor'
+          - 'patch'
