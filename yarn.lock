@@ -265,11 +265,6 @@
     "@angular-devkit/architect" ">= 0.2000.0 < 0.2100.0"
     "@angular-devkit/core" ">= 20.0.0 < 21.0.0"
 
-"@angular-eslint/bundled-angular-compiler@20.5.2":
-  version "20.5.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-20.5.2.tgz#e39a9eecee1cd340e61bc24a0f0b964593f81334"
-  integrity sha512-lYCCohMJ7dj49o2A8O8WOzZaXwDp51fZ9F8oyz/EtORDr83VVcsLeXRaByfalbWbJHWVogZ5Koo5rTF9IrZBeA==
-
 "@angular-eslint/bundled-angular-compiler@20.6.0":
   version "20.6.0"
   resolved "https://registry.yarnpkg.com/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-20.6.0.tgz#f006547068f771c4ccc0a85e512a42798ba5c9ee"
@@ -307,12 +302,12 @@
     semver "7.7.3"
     strip-json-comments "3.1.1"
 
-"@angular-eslint/template-parser@^20.5.2":
-  version "20.5.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-20.5.2.tgz#c1162e9ee7c6a6c555b786ee4f6f67077919aff8"
-  integrity sha512-zBkrr9+ml5dH+gnz4uFwQFcBNKzo81BGSPFf7bHNmphXS9U6RdGokBJF/R+YVFt05CkCl4U00fuydR2P/mh7mQ==
+"@angular-eslint/template-parser@^20.6.0":
+  version "20.6.0"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-20.6.0.tgz#c15861ac8ea27fe00ff800983b6443f3557d0ae3"
+  integrity sha512-dDsABCf8qoFEUmSQa2F0NBZtkxT+I4GQxKcYSpsFZdgv6zrE46lpJSuRgK8OKOq1jqMmbIEXp2h0FeHyJS/qmg==
   dependencies:
-    "@angular-eslint/bundled-angular-compiler" "20.5.2"
+    "@angular-eslint/bundled-angular-compiler" "20.6.0"
     eslint-scope "^8.0.2"
 
 "@angular-eslint/utils@20.6.0":
