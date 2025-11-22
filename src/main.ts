@@ -12,7 +12,8 @@ if (environment.production) {
 
 bootstrapApplication(App, {
   providers: [
-    provideZoneChangeDetection(),importProvidersFrom(BrowserModule, FormsModule),
+    provideZoneChangeDetection(),
+    importProvidersFrom(BrowserModule, FormsModule),
     RateService
   ]
 })
