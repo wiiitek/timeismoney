@@ -42,7 +42,7 @@ updates:
           - 'typescript'
         update-types:
           - 'major'
-      angular:
+      angular-major:
         patterns:
           - '@angular/*'
           - '@angular-devkit/build-angular'
@@ -50,7 +50,7 @@ updates:
           - '@angular-eslint/*'
         update-types:
           - 'major'
-      eslint:
+      eslint-major:
         patterns:
           - '@angular-eslint/*'
           - '@typescript-eslint/*'
@@ -58,8 +58,7 @@ updates:
           - 'major'
       npm-small-upgrades:
         patterns:
-          - '**'
-          - '**/**'
+          - '*'
         exclude-patterns:
           - 'typescript'
         update-types:
