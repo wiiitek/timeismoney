@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/timer/earned/earned.scss"],
+  "sourcesContent": [".earned {\n  &__board {\n    .departure-board {\n      .row {\n        height: 1.3em;\n      }\n    }\n  }\n}\n"],
+  "mappings": "AAGM,CAAA,cAAA,CAAA,gBAAA,CAAA,IACE,OAAA",
+  "names": []
+}

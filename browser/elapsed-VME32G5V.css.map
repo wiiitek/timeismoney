@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/timer/elapsed/elapsed.scss"],
+  "sourcesContent": ["\n.elapsed {\n\n  &__time {\n    font-family: Consolas, Courier, monospace;\n  }\n}\n"],
+  "mappings": "AAGE,CAAA,cACE,YAAA,QAAA,CAAA,OAAA,CAAA",
+  "names": []
+}

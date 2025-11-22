@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/timer/timer.scss"],
+  "sourcesContent": ["\n.timer {\n  font-size: large;\n\n  &__main_button {\n    margin-right: 1em;\n    margin-top: 1em;\n  }\n}\n"],
+  "mappings": "AACA,CAAA,MACE,UAAA,MAEA,CAAA,mBACE,aAAA,IACA,WAAA",
+  "names": []
+}

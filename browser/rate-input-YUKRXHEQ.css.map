@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/rate/rate-input/rate-input.scss"],
+  "sourcesContent": ["$field_width: 12em;\n\n.rate-input {\n  &__value {\n    width: $field_width;\n\n    input {\n      height: 39px;\n      border: 1px solid #999999;\n      padding: 5px;\n    }\n  }\n\n  &__type {\n    width: $field_width;\n\n    select {\n      width: 100%;\n    }\n  }\n}\n"],
+  "mappings": "AAGE,CAAA,kBACE,MAJU,KAMV,CAHF,kBAGE,MACE,OAAA,KACA,OAAA,IAAA,MAAA,QALJ,QAMI,IAIJ,CAAA,iBACE,MAdU,KAgBV,CAHF,iBAGE,OACE,MAAA",
+  "names": []
+}
