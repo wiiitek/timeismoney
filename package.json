@@ -38,7 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^8.47.0",
     "@typescript-eslint/parser": "^8.48.0",
     "eslint": "^9.39.1",
-    "jasmine-core": "^5.12.1",
+    "jasmine-core": "^5.13.0",
     "jasmine-spec-reporter": "^7.0.0",
     "junit-report-merger": "^9.0.3",
     "karma": "^6.4.4",
