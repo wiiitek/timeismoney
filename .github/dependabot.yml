@@ -31,25 +31,17 @@ updates:
       - libs
     open-pull-requests-limit: 30
     groups:
-      npm-small-upgrades:
+      typescript-major:
         patterns:
-          - '*'
-        exclude-patterns:
           - 'typescript'
         update-types:
-          - 'minor'
-          - 'patch'
+          - 'major'
       typescript:
         patterns:
           - 'typescript'
         update-types:
           - 'patch'
           - 'minor'
-      typescript-major:
-        patterns:
-          - 'typescript'
-        update-types:
-          - 'major'
       angular-major:
         patterns:
           - '@angular/*'
@@ -64,3 +56,11 @@ updates:
           - '@typescript-eslint/*'
         update-types:
           - 'major'
+      npm-small-upgrades:
+        patterns:
+          - '*'
+        exclude-patterns:
+          - 'typescript'
+        update-types:
+          - 'minor'
+          - 'patch'
