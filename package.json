@@ -34,7 +34,7 @@
     "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.0",
     "@types/jasmine": "^5.1.13",
-    "@types/node": "^24.10.2",
+    "@types/node": "^24.10.4",
     "@typescript-eslint/eslint-plugin": "^8.50.0",
     "@typescript-eslint/parser": "^8.50.0",
     "eslint": "^9.39.2",
@@ -47,7 +47,7 @@
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "karma-junit-reporter": "^2.0.1",
-    "puppeteer": "^24.33.0",
+    "puppeteer": "^24.34.0",
     "sonarqube-scanner": "^4.3.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.9.3"
