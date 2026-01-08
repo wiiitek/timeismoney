@@ -141,7 +141,7 @@ jobs:
 
   deploy:
     # make it work with skipped jobs: https://github.com/github/docs/issues/4822#issuecomment-826617890
-    if: ${{ (github.ref == 'refs/heads/main') && !failure() && !cancelled() }}
+    #if: ${{ (github.ref == 'refs/heads/main') && !failure() && !cancelled() }}
     needs: [lint, test, test-and-sonar, build]
     name: Deploy
     runs-on: ubuntu-latest
