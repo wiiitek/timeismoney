@@ -136,7 +136,7 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@angular-devkit/architect@0.2101.0", "@angular-devkit/architect@>= 0.2100.0 < 0.2200.0":
+"@angular-devkit/architect@0.2101.0":
   version "0.2101.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.2101.0.tgz#4c4fe5932bce289537ca64ca8f6f48c090a983db"
   integrity sha512-vnNAzWXwSRGTHk2K7woIQsj7WDYZp69Z3DBdlxkK0H08ymkJ/ELbhN0/AnIJNNtYCqEb57AH7Ro98n422beDuw==
@@ -144,10 +144,30 @@
     "@angular-devkit/core" "21.1.0"
     rxjs "7.8.2"
 
+"@angular-devkit/architect@0.2101.1", "@angular-devkit/architect@>= 0.2100.0 < 0.2200.0":
+  version "0.2101.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.2101.1.tgz#d36db61c0b7e3b2fe3e925900f2acf65be37f653"
+  integrity sha512-8x7hKcFs3hnpDaIj9fyzinh4X74oQaMxMsZzBf4dBL7EwokjPIf2fadQsZd8a5M+Ja4tIgTnXH9ySyaRFWGNXA==
+  dependencies:
+    "@angular-devkit/core" "21.1.1"
+    rxjs "7.8.2"
+
 "@angular-devkit/core@21.1.0", "@angular-devkit/core@>= 21.0.0 < 22.0.0":
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-21.1.0.tgz#723376f112be0e5e0b6a954e3e4918645f23312b"
   integrity sha512-dPfVy0CictDjWffRv4pGTPOFjdlJL3ZkGUqxzaosUjMbJW+Ai9cNn1VNr7zxYZ4kem3BxLBh1thzDsCPrkXlZA==
+  dependencies:
+    ajv "8.17.1"
+    ajv-formats "3.0.1"
+    jsonc-parser "3.3.1"
+    picomatch "4.0.3"
+    rxjs "7.8.2"
+    source-map "0.7.6"
+
+"@angular-devkit/core@21.1.1":
+  version "21.1.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-21.1.1.tgz#4a889c8e75849811981d33b3ab59a88157485eae"
+  integrity sha512-rCwfBUemyRoAfrO4c85b49lkPiD5WljWE+IK7vjUNIFFf4TXOS4tg4zxqopUDVE4zEjXORa5oHCEc5HCerjn1g==
   dependencies:
     ajv "8.17.1"
     ajv-formats "3.0.1"
@@ -227,13 +247,13 @@
   dependencies:
     "@angular-eslint/bundled-angular-compiler" "21.1.0"
 
-"@angular/build@^21.1.0":
-  version "21.1.0"
-  resolved "https://registry.yarnpkg.com/@angular/build/-/build-21.1.0.tgz#53f1e1b5357e0850caa20df2d4aa47f61da908ff"
-  integrity sha512-ftms4F/TlkRNhf/4ykFO12zTG0f9sIRZ4fGFnaOVGmnKYkPKZklWvMCPoaoIligHS2pqKye1a5JSiTgTeUDp9w==
+"@angular/build@^21.1.1":
+  version "21.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/build/-/build-21.1.1.tgz#4625669c40c56138f22de33e515473d5d4722866"
+  integrity sha512-OqlfH7tkahw/lFT6ACU6mqt3AGgTxxT27JTqpzZOeGo1ferR9dq1O6/CT4GiNyr/Z1AMfs7rBWlQH68y1QZb2g==
   dependencies:
     "@ampproject/remapping" "2.3.0"
-    "@angular-devkit/architect" "0.2101.0"
+    "@angular-devkit/architect" "0.2101.1"
     "@babel/core" "7.28.5"
     "@babel/helper-annotate-as-pure" "7.27.3"
     "@babel/helper-split-export-declaration" "7.24.7"
@@ -256,7 +276,7 @@
     semver "7.7.3"
     source-map-support "0.5.21"
     tinyglobby "0.2.15"
-    undici "7.18.0"
+    undici "7.18.2"
     vite "7.3.0"
     watchpack "2.5.0"
   optionalDependencies:
@@ -5352,10 +5372,10 @@ undici-types@~7.16.0:
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-7.16.0.tgz#ffccdff36aea4884cbfce9a750a0580224f58a46"
   integrity sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==
 
-undici@7.18.0:
-  version "7.18.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-7.18.0.tgz#93056910e5228d79d2b98f625ecefb2c45adf80f"
-  integrity sha512-CfPufgPFHCYu0W4h1NiKW9+tNJ39o3kWm7Cm29ET1enSJx+AERfz7A2wAr26aY0SZbYzZlTBQtcHy15o60VZfQ==
+undici@7.18.2:
+  version "7.18.2"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-7.18.2.tgz#6cf724ef799a67d94fd55adf66b1e184176efcdf"
+  integrity sha512-y+8YjDFzWdQlSE9N5nzKMT3g4a5UBX1HKowfdXh0uvAnTaqqwqB92Jt4UXBAeKekDs5IaDKyJFR4X1gYVCgXcw==
 
 unique-filename@^5.0.0:
   version "5.0.0"
