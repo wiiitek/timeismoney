@@ -322,11 +322,12 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^21.0.0":
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-21.0.0.tgz#37edea1c9b06e23268302f1f164e06752bb1122a"
-  integrity sha512-kcudwbZs/ddKqaELz4eEW9kOGCsX61qsf9jkQsGTARBEOUcU2K+rM6mX5sTf9azHvQ9wlX4N36h0eYzBA4Y4Qg==
+"@angular/forms@^21.1.1":
+  version "21.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-21.1.1.tgz#15603edbf2b58c3d58ea3ea85e65db2646b83f35"
+  integrity sha512-NBbJOynLOeMsPo03+3dfdxE0P7SB7SXRqoFJ7WP2sOgOIxODna/huo2blmRlnZAVPTn1iQEB9Q+UeyP5c4/1+w==
   dependencies:
+    "@standard-schema/spec" "^1.0.0"
     tslib "^2.3.0"
 
 "@angular/platform-browser-dynamic@^21.0.0":
@@ -1665,6 +1666,11 @@
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz#821f8442f4175d8f0467b9daf26e3a18e2d02af2"
   integrity sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==
+
+"@standard-schema/spec@^1.0.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@standard-schema/spec/-/spec-1.1.0.tgz#a79b55dbaf8604812f52d140b2c9ab41bc150bb8"
+  integrity sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==
 
 "@tootallnate/quickjs-emscripten@^0.23.0":
   version "0.23.0"
