@@ -14,7 +14,6 @@ reviews:
 
 chat:
   art: false
-  auto-replay: false
 
 knowledge_base:
   opt_out: true

@@ -51,15 +51,29 @@ updates:
           - '@angular/*'
           - '@angular-devkit/build-angular'
           - '@angular/cli'
-          - '@angular-eslint/*'
         update-types:
           - 'major'
+      angular:
+        patterns:
+          - '@angular/*'
+          - '@angular-devkit/build-angular'
+          - '@angular/cli'
+        update-types:
+          - 'minor'
+          - 'patch'
       eslint-major:
         patterns:
           - '@angular-eslint/*'
           - '@typescript-eslint/*'
         update-types:
           - 'major'
+      eslint:
+        patterns:
+          - '@angular-eslint/*'
+          - '@typescript-eslint/*'
+        update-types:
+          - 'minor'
+          - 'patch'
       npm-small-upgrades:
         patterns:
           - '*'
