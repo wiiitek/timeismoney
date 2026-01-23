@@ -24,7 +24,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running Sonar analysis
 
-To manually run Sonar analysis run `export SONAR_TOKEN=<sonar token>` for Sonar credentials and then `yarn sonar`.
+To manually run Sonar analysis run `export SONAR_TOKEN=<sonar token>` for Sonar credentials and then `npm run sonar`.
 
 ## Further help
 

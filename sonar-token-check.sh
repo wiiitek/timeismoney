@@ -2,7 +2,7 @@
 
 echo "Checking tools versions..."
 node -v
-yarn -v
+npm -v
 
 echo "Checking env variables..."
 
