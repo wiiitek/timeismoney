@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, inject } from '@angular/core';
-import { NgClass, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { RateInput } from '../rate/rate-input/rate-input';
@@ -18,7 +18,6 @@ import { Earned } from './earned/earned';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgClass,
     AsyncPipe,
     RateInput,
     Elapsed,
@@ -45,10 +44,8 @@ export class Timer implements OnDestroy {
     return this.timerService.earned$;
   }
 
-  get statusClass(): string {
-    const countingCss = '';
-    const notCountingCss = 'button-primary';
-    return this.timerService.counting ? countingCss : notCountingCss;
+  get isCounting(): boolean {
+    return this.timerService.counting;
   }
 
   onStartOrPause(): void {
