@@ -16,13 +16,11 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24.x
-          cache: yarn
-      - name: Yarn Install
-        run: |
-          yarn install
+          cache: npm
+      - name: NPM Install
+        run: npm ci
       - name: Lint
-        run: |
-          yarn lint
+        run: npm run lint
 
   test:
     name: Run Tests
@@ -37,14 +35,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
-          cache: yarn
-      - name: Yarn Install
-        run: |
-          yarn install
+          cache: npm
+      - name: NPM Install
+        run: npm ci
       - name: Tests
         run: |
           export NG_CLI_ANALYTICS=false
-          yarn test
+          npm test
       - name: Save Test Results
         uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
@@ -78,13 +75,12 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
-          cache: yarn
-      - name: Yarn Install
-        run: |
-          yarn install
+          cache: npm
+      - name: NPM Install
+        run: npm ci
       - name: Sonar version
         run: |
-          yarn sonar --version
+          npm run sonar --version
       - name: Tests and Sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -92,8 +88,8 @@ jobs:
         run: |
           ./sonar-token-check.sh
           export NG_CLI_ANALYTICS=false
-          yarn test
-          yarn sonar
+          npm test
+          npm run sonar
       - name: Save Test Results
         uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
@@ -125,13 +121,11 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
-          cache: yarn
-      - name: Yarn Install
-        run: |
-          yarn install
+          cache: npm
+      - name: NPM Install
+        run: npm ci
       - name: Build
-        run: |
-          yarn build
+        run: npm run build
       - name: Archive built project
         uses: actions/upload-artifact@v6
         with:
