@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { vi } from 'vitest';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Earned } from './earned';
 
@@ -21,22 +21,14 @@ describe('Earned', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should convert value for the board component', () => {
-    vi.useFakeTimers();
-
     // when
     component.earned = 12345;
     fixture.detectChanges();
 
     // then
     expect(DepartureBoard.prototype.setValue).toHaveBeenCalledWith('  123.45');
-    vi.useRealTimers();
   });
-
 
   it('should correctly compute earned cents to show', () => {
     // when

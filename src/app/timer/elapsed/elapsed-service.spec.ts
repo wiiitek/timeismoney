@@ -7,10 +7,6 @@ describe('ElapsedService', () => {
     tested = new ElapsedService();
   });
 
-  it('should be created', () => {
-    expect(tested).toBeTruthy();
-  });
-
   it('should convert elapsed two minutes', () => {
     // when
     const actual = tested.convert(135_000);
@@ -44,16 +40,14 @@ describe('ElapsedService', () => {
   });
 
   it('should asynchronously convert elapsed 111 hours, 5 minutes, 3 seconds and 300 millis', () => {
-    vi.useFakeTimers();
     // when
     tested.elapsed(399_903_300);
+
     // then
     let actual = '';
     tested.convertedValue$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
-    vi.runAllTimers();
     expect(actual).toBe('111:05:03');
-    vi.useRealTimers();
   });
 });

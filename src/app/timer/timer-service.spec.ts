@@ -12,7 +12,6 @@ describe('TimerService', () => {
   let tested: TimerService;
 
   // use Angular's inject mechanism for dependencies
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -23,19 +22,18 @@ describe('TimerService', () => {
       ],
     });
 
-    // for testing we update status every two seconds (fakeAsync will rewind the time for us)
+    // for testing we update status every two seconds (we will use fake time for tests)
     const watcherService = TestBed.inject(WatcherService);
     watcherService.setTimeBetweenExecutions(2_000);
 
     tested = TestBed.inject(TimerService);
   });
 
-  it('should be created', () => {
-    expect(tested).toBeTruthy();
+  afterEach(() => {
+    tested.ngOnDestroy();
   });
 
   it('should show default button text', () => {
-    vi.useFakeTimers();
     // when
     let actual = '';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
@@ -46,7 +44,7 @@ describe('TimerService', () => {
     expect(actual).toBe('Start');
   });
 
-  it('should asynchronously change button text', () => {
+  it('should asynchronously change button text to Pause after starting', () => {
     // given
     let actual = '';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
@@ -61,7 +59,6 @@ describe('TimerService', () => {
   });
 
   it('should asynchronously change button text back to Start after pausing', () => {
-    vi.useFakeTimers();
     tested.onStartOrPause();
     tested.onStartOrPause();
     let actual = '';
@@ -69,21 +66,19 @@ describe('TimerService', () => {
       actual = valuePublishedByComponent;
     });
     expect(actual).toBe('Start');
-    vi.useRealTimers();
   });
 
-  it('reset should stop counting', () => {
+  it('reset should stop counting and should be stopped even after some time', () => {
     vi.useFakeTimers();
     tested.onStartOrPause();
     tested.onReset();
     expect(tested.counting).toBeFalsy();
-    vi.advanceTimersByTime(600);
+    vi.advanceTimersByTime(6_000);
     expect(tested.counting).toBeFalsy();
     vi.useRealTimers();
   });
 
   it('reset should change button text', () => {
-    vi.useFakeTimers();
     tested.onStartOrPause();
     let actual = '<should be changed in test>';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
@@ -91,7 +86,6 @@ describe('TimerService', () => {
     });
     tested.onReset();
     expect(actual).toEqual('Start');
-    vi.useRealTimers();
   });
 
   it('reset should change elapsed to zero', () => {
@@ -117,7 +111,6 @@ describe('TimerService', () => {
     tested.onStartOrPause();
     vi.advanceTimersByTime(5678);
     expect(actual).toEqual(4000);
-    tested.ngOnDestroy();
     vi.useRealTimers();
   });
 
@@ -163,6 +156,8 @@ describe('TimerService', () => {
     vi.advanceTimersByTime(5400);
     tested.onStartOrPause();
     vi.advanceTimersByTime(123456);
+
+    // then
     expect(actual).toEqual(7700);
     vi.useRealTimers();
   });
@@ -181,8 +176,9 @@ describe('TimerService', () => {
     vi.advanceTimersByTime(3000);
     tested.onStartOrPause();
     vi.advanceTimersByTime(3000);
+
+    // then
     expect(actual).toEqual(2000);
-    tested.ngOnDestroy();
     vi.useRealTimers();
   });
 });

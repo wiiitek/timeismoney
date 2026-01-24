@@ -16,10 +16,6 @@ describe('Elapsed', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should correctly show elapsed value', () => {
     // given
     component.elapsed = 90_000;

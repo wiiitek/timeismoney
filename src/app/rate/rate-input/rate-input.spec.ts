@@ -22,22 +22,16 @@ describe('RateInput', () => {
     rateService = fixture.debugElement.injector.get(RateService);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should update value from service', () => {
-    //vi.useFakeTimers();
+  it('should update value from service to component', () => {
     // when
     rateService.setRate('4567');
     fixture.detectChanges();
-    //vi.runAllTimers();
+
     // then
     expect(component.rate).toBe(4567);
-    //vi.useRealTimers();
   });
 
-  it('should update from component to service', () => {
+  it('should update value from component to service', () => {
     // given
     component.onRateChange('7654');
 
@@ -50,11 +44,13 @@ describe('RateInput', () => {
 
   it('should not change rate when rate type is changed', async () => {
     // given:
+    component.onRateChange('63764');
     const event = { target: { value: "per-month" } };
+
     // when
     component.onRateTypeChange(event);
 
     // then
-    expect(component.rate).toBe(100);
+    expect(component.rate).toBe(63764);
   });
 });

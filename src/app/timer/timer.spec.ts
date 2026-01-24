@@ -41,10 +41,6 @@ describe('Timer', () => {
     component.ngOnDestroy();
   })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('the button should say Start at the beginning', () => {
     // when
     fixture.detectChanges();
@@ -104,7 +100,7 @@ describe('Timer', () => {
     vi.useRealTimers();
   });
 
-  it('swith to monthly rate type should change displayed rate', () => {
+  it('switch to monthly rate type should change displayed rate', () => {
     // given:
     const precision = 10;
     let actual = null;
