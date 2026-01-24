@@ -1,4 +1,5 @@
-import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { vi } from 'vitest';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RateInput } from '../rate/rate-input/rate-input';
 import { RateService, RateType } from '../rate/rate-service';
@@ -13,6 +14,10 @@ describe('Timer', () => {
   let fixture: ComponentFixture<Timer>;
 
   beforeEach(() => {
+    // Mock DepartureBoard globally
+    (globalThis as any).DepartureBoard = function () {};
+    (globalThis as any).DepartureBoard.prototype.setValue = vi.fn();
+
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -50,7 +55,8 @@ describe('Timer', () => {
   });
 
 
-  it('button should change text when clicked', waitForAsync(() => {
+  it('button should change text when clicked', () => {
+    vi.useFakeTimers();
     // given
     const compiled = fixture.nativeElement;
 
@@ -62,36 +68,41 @@ describe('Timer', () => {
     expect(compiled.querySelector('.timer__main_button').textContent).toBe('Pause');
     // turn off counting
     component.onStartOrPause();
-  }));
+    vi.useRealTimers();
+  });
 
-  it('reset should change button text', fakeAsync(() => {
+  it('reset should change button text', () => {
+    vi.useFakeTimers();
     // given
     const compiled = fixture.nativeElement;
     component.onStartOrPause();
-    tick(1234);
+    vi.advanceTimersByTime(1234);
 
     // when
     component.onReset();
 
     // then
     expect(compiled.querySelector('.timer__main_button').textContent).toBe('Start');
-  }));
+    vi.useRealTimers();
+  });
 
-  it('reset should change timer to zero', fakeAsync(() => {
+  it('reset should change timer to zero', () => {
+    vi.useFakeTimers();
     // given
     let actual = -1;
     component.elapsed.subscribe(
       newValue => actual = newValue
     );
     component.onStartOrPause();
-    tick(1234);
+    vi.advanceTimersByTime(1234);
 
     // when
     component.onReset();
 
     // then
     expect(actual).toBe(0);
-  }));
+    vi.useRealTimers();
+  });
 
   it('swith to monthly rate type should change displayed rate', () => {
     // given:

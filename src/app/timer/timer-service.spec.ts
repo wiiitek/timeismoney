@@ -1,4 +1,4 @@
-import { fakeAsync, tick } from '@angular/core/testing';
+import { vi } from 'vitest';
 
 import { RateService } from '../rate/rate-service';
 import { CalculatorService } from './calculator/calculator-service';
@@ -34,7 +34,8 @@ describe('TimerService', () => {
     expect(tested).toBeTruthy();
   });
 
-  it('should show default button text', fakeAsync(() => {
+  it('should show default button text', () => {
+    vi.useFakeTimers();
     // when
     let actual = '';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
@@ -43,7 +44,7 @@ describe('TimerService', () => {
 
     // then
     expect(actual).toBe('Start');
-  }));
+  });
 
   it('should asynchronously change button text', () => {
     // given
@@ -59,86 +60,66 @@ describe('TimerService', () => {
     expect(actual).toBe('Pause');
   });
 
-  it('should asynchronously change button text back to Start after pausing', fakeAsync(() => {
-    // when
+  it('should asynchronously change button text back to Start after pausing', () => {
+    vi.useFakeTimers();
     tested.onStartOrPause();
     tested.onStartOrPause();
-
-    // then
     let actual = '';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
-
     expect(actual).toBe('Start');
-  }));
+    vi.useRealTimers();
+  });
 
-  it('reset should stop counting', fakeAsync(() => {
-    // given
+  it('reset should stop counting', () => {
+    vi.useFakeTimers();
     tested.onStartOrPause();
-
-    // when
     tested.onReset();
-
-    // then
     expect(tested.counting).toBeFalsy();
-    // counting should stop
-    tick(600);
+    vi.advanceTimersByTime(600);
     expect(tested.counting).toBeFalsy();
-  }));
+    vi.useRealTimers();
+  });
 
-  it('reset should change button text', fakeAsync(() => {
-    // given
+  it('reset should change button text', () => {
+    vi.useFakeTimers();
     tested.onStartOrPause();
     let actual = '<should be changed in test>';
     tested.buttonText$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
-
-    // when
     tested.onReset();
-
-    // then
     expect(actual).toEqual('Start');
-  }));
+    vi.useRealTimers();
+  });
 
-  it('reset should change elapsed to zero', fakeAsync(() => {
-    // given
+  it('reset should change elapsed to zero', () => {
+    vi.useFakeTimers();
     let actual = 0;
     tested.elapsed$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
     tested.onStartOrPause();
-    // wait over 5 seconds
-    tick(5_678);
-
-    // when
+    vi.advanceTimersByTime(5678);
     tested.onReset();
-
-    // then
     expect(actual).toEqual(0);
-  }));
+    vi.useRealTimers();
+  });
 
 
-  it('should update converted elapsed text', fakeAsync(() => {
-    // given
+  it('should update converted elapsed text', () => {
+    vi.useFakeTimers();
     let actual = 0;
     tested.elapsed$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
-
-    // when
     tested.onStartOrPause();
-    // wait over 5 seconds
-    tick(5_678);
-
-    // then
-    // but our service updates the value every two seconds... so
-    expect(actual).toEqual(4_000);
-
-    // somehow this is not working in afterEach
+    vi.advanceTimersByTime(5678);
+    expect(actual).toEqual(4000);
     tested.ngOnDestroy();
-  }));
+    vi.useRealTimers();
+  });
 
   it('reset does not change elapsed if not counting', () => {
     // given
@@ -168,57 +149,40 @@ describe('TimerService', () => {
     expect(actual).toEqual('Start');
   });
 
-  it('resuming timer should not clear current value', fakeAsync(() => {
-    // given
+  it('resuming timer should not clear current value', () => {
+    vi.useFakeTimers();
     let actual = 0;
     tested.elapsed$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
+    tested.onStartOrPause();
+    vi.advanceTimersByTime(2300);
+    tested.onStartOrPause();
+    vi.advanceTimersByTime(123456);
+    tested.onStartOrPause();
+    vi.advanceTimersByTime(5400);
+    tested.onStartOrPause();
+    vi.advanceTimersByTime(123456);
+    expect(actual).toEqual(7700);
+    vi.useRealTimers();
+  });
 
-    // start
-    tested.onStartOrPause();
-    tick(2_300);
-    // pause
-    tested.onStartOrPause();
-    tick(123_456);
-    // resume
-    tested.onStartOrPause();
-    tick(5_400);
-    // pause
-    tested.onStartOrPause();
-    tick(123_456);
-
-    // then
-    // but our service updates the value every two seconds... so
-    expect(actual).toEqual(7_700);
-  }));
-
-  it('should correctly reset timer after pausing', fakeAsync(() => {
-    // given
-    let actual = 999_999;
+  it('should correctly reset timer after pausing', () => {
+    vi.useFakeTimers();
+    let actual = 999999;
     tested.elapsed$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
-
-    // start
     tested.onStartOrPause();
-    tick(10_000);
-    // pause
+    vi.advanceTimersByTime(10000);
     tested.onStartOrPause();
-    tick(4_000);
-    // reset
+    vi.advanceTimersByTime(4000);
     tested.onReset();
-    tick(3_000);
-
-    // start again
+    vi.advanceTimersByTime(3000);
     tested.onStartOrPause();
-    tick(3_000);
-
-    // then
-    // because our service updates the value every two seconds we show 2_000
-    expect(actual).toEqual(2_000);
-
-    // somehow this is not working in afterEach
+    vi.advanceTimersByTime(3000);
+    expect(actual).toEqual(2000);
     tested.ngOnDestroy();
-  }));
+    vi.useRealTimers();
+  });
 });

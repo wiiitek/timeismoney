@@ -6,6 +6,10 @@ import { App } from './app';
 describe('App', () => {
 
   beforeEach(async () => {
+    // Mock DepartureBoard globally
+    (globalThis as any).DepartureBoard = function () {};
+    (globalThis as any).DepartureBoard.prototype.setValue = vi.fn();
+
     await TestBed.configureTestingModule({
       // we could import whole AppModule, but it is better
       // to specify all dependencies directly in declarations
