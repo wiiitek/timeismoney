@@ -1,4 +1,6 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { fakeAsync, tick } from '@angular/core/testing';
+
 import { RateService } from '../rate/rate-service';
 import { CalculatorService } from './calculator/calculator-service';
 
@@ -80,10 +82,10 @@ describe('TimerService', () => {
     tested.onReset();
 
     // then
-    expect(tested.counting).toBeFalse();
+    expect(tested.counting).toBeFalsy();
     // counting should stop
     tick(600);
-    expect(tested.counting).toBeFalse();
+    expect(tested.counting).toBeFalsy();
   }));
 
   it('reset should change button text', fakeAsync(() => {
