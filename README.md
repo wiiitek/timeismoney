@@ -30,3 +30,18 @@ To manually run Sonar analysis run `export SONAR_TOKEN=<sonar token>` for Sonar 
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## How to delete old GitHub workflow runs
+
+With help of [GitHub client](https://cli.github.com/):
+
+```bash
+gh api '/repos/wiiitek/timeismoney/actions/workflows/parallel-build.yml/runs?per_page=50' --paginate \
+  | jq -r '.workflow_runs[].id' > all-actions.txt
+
+
+cat all-actions.txt \
+  | while IFS= read -r RUN_ID; do
+      echo "🗑️  Deleting workflow run $RUN_ID"
+      gh api --silent -X DELETE "repos/wiiitek/timeismoney/actions/runs/$RUN_ID"
+    done
+```
