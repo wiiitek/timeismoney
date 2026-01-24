@@ -1,5 +1,3 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-
 import { RateService, RateType } from './rate-service';
 
 describe('RateService', () => {

@@ -1,5 +1,3 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-
 import { WatcherService } from './watcher-service';
 
 describe('WatcherService', () => {

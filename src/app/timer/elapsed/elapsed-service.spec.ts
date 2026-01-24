@@ -1,4 +1,3 @@
-import { describe, it, expect, beforeEach } from 'vitest';
 import { fakeAsync } from '@angular/core/testing';
 
 import { ElapsedService } from './elapsed-service';

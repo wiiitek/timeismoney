@@ -1,4 +1,3 @@
-import { describe, it, expect, beforeEach } from 'vitest';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 import { RateService } from '../rate/rate-service';

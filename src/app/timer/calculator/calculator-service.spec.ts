@@ -1,5 +1,3 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-
 import { CalculatorService } from './calculator-service';
 
 describe('CalculatorService', () => {
