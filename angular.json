@@ -98,27 +98,9 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "karmaConfig": "karma.conf.js",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/assets"
-            ],
-            "styles": [
-              "./node_modules/skeleton-css/css/normalize.css",
-              "./node_modules/skeleton-css/css/skeleton.css",
-              "src/assets/libs/departure-board/css/departure-board.css",
-              "src/styles.scss"
-            ],
-            "scripts": [
-              "src/assets/libs/departure-board/js/departure-board.js"
-            ]
+
           }
         },
         "lint": {
