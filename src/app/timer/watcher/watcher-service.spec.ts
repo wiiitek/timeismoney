@@ -1,4 +1,3 @@
-
 import { WatcherService } from './watcher-service';
 
 describe('WatcherService', () => {

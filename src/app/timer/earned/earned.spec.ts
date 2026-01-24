@@ -1,4 +1,5 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { vi } from 'vitest';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Earned } from './earned';
 
@@ -7,6 +8,10 @@ describe('Earned', () => {
   let fixture: ComponentFixture<Earned>;
 
   beforeEach(() => {
+    // Mock DepartureBoard globally
+    (globalThis as any).DepartureBoard = function () {};
+    (globalThis as any).DepartureBoard.prototype.setValue = vi.fn();
+
     TestBed.configureTestingModule({
       imports: [Earned]
     })
@@ -16,26 +21,14 @@ describe('Earned', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should create board component', fakeAsync(() => {
-    // given
-    const compiled = fixture.nativeElement;
-
+  it('should convert value for the board component', () => {
     // when
     component.earned = 12345;
     fixture.detectChanges();
-    // wait two seconds for board to update
-    tick(2000);
-
-    const lastDigitEl = compiled.querySelectorAll('.earned__board .letter')[component.boardLength - 1];
 
     // then
-    expect(lastDigitEl.querySelector('.flap.top .text').textContent).toBe('5');
-  }));
-
+    expect(DepartureBoard.prototype.setValue).toHaveBeenCalledWith('  123.45');
+  });
 
   it('should correctly compute earned cents to show', () => {
     // when

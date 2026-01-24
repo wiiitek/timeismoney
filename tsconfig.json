@@ -3,6 +3,11 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "lib": [
+      "es2022",
+      "esnext.disposable",
+      "dom"
+    ],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,

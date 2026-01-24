@@ -1,5 +1,3 @@
-import { fakeAsync } from '@angular/core/testing';
-
 import { ElapsedService } from './elapsed-service';
 
 describe('ElapsedService', () => {
@@ -7,10 +5,6 @@ describe('ElapsedService', () => {
 
   beforeEach(() => {
     tested = new ElapsedService();
-  });
-
-  it('should be created', () => {
-    expect(tested).toBeTruthy();
   });
 
   it('should convert elapsed two minutes', () => {
@@ -45,9 +39,7 @@ describe('ElapsedService', () => {
     expect(actual).toBe('123:00:00');
   });
 
-
-  it('should asynchronously convert elapsed 111 hours, 5 minutes, 3 seconds and 300 millis', fakeAsync(() => {
-
+  it('should asynchronously convert elapsed 111 hours, 5 minutes, 3 seconds and 300 millis', () => {
     // when
     tested.elapsed(399_903_300);
 
@@ -56,7 +48,6 @@ describe('ElapsedService', () => {
     tested.convertedValue$.subscribe(valuePublishedByComponent => {
       actual = valuePublishedByComponent;
     });
-
     expect(actual).toBe('111:05:03');
-  }));
+  });
 });

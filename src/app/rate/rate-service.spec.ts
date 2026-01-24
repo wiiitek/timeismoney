@@ -2,7 +2,7 @@ import { RateService, RateType } from './rate-service';
 
 describe('RateService', () => {
 
-  const precision = 10;
+  const precisionForAssertions = 10;
 
   let tested: RateService;
 
@@ -10,8 +10,31 @@ describe('RateService', () => {
     tested = new RateService();
   });
 
-  it('should be created', () => {
+  it('should return default rate', () => {
+    expect(tested.getHourlyRate()).toBe(100);
+  })
+
+  it('should allow to set rate per month', () => {
+    tested.setRateType(RateType.PER_MONTH);
+
     expect(tested).toBeTruthy();
+  })
+
+  it('should alow to set hours in month', () => {
+    tested.setHoursInMonth(168);
+
+    expect(tested).toBeTruthy();
+  })
+
+  it('should update to zero', () => {
+    // given
+    tested.setRate('0');
+
+    // when:
+    const actual = tested.getHourlyRate();
+
+    // then
+    expect(actual).toBe(0);
   });
 
   it('should return updated hourly rate', () => {
@@ -25,18 +48,6 @@ describe('RateService', () => {
     expect(actual).toBe(123.456);
   });
 
-  it('should return previous rate if non-numeric update', () => {
-    // given
-    tested.setRate('3.3');
-    tested.setRate('foobar');
-
-    // when:
-    const actual = tested.getHourlyRate();
-
-    // then
-    expect(actual).toBe(3.3);
-  });
-
   it('should return default rate if empty update', () => {
     // given
     tested.setRate('');
@@ -48,28 +59,24 @@ describe('RateService', () => {
     expect(actual).toBe(100);
   });
 
-  it('should update to zero', () => {
+  it('should ignore rate lower than zero', () => {
+    // when
+    tested.setRate('-12345')
+    // then
+    expect(tested.getHourlyRate()).toBe(100);
+  })
+
+  it('should return previous rate if non-numeric update', () => {
     // given
-    tested.setRate('0');
+    tested.setRate('3.3');
+    tested.setRate('foobar');
 
     // when:
     const actual = tested.getHourlyRate();
 
     // then
-    expect(actual).toBe(0);
+    expect(actual).toBe(3.3);
   });
-
-  it('should allow to set rate per month', () => {
-    tested.setRateType(RateType.PER_MONTH);
-
-    expect(tested).toBeTruthy();
-  })
-
-  it('should alow to set hours in month', () => {
-    tested.setHoursInMonth(168);
-
-    expect(tested).toBeTruthy();
-  })
 
   it('should correctly recalculate hourly rate', () => {
     tested.setHoursInMonth(168);
@@ -95,14 +102,10 @@ describe('RateService', () => {
     expect(tested.getHourlyRate()).toBe(84);
   })
 
-  it('should return default rate', () => {
-    expect(tested.getHourlyRate()).toBe(100);
-  })
-
   it('should recalculate if only one param changed', () => {
     tested.setRateType(RateType.PER_MONTH);
 
-    expect(tested.getHourlyRate()).toBeCloseTo(0.595238095238, precision);
+    expect(tested.getHourlyRate()).toBeCloseTo(0.595238095238, precisionForAssertions);
   })
 
   const parameters = [
@@ -115,20 +118,11 @@ describe('RateService', () => {
   parameters.forEach((param) => {
     it(`should recalculate fractional hourly rate: ${param.expected}`, () => {
 
-
       tested.setRate(param.rate);
       tested.setRateType(param.rateType);
       tested.setHoursInMonth(param.hoursInMonth);
 
-      expect(tested.getHourlyRate()).toBeCloseTo(param.expected, precision);
+      expect(tested.getHourlyRate()).toBeCloseTo(param.expected, precisionForAssertions);
     })
   });
-
-
-  it('should ignore rate lower than zero', () => {
-    // when
-    tested.setRate('-12345')
-    // then
-    expect(tested.getHourlyRate()).toBe(100);
-  })
 });
