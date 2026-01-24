@@ -5,6 +5,7 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/test-setup.ts',
-    reporters: ['junit'],
+    // TODO: Junit file somehow still not being generated
+    reporters: ['default', 'junit'],
   },
 });
