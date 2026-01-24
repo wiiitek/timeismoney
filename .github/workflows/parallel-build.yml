@@ -2,8 +2,11 @@ name: Parallel build
 
 on:
   push:
-    branches-ignore:
-      - gh-pages
+    branches:
+      - main
+  pull_request:
+    branches: 
+      - main
 
 jobs:
   lint:
@@ -15,7 +18,7 @@ jobs:
       - name: Use Specific Node.js Version
         uses: actions/setup-node@v6
         with:
-          node-version: 24.x
+          node-version-file: .nvmrc
           cache: npm
       - name: NPM Install
         run: npm ci
@@ -26,7 +29,7 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-latest
     # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-852541544
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: github.ref != 'refs/heads/main'
     timeout-minutes: 10
 
     steps:
@@ -44,18 +47,21 @@ jobs:
           npm test
       - name: Save Test Results
         uses: actions/upload-artifact@v6
+        continue-on-error: true
         if: ${{ !cancelled() }}
         with:
           name: test-results
           path: test-results/**
       - name: Save Coverage
         uses: actions/upload-artifact@v6
+        continue-on-error: true
         if: ${{ !cancelled() }}
         with:
           name: coverage
           path: coverage/**
       - name: Test Report
         uses: dorny/test-reporter@v2
+        continue-on-error: true
         if: ${{ !cancelled() }}
         with:
           name: JEST Tests
@@ -66,7 +72,7 @@ jobs:
   test-and-sonar:
     name: Run Tests and Sonar Analysis
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: github.ref == 'refs/heads/main'
     timeout-minutes: 10
 
     steps:
@@ -92,18 +98,21 @@ jobs:
           npm run sonar
       - name: Save Test Results
         uses: actions/upload-artifact@v6
+        continue-on-error: true
         if: ${{ !cancelled() }}
         with:
           name: test-results
           path: test-results/**
       - name: Save Coverage
         uses: actions/upload-artifact@v6
+        continue-on-error: true
         if: ${{ !cancelled() }}
         with:
           name: coverage
           path: coverage/**
       - name: Test Report
         uses: dorny/test-reporter@v2
+        continue-on-error: true
         if: ${{ !cancelled() }}
         with:
           name: JEST Tests
