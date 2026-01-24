@@ -52,6 +52,7 @@ jobs:
         with:
           name: test-results
           path: test-results/**
+          retention-days: 30
       - name: Save Coverage
         uses: actions/upload-artifact@v6
         continue-on-error: true
@@ -59,6 +60,7 @@ jobs:
         with:
           name: coverage
           path: coverage/**
+          retention-days: 10
       - name: Test Report
         uses: dorny/test-reporter@v2
         continue-on-error: true
@@ -103,6 +105,7 @@ jobs:
         with:
           name: test-results
           path: test-results/**
+          retention-days: 30
       - name: Save Coverage
         uses: actions/upload-artifact@v6
         continue-on-error: true
@@ -110,6 +113,7 @@ jobs:
         with:
           name: coverage
           path: coverage/**
+          retention-days: 10
       - name: Test Report
         uses: dorny/test-reporter@v2
         continue-on-error: true
