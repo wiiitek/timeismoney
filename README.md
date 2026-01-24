@@ -35,7 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 With help of [GitHub client](https://cli.github.com/):
 
 ```bash
-gh api 'repos/wiiitek/timeismoney/actions/workflows/parallel-run.yml?per_page=50' --paginate \
+gh api '/repos/wiiitek/timeismoney/actions/workflows/parallel-build.yml/runs?per_page=50' --paginate \
   | jq -r '.workflow_runs[].id' > all-actions.txt
 
 
