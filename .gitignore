@@ -17,6 +17,6 @@
 # misc
 /.angular
 /coverage
-/test-results
+/test-results/junit.xml
 /.scannerwork
 /.sonar
