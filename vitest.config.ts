@@ -8,6 +8,6 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/test-setup.ts',
     // TODO: Junit file somehow still not being generated
-    reporters: ['default', 'junit'],
+    reporters: ['junit'],
   },
 });
