@@ -45,14 +45,6 @@ jobs:
         run: |
           export NG_CLI_ANALYTICS=false
           npm test
-      # - name: Save Test Results
-      #   uses: actions/upload-artifact@v6
-      #   continue-on-error: true
-      #   if: ${{ !cancelled() }}
-      #   with:
-      #     name: test-results
-      #     path: test-results/**
-      #     retention-days: 30
       - name: Save Coverage
         uses: actions/upload-artifact@v6
         continue-on-error: true
@@ -61,15 +53,14 @@ jobs:
           name: coverage
           path: coverage/**
           retention-days: 10
-      # - name: Test Report
-      #   uses: dorny/test-reporter@v2
-      #   continue-on-error: true
-      #   if: ${{ !cancelled() }}
-      #   with:
-      #     name: JEST Tests
-      #     # We use combined file that wraps results into `<testsuites>` tag
-      #     path: test-results/combined.xml
-      #     reporter: jest-junit
+      - name: Test Report
+        uses: dorny/test-reporter@v2
+        continue-on-error: true
+        if: ${{ !cancelled() }}
+        with:
+          name: JEST Tests
+          path: test-results/junit.xml
+          reporter: jest-junit
 
   test-and-sonar:
     name: Run Tests and Sonar Analysis
@@ -112,7 +103,6 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: JEST Tests
-          # We use combined file that wraps results into `<testsuites>` tag
           path: test-results/junit.xml
           reporter: jest-junit
 
