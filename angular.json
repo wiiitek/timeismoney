@@ -103,7 +103,8 @@
             "runnerConfig": "vitest.config.ts",
             "setupFiles": [
               "src/test-setup.ts"
-            ]
+            ],
+            "outputFile": "test-results/junit.xml"
           }
         },
         "lint": {
