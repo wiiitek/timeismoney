@@ -35,23 +35,15 @@ updates:
         update-types:
           - 'version-update:semver-major'
     groups:
-      typescript-major:
-        patterns:
-          - 'typescript'
-        update-types:
-          - 'major'
       typescript:
         patterns:
           - 'typescript'
         update-types:
           - 'patch'
           - 'minor'
-      angular-major:
+      typescript-major:
         patterns:
-          - '@angular/*'
-          - '@angular-eslint/*'
-          - '@angular-devkit/build-angular'
-          - '@angular/cli'
+          - 'typescript'
         update-types:
           - 'major'
       angular:
@@ -63,9 +55,12 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
-      typescript-eslint-major:
+      angular-major:
         patterns:
-          - '@typescript-eslint/*'
+          - '@angular/*'
+          - '@angular-eslint/*'
+          - '@angular-devkit/build-angular'
+          - '@angular/cli'
         update-types:
           - 'major'
       typescript-eslint:
@@ -74,6 +69,11 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+      typescript-eslint-major:
+        patterns:
+          - '@typescript-eslint/*'
+        update-types:
+          - 'major'
       npm-small-upgrades:
         patterns:
           - '*'
