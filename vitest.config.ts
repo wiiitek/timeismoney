@@ -7,17 +7,12 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/test-setup.ts',
-    // TODO: Junit file somehow still not being generated
-    // reporters: ['junit'],
     // as Copilot explained:
     // > The Angular builder’s outputFile (string) option overrides Vitest’s own outputFile.
     // > You cannot use multiple Vitest reporters or custom reporter config
     // > via vitest.config.ts when running tests through ng test.
-    // maybe that would work with separate ng tasks for junit and HTML reporter?
-    // outputFile: {
-    //   html: './vitest/html-report.html',
-    //   junit: './vitest-junit-report.xml',
-    // },
+    //
+    // for now I have separate ng test runs for JUnit and HTML reports (see package.json).
     coverage: {
       provider: 'v8',
       reporter: ['lcov'],
