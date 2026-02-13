@@ -5,6 +5,7 @@
     "start": "node_modules/.bin/ng serve",
     "build": "node_modules/.bin/ng build --configuration production",
     "test": "ng test --no-watch --coverage",
+    "test:html": "ng test --no-watch --coverage --reporters=html --output-file=test-results/html/index.html",
     "test:watch": "node_modules/.bin/ng test",
     "lint": "node_modules/.bin/ng lint",
     "e2e": "node_modules/.bin/ng e2e",
