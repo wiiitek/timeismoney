@@ -4,7 +4,9 @@
   "scripts": {
     "start": "node_modules/.bin/ng serve",
     "build": "node_modules/.bin/ng build --configuration production",
-    "test": "ng test --no-watch --coverage",
+    "test": "npm run test:junit",
+    "test:junit": "ng test --no-watch --coverage --reporters=junit --output-file=test-results/junit.xml",
+    "test:html": "ng test --no-watch --reporters=html --output-file=test-results/html/index.html",
     "test:watch": "node_modules/.bin/ng test",
     "lint": "node_modules/.bin/ng lint",
     "e2e": "node_modules/.bin/ng e2e",
