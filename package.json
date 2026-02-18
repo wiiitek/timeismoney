@@ -39,7 +39,7 @@
     "@vitest/ui": "4.0.18",
     "eslint": "9.39.2",
     "jsdom": "28.1.0",
-    "puppeteer": "24.37.3",
+    "puppeteer": "24.37.4",
     "sonarqube-scanner": "4.3.4",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
