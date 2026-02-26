@@ -23,7 +23,7 @@
     "zone.js": "0.16.1"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "2.2.3",
+    "@analogjs/vite-plugin-angular": "2.3.0",
     "@angular-eslint/builder": "21.2.0",
     "@angular-eslint/eslint-plugin": "21.2.0",
     "@angular-eslint/eslint-plugin-template": "21.2.0",
@@ -32,7 +32,7 @@
     "@angular/build": "21.1.5",
     "@angular/cli": "21.1.5",
     "@angular/compiler-cli": "21.1.5",
-    "@types/node": "24.10.13",
+    "@types/node": "24.10.14",
     "@typescript-eslint/eslint-plugin": "8.56.0",
     "@typescript-eslint/parser": "8.56.0",
     "@vitest/coverage-v8": "4.0.18",
