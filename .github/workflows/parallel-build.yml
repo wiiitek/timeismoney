@@ -46,7 +46,7 @@ jobs:
           export NG_CLI_ANALYTICS=false
           npm test
       - name: Save Coverage
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         continue-on-error: true
         if: ${{ !cancelled() }}
         with:
@@ -90,7 +90,7 @@ jobs:
           npm test
           npm run sonar
       - name: Save Coverage
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         continue-on-error: true
         if: ${{ !cancelled() }}
         with:
@@ -122,7 +122,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Archive built project
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: timeismoney-dist
           path: dist
@@ -138,7 +138,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Download Build Project
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: timeismoney-dist
           path: dist
