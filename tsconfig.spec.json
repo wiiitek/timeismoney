@@ -7,8 +7,12 @@
       "vitest/globals"
     ]
   },
+  "files": [
+    "src/test-setup.ts",
+    "src/main.ts",
+  ],
   "include": [
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
   ]
 }
