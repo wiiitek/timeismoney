@@ -38,7 +38,7 @@
     "@vitest/coverage-v8": "4.1.0",
     "@vitest/ui": "4.1.0",
     "eslint": "9.39.2",
-    "jsdom": "28.1.0",
+    "jsdom": "29.0.0",
     "puppeteer": "24.39.1",
     "sonarqube-scanner": "4.3.5",
     "ts-node": "10.9.2",
