@@ -6,6 +6,18 @@
 
 Please use NodeJS version hydrogen (24.x).
 
+## Resources
+
+1. GitHub projects with split-flap (Solari) boards:
+    - [paulcuth/departure-board](https://github.com/paulcuth/departure-board) (used by this project)
+    - [raexvk/flipboard-clock](https://github.com/raexvk/flipboard-clock)
+    - [EmmyBeckmann/vintage-airport-splitflap](https://github.com/EmmyBeckmann/vintage-airport-splitflap)
+    - [DavidTropiansky/Subway-Split-Flap-Solari-v2](https://github.com/DavidTropiansky/Subway-Split-Flap-Solari-v2)
+    - [baspete/Split-Flap](https://github.com/baspete/Split-Flap)
+    - [yannickl/Splitflap](https://github.com/yannickl/Splitflap)
+    - [robonyong/react-split-flap-display](https://github.com/robonyong/react-split-flap-display)
+2. [Split-flap display](https://en.wikipedia.org/wiki/Split-flap_display) (Wikipedia)
+
 ## Running Sonar analysis
 
 To manually run Sonar analysis run `export SONAR_TOKEN=<sonar token>` for Sonar credentials and then `npm run sonar`.
