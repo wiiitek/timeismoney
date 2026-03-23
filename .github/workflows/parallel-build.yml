@@ -54,7 +54,7 @@ jobs:
           path: coverage/**
           retention-days: 10
       - name: Test Report
-        uses: dorny/test-reporter@v2
+        uses: dorny/test-reporter@v3
         continue-on-error: true
         if: ${{ !cancelled() }}
         with:
@@ -98,7 +98,7 @@ jobs:
           path: coverage/**
           retention-days: 10
       - name: Test Report
-        uses: dorny/test-reporter@v2
+        uses: dorny/test-reporter@v3
         continue-on-error: true
         if: ${{ !cancelled() }}
         with:
