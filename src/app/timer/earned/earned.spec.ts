@@ -9,7 +9,9 @@ describe('Earned', () => {
 
   beforeEach(() => {
     // Mock DepartureBoard globally
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     (globalThis as any).DepartureBoard = function () {};
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     (globalThis as any).DepartureBoard.prototype.setValue = vi.fn();
 
     TestBed.configureTestingModule({

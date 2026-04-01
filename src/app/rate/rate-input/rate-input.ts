@@ -25,8 +25,8 @@ export class RateInput {
     this.rateService.setRate(newRate);
   }
 
-  onRateTypeChange(event: any): void {
-    const rateType: RateType = event.target.value;
+  onRateTypeChange(event: Event): void {
+    const rateType: RateType = (event.target as HTMLSelectElement).value as RateType;
     if (rateType !== this.rateService.rateType) {
       this.rateService.setRateType(rateType);
     }
