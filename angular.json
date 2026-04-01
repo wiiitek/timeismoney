@@ -24,7 +24,7 @@
               "base": "dist/timeismoney"
             },
             "index": "src/index.html",
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "tsconfig.json",
             "inlineStyleLanguage": "scss",
             "aot": true,
             "assets": [
@@ -98,7 +98,6 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "runnerConfig": "vitest.config.ts",
-            "tsConfig": "tsconfig.spec.json",
             "setupFiles": [
               "src/test-setup.ts"
             ],
