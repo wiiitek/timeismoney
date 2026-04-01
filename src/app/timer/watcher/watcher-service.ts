@@ -13,15 +13,15 @@ export class WatcherService {
 
   private timeBetweenExecutions: number;
 
-  private timeoutRef: NodeJS.Timeout | null = null;
+  private timeoutRef: number | null = null;
 
   constructor() {
     this.timeBetweenExecutions = environment.watcherRefreshDelayInMillis;
   }
 
-  start(fun: SimpleFunction, functionContext: TimerService): void {
+  start(fun: SimpleFunction, timerService: TimerService): void {
     this.stop();
-    this._repeat(fun, functionContext);
+    this._repeat(fun, timerService);
   }
 
   stop(): void {
