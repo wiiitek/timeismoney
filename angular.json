@@ -98,6 +98,7 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "runnerConfig": "vitest.config.ts",
+            "tsConfig": "tsconfig.json",
             "setupFiles": [
               "src/test-setup.ts"
             ],
