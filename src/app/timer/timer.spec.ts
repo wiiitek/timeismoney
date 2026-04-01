@@ -15,7 +15,9 @@ describe('Timer', () => {
 
   beforeEach(() => {
     // Mock DepartureBoard globally
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     (globalThis as any).DepartureBoard = function () {};
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     (globalThis as any).DepartureBoard.prototype.setValue = vi.fn();
 
     TestBed.configureTestingModule({

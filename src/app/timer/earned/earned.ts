@@ -17,7 +17,7 @@ export class Earned implements AfterViewInit {
   @Input()
   boardLength: number = 8;
 
-  departureBoard: any = null;
+  departureBoard: DepartureBoard | null = null;
 
   @Input()
   set earned(earned: number | null) {

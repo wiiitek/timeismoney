@@ -24,10 +24,7 @@
               "base": "dist/timeismoney"
             },
             "index": "src/index.html",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "tsconfig.json",
             "inlineStyleLanguage": "scss",
             "aot": true,
             "assets": [

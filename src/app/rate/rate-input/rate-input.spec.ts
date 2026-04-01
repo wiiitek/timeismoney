@@ -45,10 +45,10 @@ describe('RateInput', () => {
   it('should not change rate when rate type is changed', async () => {
     // given:
     component.onRateChange('63764');
-    const event = { target: { value: "per-month" } };
+    const sampleEvent: Event = { target: { value: "per-month" } } as unknown as Event;
 
     // when
-    component.onRateTypeChange(event);
+    component.onRateTypeChange(sampleEvent);
 
     // then
     expect(component.rate).toBe(63764);
