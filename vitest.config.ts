@@ -16,7 +16,6 @@ export default defineConfig({
     // maybe that would work with separate ng tasks for junit and HTML reporter?
     outputFile: {
       html: './vitest/html-report.html',
-      junit: './vitest-junit-report.xml',
     },
     coverage: {
       provider: 'v8',

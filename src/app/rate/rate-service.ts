@@ -44,7 +44,7 @@ export class RateService {
   }
 
   setRate(newValue: string): void {
-    const parsed = parseFloat(newValue);
+    const parsed = Number.parseFloat(newValue);
     const parsedOk = parsed || parsed === 0;
     if (parsedOk) {
       const valid = parsed >= 0;
