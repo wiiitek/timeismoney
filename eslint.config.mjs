@@ -28,7 +28,7 @@ export default defineConfig([globalIgnores(["projects/**/*"]), {
   languageOptions: {
     parser: tsParser,
     parserOptions: {
-      project: ["tsconfig.app.json", "tsconfig.spec.json"],
+      project: ["tsconfig.app.json", "tsconfig.json"],
       createDefaultProgram: true,
     },
   },
