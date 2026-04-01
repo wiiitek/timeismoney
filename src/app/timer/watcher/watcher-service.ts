@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { environment } from '../../../../environments/environment';
+import { TimerService } from '../timer-service';
 
 type SimpleFunction = () => void;
 
@@ -10,15 +11,15 @@ type SimpleFunction = () => void;
 @Injectable()
 export class WatcherService {
 
-  private timeBetweenExecutions;
+  private timeBetweenExecutions: number;
 
-  private timeoutRef: any;
+  private timeoutRef: NodeJS.Timeout | null = null;
 
   constructor() {
     this.timeBetweenExecutions = environment.watcherRefreshDelayInMillis;
   }
 
-  start(fun: SimpleFunction, functionContext: any): void {
+  start(fun: SimpleFunction, functionContext: TimerService): void {
     this.stop();
     this._repeat(fun, functionContext);
   }
@@ -34,14 +35,13 @@ export class WatcherService {
     this.timeBetweenExecutions = millis;
   }
 
-  private _repeat(fun: SimpleFunction, functionContext: any): void {
-    const watcher = this;
-
+  private _repeat(fun: SimpleFunction, functionContext: TimerService): void {
     // it is safe to overwrite timeoutRef, because this method is executed after time elapsed
     this.timeoutRef = setTimeout(
       () => {
         fun.apply(functionContext);
-        watcher._repeat(fun, functionContext);
+        // The callback is already an arrow function, so this is lexically bound to WatcherService.
+        this._repeat(fun, functionContext);
       },
       this.timeBetweenExecutions
     );

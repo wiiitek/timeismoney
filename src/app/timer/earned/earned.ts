@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { DepartureBoard } from './departure-board'; // adjust the import path as needed
 
 @Component({
   selector: 'app-earned',
@@ -18,7 +17,7 @@ export class Earned implements AfterViewInit {
   @Input()
   boardLength: number = 8;
 
-  departureBoard: InstanceType<typeof DepartureBoard> | null = null;
+  departureBoard: DepartureBoardInstance | null = null;
 
   @Input()
   set earned(earned: number | null) {
