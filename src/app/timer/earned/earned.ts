@@ -5,6 +5,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, ViewChild
   templateUrl: './earned.html',
   styleUrls: ['./earned.scss'],
   encapsulation: ViewEncapsulation.None,
+  // starting from Angular version 22 changeDetection `OnPush` is the default
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })

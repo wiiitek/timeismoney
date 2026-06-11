@@ -26,8 +26,9 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInputAccessModifiers": true
+    // `true` is the default version starting with Angular version 22
+    //"strictTemplates": true
   },
   "files": [
     "src/test-setup.ts",
