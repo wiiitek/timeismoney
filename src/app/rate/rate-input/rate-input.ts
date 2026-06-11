@@ -8,6 +8,7 @@ import { RateService, RateType } from '../rate-service';
   templateUrl: './rate-input.html',
   styleUrls: ['./rate-input.scss'],
   encapsulation: ViewEncapsulation.None,
+  // starting from Angular version 22 changeDetection `OnPush` is the default
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [FormsModule]

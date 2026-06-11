@@ -1,7 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    // base URL is deprecated in typescript 6 and will be removed in verion 7
+    //"baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "types": [
       "vitest/globals"
@@ -27,8 +28,9 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInputAccessModifiers": true
+    // `true` is the default version starting with Angular version 22
+    //"strictTemplates": true
   },
   "files": [
     "src/test-setup.ts",

@@ -15,6 +15,7 @@ import { Earned } from './earned/earned';
   styleUrls: ['./timer.scss'],
   providers: [TimerService, WatcherService, CalculatorService],
   encapsulation: ViewEncapsulation.None,
+  // starting from Angular version 22 changeDetection `OnPush` is the default
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [

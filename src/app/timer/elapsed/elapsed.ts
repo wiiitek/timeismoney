@@ -9,6 +9,7 @@ import { ElapsedService } from './elapsed-service';
   styleUrls: ['./elapsed.scss'],
   providers: [ElapsedService],
   encapsulation: ViewEncapsulation.None,
+  // starting from Angular version 22 changeDetection `OnPush` is the default
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [AsyncPipe]
