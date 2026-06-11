@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // base URL is deprecated in typescript 6 and will be removed in verion 7
+    //"baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "types": [
       "vitest/globals"
