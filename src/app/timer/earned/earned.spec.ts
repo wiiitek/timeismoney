@@ -10,7 +10,7 @@ describe('Earned', () => {
   beforeEach(() => {
     // Mock DepartureBoard globally
     /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-    (globalThis as any).DepartureBoard = function () { };
+    (globalThis as any).DepartureBoard = vi.fn();
     /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     (globalThis as any).DepartureBoard.prototype.setValue = vi.fn();
 

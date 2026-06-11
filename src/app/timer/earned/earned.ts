@@ -12,10 +12,10 @@ export class Earned implements AfterViewInit {
 
   @ViewChild('board') boardElement: ElementRef<HTMLDivElement> | undefined;
 
-  earnedCents: number = 0;
+  earnedCents = 0;
 
   @Input()
-  boardLength: number = 8;
+  boardLength = 8;
 
   departureBoard: DepartureBoard | null = null;
 
