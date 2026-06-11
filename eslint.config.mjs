@@ -1,55 +1,42 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
-import { FlatCompat } from "@eslint/eslintrc";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all
-});
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+import angular from "angular-eslint";
 
-export default defineConfig([globalIgnores(["projects/**/*"]), {
-  files: ["**/*.ts"],
+// https://medium.com/javascript-everyday/how-to-inspect-eslint-configuration-file-b7c23455b02e
+export default defineConfig([
+  // https://eslint.org/docs/latest/use/configure/ignore#ignore-files
+  globalIgnores([".angular/", "dist/", "test-results/", "coverage/"]),
+  {
+    files: ["**/*.ts"],
 
-  extends: [
-    ...tsPlugin.configs["flat/recommended"],
-    ...compat.extends(
-      "plugin:@angular-eslint/recommended",
-      "plugin:@angular-eslint/template/process-inline-templates",
-    ),
-  ],
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.stylistic,
+      ...angular.configs.tsRecommended,
+    ],
 
-  languageOptions: {
-    parser: tsParser,
-    parserOptions: {
-      project: ["tsconfig.json"],
-      createDefaultProgram: true,
+    processor: angular.processInlineTemplates,
+
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        { type: "attribute", prefix: "app", style: "camelCase" },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        { type: "element", prefix: "app", style: "kebab-case" },
+      ],
     },
   },
-
-  rules: {
-    "@angular-eslint/component-selector": ["error", {
-      prefix: "app",
-      style: "kebab-case",
-      type: "element",
-    }],
-
-    "@angular-eslint/directive-selector": ["error", {
-      prefix: "app",
-      style: "camelCase",
-      type: "attribute",
-    }],
+  {
+    files: ["**/*.html"],
+    extends: [
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
   },
-}, {
-  files: ["**/*.html"],
-  extends: compat.extends(
-    "plugin:@angular-eslint/template/recommended"
-  ),
-  rules: {},
-}]);
+]);
