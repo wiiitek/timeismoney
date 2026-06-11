@@ -4,7 +4,10 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import angular from "angular-eslint";
 
+// https://medium.com/javascript-everyday/how-to-inspect-eslint-configuration-file-b7c23455b02e
 export default defineConfig([
+  // https://eslint.org/docs/latest/use/configure/ignore#ignore-files
+  globalIgnores([".angular/", "dist/", "test-results/", "coverage/"]),
   {
     files: ["**/*.ts"],
 
@@ -35,5 +38,5 @@ export default defineConfig([
       ...angular.configs.templateAccessibility,
     ],
     rules: {},
-  }
+  },
 ]);
