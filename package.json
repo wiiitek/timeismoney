@@ -9,7 +9,7 @@
     "lint": "node_modules/.bin/ng lint",
     "lint:debug": "eslint --inspect-config",
     "e2e": "node_modules/.bin/ng e2e",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner-npm"
   },
   "private": true,
   "dependencies": {
