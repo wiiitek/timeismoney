@@ -35,11 +35,11 @@
     "angular-eslint": "22.1.0",
     "eslint": "10.8.0",
     "jsdom": "30.0.1",
-    "puppeteer": "25.4.0",
+    "puppeteer": "25.5.0",
     "sonarqube-scanner": "4.4.0",
     "ts-node": "10.9.2",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.65.0",
+    "typescript-eslint": "8.66.0",
     "vitest": "4.1.10"
   }
 }
